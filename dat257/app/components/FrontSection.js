@@ -1,6 +1,6 @@
 import Link from 'next/link';
 
-export default function HeroSection() {
+export default function FrontSection() {
   return (
     <main className="flex flex-col items-center justify-center min-h-screen">
       <div className="hero-container">
