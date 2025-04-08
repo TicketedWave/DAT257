@@ -15,7 +15,7 @@ export default function Navbar() {
         <div className="flex justify-end items-center space-x-8">
           {/* Home link with icon - Uppdaterad med scale-effekt */}
           <Link 
-            href="/home" 
+            href="/" 
             className="flex items-center hover:scale-105 transition-transform duration-300"
             style={linkStyle}
           >
