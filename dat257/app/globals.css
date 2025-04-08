@@ -92,43 +92,64 @@ body {
 
 .impact-text {
   color: #C1E5DF;
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-inter), sans-serif;
   font-size: 25px;
+  font-weight: 300; 
   text-align: center;
   margin-bottom: 20px;
   line-height: 1.4;
 }
 
 .hero-button {
-  padding: 0.75rem 2rem;
-  border-radius: 0.5rem;
-  color: white;
-  font-weight: 500;
-  font-size: 1.125rem;
+  position: relative;
+  padding: 1.2rem 2rem;
+  border-radius: 0.8rem;
+  color: black;
+  font-family: var(--font-inter), sans-serif;
+  font-weight: 600; 
+  font-size: 18px;
   text-align: center;
   text-decoration: none;
-  transition: all 0.3s ease;
-  border: 2px solid transparent;
+  transition: all 0.5s ease;
+  border: none;
+  overflow: hidden;
+  z-index: 1;
+  box-shadow: 0 0 15px 5px rgba(226, 241, 45, 0.3);
+  margin-bottom: 1.2rem;
+  letter-spacing: -0.8px;
 }
 
 .hero-button:hover {
-  border-color: white;
+  box-shadow: 0 0 25px 10px rgba(226, 241, 45, 0.4);
 }
 
-.hero-button.green {
-  background-color: #16a34a;
+.hero-button::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  transition: all 0.5s ease;
+  z-index: -1;
 }
 
-.hero-button.green:hover {
-  background-color: #15803d;
+.hero-button.green::before {
+  background: linear-gradient(to right, #41FF48, #00BCB1);
 }
 
-.hero-button.blue {
-  background-color: #2563eb;
+.hero-button.green:hover::before {
+  background: linear-gradient(to right, rgba(65, 255, 72, 0.8), rgba(0, 188, 177, 0.8));
 }
 
-.hero-button.blue:hover {
-  background-color: #1d4ed8;
+.hero-button.blue::before {
+  background: linear-gradient(to right, #31FFF3, #156964);
+}
+
+.hero-button.blue:hover::before {
+  background: linear-gradient(to right, rgba(49, 255, 243, 0.8), rgba(21, 105, 100, 0.8));
+}
+
+.hero-button span {
+  position: relative;
+  z-index: 1;
 }
 
 @media (max-width: 1024px) {
