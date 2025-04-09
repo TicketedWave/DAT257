@@ -3,7 +3,7 @@ import Link from 'next/link';
 export default function FrontSection() {
   return (
     <main className="flex flex-col items-center justify-center min-h-screen">
-      <div className="hero-container">
+      <div className="front-container">
         {/* Background image behind text and planet */}
         <img src="/rectangle.png" alt="Rectangle" className="rectangle" />
 
@@ -22,10 +22,10 @@ export default function FrontSection() {
             See the Impact,<br />
             Make a Change
           </div>
-          <Link href="/calculator" className="hero-button green">
+          <Link href="/calculator" className="front-button green">
             <span>Carbon Calculator</span>
           </Link>
-          <Link href="/map" className="hero-button blue">
+          <Link href="/map" className="front-button blue">
             <span>Carbon Map</span>
           </Link>
         </div>
