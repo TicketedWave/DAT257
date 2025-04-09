@@ -26,13 +26,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${secularOne.variable} ${inter.variable} antialiased`}
-      >
-        <head>
-          <link rel="icon" href="/favicon.ico" sizes="any" />
-          <link rel="icon" href="/icon.png" type="image/png" />
-          <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-        </head>
+        className={`${secularOne.variable} ${inter.variable} antialiased`}>
         {children}
       </body>
     </html>
