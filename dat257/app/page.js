@@ -1,24 +1,13 @@
-'use client';
-import dynamic from 'next/dynamic';
-
-const Map = dynamic(
-  () => import('@/components/OSMap'), 
-  { 
-    ssr: false,
-    loading: () => <div style={{ 
-      height: '100vh', 
-      width: '100vw',
-      display: 'flex',
-      justifyContent: 'center',
-      alignItems: 'center'
-    }}>Loading map...</div>
-  }
-);
+import Navbar from './components/Navbar';
+import FrontSection from './components/FrontSection';
+import Footer from './components/Footer';
 
 export default function Home() {
   return (
-    <div style={{ height: '100vh', width: '100vw' }}>
-      <Map /> 
+    <div className="min-h-screen flex flex-col">
+      <Navbar />
+      <FrontSection />
+      <Footer />
     </div>
   );
 }
