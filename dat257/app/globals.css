@@ -79,6 +79,17 @@ body {
   pointer-events: none;
 }
 
+.rectangle {
+  position: absolute;
+  top: 12%;
+  left: 63%;
+  width: min(50vw, 50vh, 900px);
+  height: auto;
+  object-fit: cover;
+  z-index: 0;
+  pointer-events: none;
+}
+
 .button-group {
   position: absolute;
   top: 50%;

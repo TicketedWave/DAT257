@@ -4,6 +4,9 @@ export default function FrontSection() {
   return (
     <main className="flex flex-col items-center justify-center min-h-screen">
       <div className="hero-container">
+        {/* Background image behind text and planet */}
+        <img src="/rectangle.png" alt="Rectangle" className="rectangle" />
+
         {/* Filled text behind planet */}
         <div className="text-layer filled">Carbon Compass</div>
 
