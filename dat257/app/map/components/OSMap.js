@@ -7,10 +7,17 @@ export default function OSMap() {
   return (
     <MapContainer 
       center={position} 
-      zoom={3}
-      minZoom={3}
+      zoom={2}
+      minZoom={2}
       maxZoom={20}
+      worldCopyJump={false}
       style={{ height: '100%', width: '100%' }}
+      maxBounds={[
+        [85, -180],
+        [-85, 180]
+      ]}
+      maxBoundsViscosity={1.0}
+      scrollWheelZoom={true}
     >
       <TileLayer
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"

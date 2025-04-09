@@ -4,7 +4,7 @@ import MapSection from '../map/components/MapSection';
 
 export default function Home() {
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="flex flex-col h-screen overflow-hidden">
       <Navbar />
       <MapSection />
       <Footer />
