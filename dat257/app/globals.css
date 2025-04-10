@@ -28,7 +28,7 @@ html, body, #__next {
 body {
   background-color: black;
   overflow-x: hidden;
-  background-image: url('/Background.png');
+  background-image: url('/background.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -79,7 +79,7 @@ body {
   pointer-events: none;
 }
 
-.rectangle {
+.triangle {
   position: absolute;
   top: 12%;
   left: 63%;
