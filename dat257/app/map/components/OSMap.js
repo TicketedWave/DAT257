@@ -78,8 +78,8 @@ export default function CO2Map() {
         });
         gradientBar += '</div>';
         
-        // Skapa etiketterna
-        const labels = ['0', '400', '800', '1200', '1600', '2000', '', ''];
+        // Skapa etiketterna 
+        const labels = ['0', '400', '800', '1200', '1600', '2000', '', '']; //ändra denna
         
         let labelsHtml = '<div style="display: flex; justify-content: space-between; width: 100%;">';
         labels.forEach(label => {
