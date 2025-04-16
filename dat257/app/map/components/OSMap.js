@@ -9,7 +9,7 @@ export default function CO2Map() {
 
   useEffect(() => {
     // Hämta din anpassade GeoJSON-fil
-    fetch('/countries_total_co2.geo.json')
+    fetch('/countries_total_co2_2024.geo.json')
       .then(res => res.json())
       .then(data => setGeoData(data));
   }, []);
@@ -58,43 +58,38 @@ export default function CO2Map() {
   
       legend.onAdd = function () {
         const div = L.DomUtil.create('div', 'info legend');
-        
-        // Färgskala från din getColor-funktion
-        const colors = [
-          '#800026', // > 10 miljarder
-          '#BD0026', // > 5 miljarder
-          '#E31A1C', // > 1 miljard
-          '#FC4E2A', // > 100 miljoner
-          '#FD8D3C', // > 10 miljoner
-          '#FEB24C', // > 1 miljon
-          '#FED976', // > 0
-          '#CCCCCC'  // Saknar data
+      
+        const ranges = [
+          { label: '> 10B', color: '#800026' },
+          { label: '> 5B', color: '#BD0026' },
+          { label: '> 1B', color: '#E31A1C' },
+          { label: '> 100M', color: '#FC4E2A' },
+          { label: '> 10M', color: '#FD8D3C' },
+          { label: '> 1M', color: '#FEB24C' },
+          { label: '> 0', color: '#FED976' },
+          { label: 'No data', color: '#CCCCCC' }
         ];
-        
-        // Skapa den horisontella färgstapeln
-        let gradientBar = '<div style="display: flex; height: 20px; margin-bottom: 5px; border-radius: 3px; overflow: hidden;">';
-        colors.forEach(color => {
-          gradientBar += `<div style="flex-grow: 1; background: ${color};"></div>`;
+      
+        let listHtml = `<div style="display: flex; flex-direction: column; gap: 6px;">`;
+      
+        ranges.forEach(({ label, color }) => {
+          listHtml += `
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <div style="width: 20px; height: 12px; background: ${color}; border: 1px solid #999;"></div>
+              <span style="font-size: 12px;">${label}</span>
+            </div>
+          `;
         });
-        gradientBar += '</div>';
-        
-        // Skapa etiketterna 
-        const labels = ['0', '400', '800', '1200', '1600', '2000', '', '']; //ändra denna
-        
-        let labelsHtml = '<div style="display: flex; justify-content: space-between; width: 100%;">';
-        labels.forEach(label => {
-          labelsHtml += `<span style="font-size: 10px; color: white;">${label}</span>`;
-        });
-        labelsHtml += '</div>';
-        
+      
+        listHtml += `</div>`;
+      
         div.innerHTML = `
           <div style="background: rgba(0, 0, 0, 0.8); padding: 10px; border-radius: 8px; color: white;">
-            <h4 style="margin: 0 0 5px 0; text-align: center; color: white; font-size: 12px;">Carbon Emission (tCO₂)</h4>
-            ${gradientBar}
-            ${labelsHtml}
+            <h4 style="margin: 0 0 8px 0; text-align: center; font-size: 12px;">Carbon Emission (tCO₂)</h4>
+            ${listHtml}
           </div>
         `;
-        
+      
         return div;
       };
   
