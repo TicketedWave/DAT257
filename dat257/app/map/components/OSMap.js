@@ -3,6 +3,7 @@ import { MapContainer, TileLayer, GeoJSON } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import { useEffect, useState } from 'react';
 import YearSelector from './YearSelector';
+import Legend from './Legend'; 
 
 export default function CO2Map() {
   const [geoData, setGeoData] = useState(null);
@@ -36,19 +37,19 @@ export default function CO2Map() {
 
   function getColor(co2_emission) {
     return co2_emission > 10_000_000_000
-      ? '#800026'
+      ? '#AD0000'
       : co2_emission > 5_000_000_000
-      ? '#BD0026'
+      ? '#FF0000'
       : co2_emission > 1_000_000_000
-      ? '#E31A1C'
+      ? '#FF6200'
       : co2_emission > 100_000_000
-      ? '#FC4E2A'
+      ? '#ffd900'
       : co2_emission > 10_000_000
       ? '#FD8D3C'
       : co2_emission > 1_000_000
-      ? '#FEB24C'
+      ? '#1DF659'
       : co2_emission > 0
-      ? '#FED976'
+      ? '#40CEF5'
       : '#CCCCCC';
   }
 
@@ -90,7 +91,9 @@ export default function CO2Map() {
           attribution="&copy; OpenStreetMap contributors"
         />
         {geoData && <GeoJSON data={geoData} style={style} onEachFeature={onEachFeature} />}
+        <Legend getColor={getColor} /> {}
       </MapContainer>
     </div>
   );
+  
 }

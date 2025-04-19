@@ -1,0 +1,31 @@
+/* components/Legend.css */
+.info.legend {
+    background: #2b29299f;
+    padding: 10px;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.342);
+    font-family: Arial, sans-serif;
+    width: 420px;
+  }
+  
+  .info.legend h4 {
+    margin: 0 0 10px 0;
+    font-size: 25px;
+    text-align: center;
+    color: white;
+  }
+  
+  .legend-gradient {
+    height: 20px;
+    width: 100%;
+    background: linear-gradient(to right, #40CEF5, #1DF659, #ffd900,#FF6200,#FF0000, #AD0000);
+    border-radius: 10px;
+    margin-bottom: 5px;
+  }
+  
+  .legend-labels {
+    display: flex;
+    justify-content: space-between;
+    font-size: 15px;
+    color: #ffffff;
+  }
