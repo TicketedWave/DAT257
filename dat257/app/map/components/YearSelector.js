@@ -1,7 +1,7 @@
 import React from 'react';
 
 export default function YearSelector({ selectedYear, onYearChange }) {
-  const years = [2022, 2023, 2024]; // List of available years
+  const years = [2024,2023,2022,2021,2020,2019,2018,2017,2016,2015,2014,2013,2012]; // List of available years
 
   const handleYearChange = (e) => {
     const year = parseInt(e.target.value, 10);
