@@ -189,3 +189,25 @@ body {
     margin-top: 2rem;
   }
 }
+
+.slider-thumb::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 30px;
+  width: 30px;
+  background-image: url('/icon.png'); /* Adjust path if needed */
+  background-size: cover;
+  background-position: center;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+.slider-thumb::-moz-range-thumb {
+  height: 30px;
+  width: 30px;
+  background-image: url('/icon.png'); /* Adjust path if needed */
+  background-size: cover;
+  background-position: center;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
