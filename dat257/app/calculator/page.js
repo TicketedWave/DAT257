@@ -1,6 +1,6 @@
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
-import CarbonFootprintCalculator from '../map/components/CarbonFootprintCalculator';
+import CarbonFootprintCalculator from './components/CarbonFootprintCalculator';
 export default function Home() {
   return (
     <div className="min-h-screen f">
