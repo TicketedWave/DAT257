@@ -20,6 +20,14 @@ const CarbonFootprintCalculator = () => {
     flightsPerYear: 2,
     meatMealsPerWeek: 7,
     electricityKwhPerMonth: 300,
+    clothingPurchasesPerYear: 2,
+    electronicsPurchasesPerYear: 2,
+    sustainablePurchasesPerMonth: 2,
+    onlineShoppingDeliveriesPerMonth: 5,
+    homeTemperatureWinter: 5,
+    adultsInHousehold: 1,
+    bedroomsInHousehold: 1,
+    hotWaterUsagePerDay: 30,
   });
   const [step, setStep] = useState(0);
   const [submitted, setSubmitted] = useState(false);
@@ -73,6 +81,62 @@ const CarbonFootprintCalculator = () => {
       max: 1000,
       unit: 'kWh',
     },
+    {
+      label: 'How many new clothing or footwear items do you buy each year?',
+      name: 'clothingPurchasesPerYear',
+      min: 0,
+      max: 50,
+      unit: 'items',
+    },
+    {
+     label: 'How many electronic gadgets or household appliances do you buy each year?',
+     name: 'electronicsPurchasesPerYear',
+     min: 0,
+     max: 20,
+     unit: 'electronics',
+    },
+    {
+      label: 'How many purchases of locally sourced or sustainably produced food and goods do you do each month?',
+      name: 'sustainablePurchasesPerMonth',
+      min: 0,
+      max: 50,
+      unit: 'purchases',
+     },
+     {
+      label: 'How many online shopping deliveries do you receive per month?',
+      name: 'onlineShoppingDeliveriesPerMonth',
+      min: 0,
+      max: 50,
+      unit: 'deliveries',
+     },
+     {
+      label: 'How warm do you keep your home in winter?',
+      name: 'homeTemperatureWinter',
+      min: 0,
+      max: 30,
+      unit: 'degrees',
+     },
+     {
+      label: 'How many adults live in you household?',
+      name: 'adultsInHousehold',
+      min: 0,
+      max: 10,
+      unit: 'adults',
+     },
+     {
+      label: 'How many bedrooms are in your household?',
+      name: 'bedroomsInHousehold',
+      min: 0,
+      max: 10,
+      unit: 'bedrooms',
+     },
+     {
+      label: 'How many minutes per day does your household typically spend using hot water?',
+      name: 'hotWaterUsagePerDay',
+      min: 0,
+      max: 300,
+      unit: 'minutes',
+     },
   ];
   
 
@@ -90,7 +154,14 @@ const CarbonFootprintCalculator = () => {
     const flights = formData.flightsPerYear * 250;
     const meat = formData.meatMealsPerWeek * 52 * 2.5;
     const electricity = formData.electricityKwhPerMonth * 12 * 0.4;
-    return (miles + flights + meat + electricity).toFixed(2);
+    const items = formData.clothingPurchasesPerYear * 30; // 30 kg CO₂ per item
+    const electronics = formData.electronicsPurchasesPerYear * 100; //  100 kg CO₂ per item
+    const purchases = formData.sustainablePurchasesPerMonth * 12 * -2; // -2 kg CO₂ per purchase (savings)
+    const deliveries = formData.onlineShoppingDeliveriesPerMonth * 12 * 5; //  5 kg CO₂ per delivery
+    const degrees = formData.homeTemperatureWinter * 100; // 100 kg CO₂ per degree
+    const minutesHotWater = formData.hotWaterUsagePerDay * 365 * 0.1; // 0.1 kg CO₂ per minute
+    const household = (formData.bedroomsInHousehold / formData.adultsInHousehold) * 500; // 500 kg CO₂ per room per adult
+    return (miles + flights + meat + electricity + items + electronics + purchases + deliveries + degrees + minutesHotWater + household).toFixed(2);
   };
 
   const getFunFacts = (footprint) => {
