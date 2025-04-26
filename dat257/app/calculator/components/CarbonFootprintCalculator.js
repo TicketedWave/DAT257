@@ -1,4 +1,6 @@
 'use client';
+import './CarbonFootprintCalculator.css';
+
 
 import React, { useState, useEffect } from 'react';
 import { MoveRight , MoveLeft  } from 'lucide-react';
@@ -144,7 +146,7 @@ function getPercentile(x, mean = 5000, stdDev = 2000) {
   
 
   return (
-    <div className="w-[90%] min-h-[75vh] mx-auto p-6 bg-gray-600/30 bg-opacity-50 mb-24 text-white rounded-2xl shadow-2xl space-y-6 flex flex-col justify-between">
+    <div className="calculator-container"> 
       <h2 className="text-3xl font-bold text-center text-green-500">
         Calculate Your Carbon Footprint!
       </h2>
@@ -177,13 +179,13 @@ function getPercentile(x, mean = 5000, stdDev = 2000) {
     disabled={step === 0}
     className='mx-6'
   >
-    <MoveLeft  size={32} className="text-white hover:text-green-400 transition-all duration-200"/>
+    <MoveLeft size={32} className="icon" />
   </button>
 
 {/* Spectrum Input in Center */}
 <div className="flex-1 flex flex-col items-center px-4">
-    <label className="block mb-2 text-lg font-medium text-center">{current.label}:</label>
-    <div className="flex justify-between text-sm text-gray-400 mb-6 w-full">
+    <label className="spectrum-label">{current.label}:</label>
+    <div className="spectrum-values">
         <span>{current.min} {current.unit}</span>
         <span>{formData[current.name]} {current.unit}</span>
         <span>{current.max} {current.unit}</span>
@@ -195,7 +197,7 @@ function getPercentile(x, mean = 5000, stdDev = 2000) {
         max={current.max}
         value={formData[current.name]}
         onChange={handleChange}
-        className="w-full h-4 appearance-none bg-green-3  rounded-lg cursor-pointer slider-thumb"
+        className="slider-thumb"
         style={{
             background: `linear-gradient(to right, #a7e8c0 0%, #4ade80 ${
               ((formData[current.name] - current.min) / (current.max - current.min)) * 100

@@ -1,0 +1,80 @@
+.calculator-container {
+    width: 90%;
+    min-height: 75vh;
+    margin: 0 auto;
+    padding: 1.5rem;
+    background: rgba(96, 96, 96, 0.3);
+    color: white;
+    border-radius: 1rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+/* Back Button */
+.back-button {
+  margin: 0 1.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.back-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.icon {
+  color: white;
+  transition: color 0.2s ease-in-out;
+}
+
+.back-button:hover .icon {
+  color: #4ade80; /* Green hover effect */
+}
+/* Spectrum Label */
+.spectrum-label {
+  margin-bottom: 0.5rem;
+  font-size: 1.125rem; /* 18px */
+  font-weight: 500;
+  text-align: center;
+  color: white;
+}
+
+/* Spectrum Values */
+.spectrum-values {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 1.5rem;
+  font-size: 0.875rem; /* 14px */
+  color: #9ca3af; /* Gray color */
+}
+/* Slider Thumb */
+.slider-thumb {
+  width: 100%;
+  height: 20px;
+  appearance: none;
+  border-radius: 10px;
+  cursor: pointer;
+  outline: none;
+}
+
+.slider-thumb::-webkit-slider-thumb {
+  appearance: none;
+  width: 40px;
+  height: 40px;
+  background-color: #4ade80;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.slider-thumb::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  background-color: #4ade80;
+  border-radius: 50%;
+  cursor: pointer;
+}
