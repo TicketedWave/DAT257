@@ -129,7 +129,66 @@ const categories = {
       },
       unit: 'meals'
     }
-  ]
+  ],
+  Shopping:[
+    {
+      label: 'How many new clothing or footwear items do you buy each year?',
+      name: 'clothingPurchasesPerYear',
+      min: 0,
+      max: 50,
+      unit: 'items',
+    },
+    {
+     label: 'How many electronic gadgets or household appliances do you buy each year?',
+     name: 'electronicsPurchasesPerYear',
+     min: 0,
+     max: 20,
+     unit: 'electronics',
+    },
+    {
+      label: 'How many purchases of locally sourced or sustainably produced food and goods do you do each month?',
+      name: 'sustainablePurchasesPerMonth',
+      min: 0,
+      max: 50,
+      unit: 'purchases',
+     },
+     {
+      label: 'How many online shopping deliveries do you receive per month?',
+      name: 'onlineShoppingDeliveriesPerMonth',
+      min: 0,
+      max: 50,
+      unit: 'deliveries',
+     },
+  ], House:[
+    {
+      label: 'How warm do you keep your home in winter?',
+      name: 'homeTemperatureWinter',
+      min: 0,
+      max: 30,
+      unit: 'degrees',
+     },
+     {
+      label: 'How many adults live in you household?',
+      name: 'adultsInHousehold',
+      min: 0,
+      max: 10,
+      unit: 'adults',
+     },
+     {
+      label: 'How many bedrooms are in your household?',
+      name: 'bedroomsInHousehold',
+      min: 0,
+      max: 10,
+      unit: 'bedrooms',
+     },
+     {
+      label: 'How many minutes per day does your household typically spend using hot water?',
+      name: 'hotWaterUsagePerDay',
+      min: 0,
+      max: 300,
+      unit: 'minutes',
+     },
+  ],
 };
 
 const CarbonFootprintCalculator = () => {
@@ -141,7 +200,15 @@ const CarbonFootprintCalculator = () => {
     redMeatPerWeek: 1.5,
     poultryPerWeek: 1.5,
     dairyPerWeek: 3.5,
-    plantBasedMealsPerWeek: 3.5
+    plantBasedMealsPerWeek: 3.5,
+    clothingPurchasesPerYear: 2,
+    electronicsPurchasesPerYear: 2,
+    sustainablePurchasesPerMonth: 2,
+    onlineShoppingDeliveriesPerMonth: 5,
+    homeTemperatureWinter: 5,
+    adultsInHousehold: 1,
+    bedroomsInHousehold: 1,
+    hotWaterUsagePerDay: 30,
   });
   const [step, setStep] = useState(0);
   const [submitted, setSubmitted] = useState(false);
@@ -177,19 +244,22 @@ const CarbonFootprintCalculator = () => {
   };
 
   const calculateCarbonFootprint = () => {
-    // Transportation calculations
-    const drivingEmission = formData.kilometersPerWeek * 52 * (formData.fuelEfficiency * 2.31); // kg CO2
-    const publicTransportSavings = formData.publicTransportPerWeek * 52 * 0.1; // kg CO2 saved
-    const flightsEmission = formData.flightsPerYear * 250; // kg CO2
-    
-    // Food calculations
-    const redMeatEmission = formData.redMeatPerWeek * 52 * 2.5; // kg CO2
-    const poultryEmission = formData.poultryPerWeek * 52 * 0.8; // kg CO2
-    const dairyEmission = formData.dairyPerWeek * 52 * 0.5; // kg CO2
-    
-    const total = drivingEmission - publicTransportSavings + flightsEmission + 
-                 redMeatEmission + poultryEmission + dairyEmission;
-    return total.toFixed(2);
+    const drivingEmission = formData.kilometersPerWeek * 52 * (formData.fuelEfficiency / 100) * 2.31; // kg CO₂ per year
+     const times = formData.publicTransportPerWeek * 52 * 7 * 0.05; // kg CO₂ per year
+     const flights = formData.flightsPerYear * 600; // 600 kg CO₂ per flight (economy average)
+     const redMeat = formData.redMeatPerWeek * 52 * 6; // 6 kg CO₂ per meal
+     const poultry = formData.poultryPerWeek * 52 * 1.7; // 1.7 kg CO₂ per meal
+     const dairy = formData.dairyPerWeek * 52 * 2; // 2 kg CO₂ per serving
+     const plantBasedMeals = formData.plantBasedMealsPerWeek * 52 * -2; // -2 kg CO₂ per meal (savings)
+     const items = formData.clothingPurchasesPerYear * 30; // 30 kg CO₂ per item
+     const electronics = formData.electronicsPurchasesPerYear * 100; //  100 kg CO₂ per item
+     const purchases = formData.sustainablePurchasesPerMonth * 12 * -2; // -2 kg CO₂ per purchase (savings)
+     const deliveries = formData.onlineShoppingDeliveriesPerMonth * 12 * 5; //  5 kg CO₂ per delivery
+     const degrees = formData.homeTemperatureWinter * 100; // 100 kg CO₂ per degree
+     const minutesHotWater = formData.hotWaterUsagePerDay * 365 * 0.1; // 0.1 kg CO₂ per minute
+     const household = (formData.bedroomsInHousehold / formData.adultsInHousehold) * 500; // 500 kg CO₂ per room per adult
+
+     return (drivingEmission + times + flights + redMeat + poultry + dairy + plantBasedMeals + items + electronics + purchases + deliveries + degrees + minutesHotWater + household).toFixed(2);
   };
 
   const getFunFacts = (footprint) => {
@@ -277,12 +347,35 @@ const CarbonFootprintCalculator = () => {
           >
             Food {completedCategories.includes('Food') && '✓'}
           </button>
-        </div>
-      ) : !submitted ? (
+          <button 
+      onClick={() => setCategory('House')} 
+      className={`px-10 py-6 rounded-xl text-2xl transition ${
+        completedCategories.includes('House') 
+          ? 'bg-yellow-600 hover:bg-yellow-500' 
+          : 'bg-yellow-500 hover:bg-yellow-400'
+      }`}
+    >
+      House {completedCategories.includes('House') && '✓'}
+    </button>
+
+    <button 
+      onClick={() => setCategory('Shopping')} 
+      className={`px-10 py-6 rounded-xl text-2xl transition ${
+        completedCategories.includes('Shopping') 
+          ? 'bg-purple-600 hover:bg-purple-500' 
+          : 'bg-purple-500 hover:bg-purple-400'
+      }`}
+    >
+      Shopping {completedCategories.includes('Shopping') && '✓'}
+    </button>
+
+  </div>
+) : !submitted ? (
         <>
           <h2 className="text-3xl font-bold text-center text-green-500">
             {currentQuestions[step].label}
           </h2>
+
 
           <div className="flex items-center justify-between gap-4 mt-6 opacity-100">
             <button
@@ -296,20 +389,27 @@ const CarbonFootprintCalculator = () => {
 
             <div className="flex-1 flex flex-col items-center px-4">
               <div className="flex justify-between text-sm text-gray-400 mb-6 w-full">
-                {Object.entries(currentQuestions[step].marks).map(([value, label]) => (
-                  <span 
-                    key={value} 
-                    className={`text-xs ${
-                      Math.abs(parseFloat(value) - formData[currentQuestions[step].name]) < 0.1
-                        ? 'text-green-400 font-bold'
-                        : ''
-                    }`}
-                    
-                  >
-                    {label}
-                  </span>
-                ))}
-              </div>
+  {currentQuestions[step].marks ? (
+    Object.entries(currentQuestions[step].marks).map(([value, label]) => (
+      <span 
+        key={value} 
+        className={`text-xs ${
+          Math.abs(parseFloat(value) - formData[currentQuestions[step].name]) < 0.1
+            ? 'text-green-400 font-bold'
+            : ''
+        }`}
+      >
+        {label}
+      </span>
+    ))
+  ) : (
+    // Fallback for questions without marks
+    <div className="w-full flex justify-between">
+      <span className="text-xs">{currentQuestions[step].min} {currentQuestions[step].unit}</span>
+      <span className="text-xs">{currentQuestions[step].max} {currentQuestions[step].unit}</span>
+    </div>
+  )}
+</div>
               <input
                 type="range"
                 name={currentQuestions[step].name}
