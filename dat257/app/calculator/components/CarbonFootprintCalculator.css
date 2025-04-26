@@ -1,17 +1,28 @@
 .calculator-container {
-    width: 90%;
-    min-height: 75vh;
-    margin: 0 auto;
-    padding: 1.5rem;
-    background: rgba(96, 96, 96, 0.3);
-    color: white;
-    border-radius: 1rem;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
-
+  flex: 1;
+  min-height: 70vh;
+  overflow: visible;
+  width: 75%; /* Adjust width as needed */
+  aspect-ratio: 2; /* Maintains the elongated hexagon proportions */
+  margin: 0 auto;
+  padding: 2rem; /* Adjust padding to fit content inside the hexagon */
+  background: rgba(96, 96, 96, 0.3); /* Background color */
+  position: center;
+  clip-path: polygon(
+    10% 0%, 
+    90% 0%, 
+    100% 50%, 
+    90% 100%, 
+    10% 100%, 
+    0% 50%
+  ); 
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); 
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-radius: 20px; 
+  
+}
 /* Back Button */
 .back-button {
   margin: 0 1.5rem;
@@ -78,6 +89,7 @@
   border-radius: 50%;
   cursor: pointer;
 }
+
 .button-container {
   display: flex;
   align-items: center; /* Align items vertically in the center */
@@ -86,6 +98,7 @@
   margin-top: 1.5rem; /* Add top margin */
   opacity: 1; /* Fully visible */
 }
+
 .calculator-title {
   font-size: 1.875rem; /* Equivalent to text-3xl */
   font-weight: bold; /* Equivalent to font-bold */
@@ -100,7 +113,9 @@
   align-items: center; /* Centers child elements horizontally */
   padding-left: 1rem; /* Equivalent to px-4 (16px) */
   padding-right: 1rem; /* Equivalent to px-4 (16px) */
+  padding-bottom: 5rem; /* Equivalent to py-12 (48px) */
 }
+
 .move-right-icon {
   color: white; /* Default color */
   transition: color 0.2s ease-in-out; /* Smooth transition for hover effect */
@@ -195,10 +210,13 @@
   width: 100%; /* Equivalent to w-full */
   background-color: rgba(255, 255, 255, 0.1); /* Equivalent to bg-white/10 */
   color: white; /* Equivalent to text-white */
-  padding: 0.5rem 0; /* Equivalent to py-2 */
+  padding: 1rem 0; /* Equivalent to py-2 */
   border-radius: 0.5rem; /* Equivalent to rounded-lg */
   transition: background-color 0.2s ease-in-out; /* Equivalent to transition */
-  text-align: center; /* Ensures the text is centered */
+  text-align: center; /* Ensures the text is centered */ 
+  max-width: 1000px; /* Optional: Set a max width for the button */
+  margin-left: auto;
+  margin-right: auto; 
 }
 
 .try-again-button:hover {
@@ -221,3 +239,9 @@
   background-color: #22c55e; /* Equivalent to bg-green-500 */
   transition: all 0.5s ease-in-out; /* Equivalent to transition-all duration-500 */
 }
+.page-container {
+  display: flex;
+  flex-direction: column; /* Arrange children vertically */
+  min-height: 81vh; /* Ensure the container spans the full height of the viewport */
+}
+

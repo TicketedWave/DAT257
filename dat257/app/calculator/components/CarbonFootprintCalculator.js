@@ -26,7 +26,7 @@ const CarbonFootprintCalculator = () => {
   const [step, setStep] = useState(0);
   const [submitted, setSubmitted] = useState(false);
   const [animatedPercentile, setAnimatedPercentile] = useState(0);
-
+  //console.log("Submitted state:", submitted); 
   useEffect(() => {
     if (submitted) {
       const target = getPercentile(userEmission);
@@ -44,6 +44,7 @@ const CarbonFootprintCalculator = () => {
       return () => clearInterval(interval);
     }
   }, [submitted]);
+  
   
 
   const spectrum = [
@@ -146,9 +147,8 @@ function getPercentile(x, mean = 5000, stdDev = 2000) {
   
 
   return (
-    <div className="calculator-container"> 
-     
-
+    <div className="page-container">
+      <div className="calculator-container">
       {!submitted && (
         <>
           {/* <div>
@@ -208,7 +208,6 @@ function getPercentile(x, mean = 5000, stdDev = 2000) {
           }}
     />
 </div>
-
 {/* Next or Submit Button */}
   
     <button
@@ -218,6 +217,8 @@ function getPercentile(x, mean = 5000, stdDev = 2000) {
     >
       <MoveRight size={32} className="move-right-icon" />
     </button>
+
+
 </div>
 {step === spectrum.length - 1 &&
     <div className="flex justify-center mt-4">
@@ -318,6 +319,8 @@ function getPercentile(x, mean = 5000, stdDev = 2000) {
             />
         </div>}
     </div>
+
+  </div>
   );
 };
 
