@@ -147,9 +147,7 @@ function getPercentile(x, mean = 5000, stdDev = 2000) {
 
   return (
     <div className="calculator-container"> 
-      <h2 className="text-3xl font-bold text-center text-green-500">
-        Calculate Your Carbon Footprint!
-      </h2>
+     
 
       {!submitted && (
         <>
@@ -170,8 +168,11 @@ function getPercentile(x, mean = 5000, stdDev = 2000) {
               className="w-full h-6 appearance-none bg-green-300 rounded-lg cursor-pointer slider-thumb"
             />
           </div> */}
-
-          <div className="flex items-center justify-between gap-4 mt-6 opacity-100">
+          <h2 className="calculator-title">
+           Calculate Your Carbon Footprint!
+          </h2> 
+          <div className="button-container">
+          
   {/* Back Button */}
   <button
     type="button"
@@ -183,7 +184,7 @@ function getPercentile(x, mean = 5000, stdDev = 2000) {
   </button>
 
 {/* Spectrum Input in Center */}
-<div className="flex-1 flex flex-col items-center px-4">
+<div className="spectrum-input">
     <label className="spectrum-label">{current.label}:</label>
     <div className="spectrum-values">
         <span>{current.min} {current.unit}</span>
@@ -215,7 +216,7 @@ function getPercentile(x, mean = 5000, stdDev = 2000) {
       onClick={() => setStep((prev) => Math.min(spectrum.length - 1, prev + 1))}
       className='mx-6'
     >
-      <MoveRight size={32} className="text-white hover:text-green-400 transition-all duration-200"/>
+      <MoveRight size={32} className="move-right-icon" />
     </button>
 </div>
 {step === spectrum.length - 1 &&
@@ -223,7 +224,7 @@ function getPercentile(x, mean = 5000, stdDev = 2000) {
     <button
       type="button"
       onClick={() => setSubmitted(true)}
-      className="bg-linear-to-bl from-green-200 to-green-600 text-white text-bold text-2xl px-12 py-6 rounded-xl hover:bg-green-700 transition mx-auto"
+      className="calculate-button"
     >
       Calculate
     </button></div>}
@@ -232,31 +233,28 @@ function getPercentile(x, mean = 5000, stdDev = 2000) {
 
     {submitted && (
     <>
-    <div className="text-center mt-4 space-y-4">
-        <p className="text-xl font-semibold">Your Estimated Carbon Footprint:</p>
-        <p className="text-3xl font-bold text-green-400">{calculateCarbonFootprint()} kg CO₂/year</p>
+    <div className="result-container">
+        <p className="result-title">Your Estimated Carbon Footprint:</p>
+        <p className="result-value">{calculateCarbonFootprint()} kg CO₂/year</p>
 
-        <div className="mt-4 space-y-2 text-sm text-gray-300">
+        <div className="fun-facts-container">
         {getFunFacts(parseFloat(calculateCarbonFootprint())).map((fact, index) => (
             <p key={index}>{fact}</p>
         ))}
         </div>
     </div>
         {/* User percentile result */}
-    <div className="text-center mt-4">
-        <p className="text-md text-gray-300">
-            You emit more CO₂ than approximately{" "}
-            <span className="text-green-400 font-bold">
-            {animatedPercentile}%
-            </span>{" "}
-            of the world population.
-        </p>
+    <div className="percentile-container">
+      <p className="percentile-text">
+        You emit more CO₂ than approximately{" "}
+        <span className="percentile-highlight">{animatedPercentile}%</span>{" "}
+        of the world population.
+      </p>
     </div>
-
         {/* Normal Distribution Graph */}
-    <div className="mt-8">
-        <p className="text-sm mb-3 text-gray-300">Carbon emissions compared to a typical global distribution</p>
-        <div className="w-full h-64 bg-white/5 rounded-xl p-4">
+    <div className="distribution-container">
+        <p className="distribution-title">Carbon emissions compared to a typical global distribution</p>
+        <div className="distribution-chart">
             <ResponsiveContainer width="100%" height="100%">
             <LineChart data={generateNormalDistribution()}>
                 <XAxis
@@ -302,7 +300,7 @@ function getPercentile(x, mean = 5000, stdDev = 2000) {
       {/* Optional: Back to start button */}
       {submitted && (
         <button
-          className="mt-6 w-full bg-white/10 text-white py-2 rounded-lg hover:bg-white/20 transition"
+          className="try-again-button"
           onClick={() => {
             setSubmitted(false);
             setStep(0);
@@ -313,9 +311,9 @@ function getPercentile(x, mean = 5000, stdDev = 2000) {
       )}
 
       {/* Progress Bar */}
-        {!submitted && <div className=" h-2 bg-white/10 rounded-full overflow-hidden mt-6 w-2/3 mx-auto">
+        {!submitted && <div className="progress-bar-container">
             <div
-                className="h-full bg-green-500 transition-all duration-500"
+                className="progress-bar"
                 style={{ width: `${((step + 1) / spectrum.length) * 100}%` }}
             />
         </div>}
