@@ -223,25 +223,50 @@
   background-color: rgba(255, 255, 255, 0.2); /* Equivalent to hover:bg-white/20 */
 }
 
-.progress-bar-container {
-  height: 0.5rem; /* Equivalent to h-2 */
-  background-color: rgba(255, 255, 255, 0.1); /* Equivalent to bg-white/10 */
-  border-radius: 0.5rem; /* Equivalent to rounded-full */
-  overflow: hidden; /* Ensures the progress bar stays within the container */
-  margin-top: 1.5rem; /* Equivalent to mt-6 */
-  width: 66.666667%; /* Equivalent to w-2/3 */
-  margin-left: auto; /* Equivalent to mx-auto */
-  margin-right: auto; /* Centers the container horizontally */
-}
-
-.progress-bar {
-  height: 100%; /* Fills the height of the container */
-  background-color: #22c55e; /* Equivalent to bg-green-500 */
-  transition: all 0.5s ease-in-out; /* Equivalent to transition-all duration-500 */
-}
 .page-container {
   display: flex;
   flex-direction: column; /* Arrange children vertically */
   min-height: 81vh; /* Ensure the container spans the full height of the viewport */
+}
+
+.icon-progress-container {
+  display: flex;
+  justify-content: space-evenly; /* Centers the icons and progress bars horizontally */
+  align-items: center; /* Aligns icons and progress bars vertically */
+  width: 100%; /* Ensures the container spans the full width */
+}
+
+.icon-progress {
+  display: flex;
+  flex-direction: column; /* Stacks the icon and progress bar vertically */
+  align-items: center; /* Centers the icon and progress bar */
+  gap: 0.5rem; /* Adds spacing between the icon and the progress bar */
+}
+
+.icon {
+  width: 70px; /* Adjust the size of the icons */
+  height: 70px;
+}
+
+.progress-bar-container {
+  width: 200px; /* Adjust the width of the progress bar */
+  height: 8px; /* Adjust the height of the progress bar */
+  background-color: rgba(255, 255, 255, 0.1); /* Light background for the progress bar */
+  border-radius: 4px; /* Rounds the edges of the progress bar */
+  overflow: hidden; /* Ensures the progress stays within the container */
+}
+
+.progress-bar {
+  height: 100%; /* Fills the height of the container */
+  background-color: #4ade80; /* Green color for the progress */
+  transition: width 0.5s ease-in-out; /* Smooth animation for progress changes */
+}
+
+.icon-container {
+  display: flex;
+  justify-content: space-around; /* Distributes icons evenly */
+  align-items: center; /* Aligns icons vertically */
+  margin-top: 0rem; /* Adds spacing above the icons */
+  width: 100%; /* Ensures the container spans the full width */
 }
 

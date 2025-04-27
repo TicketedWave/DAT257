@@ -183,6 +183,9 @@ function getPercentile(x, mean = 5000, stdDev = 2000) {
     <MoveLeft size={32} className="icon" />
   </button>
 
+
+
+
 {/* Spectrum Input in Center */}
 <div className="spectrum-input">
     <label className="spectrum-label">{current.label}:</label>
@@ -208,6 +211,7 @@ function getPercentile(x, mean = 5000, stdDev = 2000) {
           }}
     />
 </div>
+
 {/* Next or Submit Button */}
   
     <button
@@ -230,6 +234,44 @@ function getPercentile(x, mean = 5000, stdDev = 2000) {
       Calculate
     </button></div>}
 
+<div className="icon-progress-container">
+  <div className="icon-progress">
+    <img src="/icons/car-icon.png" alt="Car Icon" className="icon" />
+    <div className="progress-bar-container">
+      <div
+        className="progress-bar"
+        style={{ width: `${(step === 0 ? (formData.carMilesPerWeek / 500) * 100 : 0)}%` }}
+      ></div>
+    </div>
+  </div>
+  <div className="icon-progress">
+    <img src="/icons/food-icon.png" alt="Food Icon" className="icon" />
+    <div className="progress-bar-container">
+      <div
+        className="progress-bar"
+        style={{ width: `${(step === 1 ? (formData.flightsPerYear / 20) * 100 : 0)}%` }}
+      ></div>
+    </div>
+  </div>
+  <div className="icon-progress">
+    <img src="/icons/home-icon.png" alt="Home Icon" className="icon" />
+    <div className="progress-bar-container">
+      <div
+        className="progress-bar"
+        style={{ width: `${(step === 2 ? (formData.meatMealsPerWeek / 21) * 100 : 0)}%` }}
+      ></div>
+    </div>
+  </div>
+  <div className="icon-progress">
+    <img src="/icons/shop-icon.png" alt="Shop Icon" className="icon" />
+    <div className="progress-bar-container">
+      <div
+        className="progress-bar"
+        style={{ width: `${(step === 3 ? (formData.electricityKwhPerMonth / 1000) * 100 : 0)}%` }}
+      ></div>
+    </div>
+  </div>
+</div>
     </>)}
 
     {submitted && (
