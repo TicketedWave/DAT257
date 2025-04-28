@@ -363,12 +363,12 @@ const CarbonFootprintCalculator = () => {
             </button>
 
             <div className="slider-container">
-              <div className="food-question-labels">
+              <div className="question-labels">
                 {currentQuestions[step].marks ? (
                   Object.entries(currentQuestions[step].marks).map(([value, label]) => (
                     <span
                       key={value}
-                      className={`food-question-label ${Math.abs(parseFloat(value) - formData[currentQuestions[step].name]) < 0.1
+                      className={`question-label ${Math.abs(parseFloat(value) - formData[currentQuestions[step].name]) < 0.1
                         ? 'active'
                         : ''
                         }`}
@@ -379,7 +379,7 @@ const CarbonFootprintCalculator = () => {
                 ) : (
                   <div className="w-full flex justify-between">
                     <span className="food-question-label">{currentQuestions[step].min} {currentQuestions[step].unit}</span>
-                    <span className="food-question-label">{currentQuestions[step].max} {currentQuestions[step].unit}</span>
+                    <span className="question-label">{currentQuestions[step].max} {currentQuestions[step].unit}</span>
                   </div>
                 )}
               </div>
@@ -391,7 +391,7 @@ const CarbonFootprintCalculator = () => {
                 step={currentQuestions[step].step}
                 value={formData[currentQuestions[step].name]}
                 onChange={handleChange}
-                className="food-slider"
+                className="slider"
                 style={{
                   background: `linear-gradient(to right, #49AB45 0%, #49AB45 ${((formData[currentQuestions[step].name] - currentQuestions[step].min) /
                     (currentQuestions[step].max - currentQuestions[step].min)) * 100
@@ -400,7 +400,7 @@ const CarbonFootprintCalculator = () => {
                     }%, #ccc 100%)`,
                 }}
               />
-              <div className="food-slider-value">
+              <div className="slider-value">
                 {formData[currentQuestions[step].name]} {currentQuestions[step].unit}
               </div>
             </div>
@@ -416,6 +416,7 @@ const CarbonFootprintCalculator = () => {
               </button>
             )}
           </div>
+
 
 
           {allQuestionsAnswered() && (
