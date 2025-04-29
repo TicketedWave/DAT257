@@ -479,8 +479,26 @@ const CarbonFootprintCalculator = () => {
             onClick={() => {
               setSubmitted(false);
               setStep(0);
-              setCategory(null);
+              setCategory('TRANSPORTATION'); // Set to initial category instead of null
               setCompletedCategories([]);
+              setFormData({
+                kilometersPerWeek: -1,
+                publicTransportPerWeek: -1,
+                flightsPerYear: -1,
+                fuelEfficiency: -1,
+                redMeatPerWeek: -1,
+                poultryPerWeek: -1,
+                dairyPerWeek: -1,
+                plantBasedMealsPerWeek: -1,
+                clothingPurchasesPerYear: -1,
+                electronicsPurchasesPerYear: -1,
+                sustainablePurchasesPerMonth: -1,
+                onlineShoppingDeliveriesPerMonth: -1,
+                homeTemperatureWinter: -1,
+                adultsInHousehold: -1,
+                bedroomsInHousehold: -1,
+                hotWaterUsagePerDay: -1,
+              });
             }}
           >
             Try Again
