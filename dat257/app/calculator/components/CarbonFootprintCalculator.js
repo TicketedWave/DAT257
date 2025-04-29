@@ -20,6 +20,11 @@ const categories = {
       name: 'kilometersPerWeek',
       min: 0,
       max: 600,
+      step: 10,
+      marks: {
+        0: '0 km',
+        600: '600+ km'
+      },
       unit: 'km'
     },
     {
@@ -27,6 +32,11 @@ const categories = {
       name: 'publicTransportPerWeek',
       min: 0,
       max: 7,
+      step: 0.5,
+      marks: {
+        0: 'Never',
+        7: 'Every day'
+      },
       unit: 'times'
     },
     {
@@ -34,6 +44,11 @@ const categories = {
       name: 'flightsPerYear',
       min: 0,
       max: 8,
+      step: 0.5,
+      marks: {
+        0: 'None',
+        8: '8 or more'
+      },
       unit: 'flights'
     },
     {
@@ -41,6 +56,11 @@ const categories = {
       name: 'fuelEfficiency',
       min: 4,
       max: 14,
+      step: 0.5,
+      marks: {
+        4.5: 'Efficient',
+        14: 'Very Low'
+      },
       unit: 'L/100km'
     }
   ],
@@ -50,6 +70,11 @@ const categories = {
       name: 'redMeatPerWeek',
       min: 0,
       max: 6,
+      step: 0.5,
+      marks: {
+        0: 'Never',
+        6: '5 or more times'
+      },
       unit: 'meals'
     },
     {
@@ -57,6 +82,11 @@ const categories = {
       name: 'poultryPerWeek',
       min: 0,
       max: 6,
+      step: 0.5,
+      marks: {
+        0: 'Never',
+        6: '5 or more times'
+      },
       unit: 'meals'
     },
     {
@@ -64,12 +94,22 @@ const categories = {
       name: 'dairyPerWeek',
       min: 0,
       max: 6,
+      step: 0.5,
+      marks: {
+        0: 'Never',
+        6: '5 or more times'
+      },
       unit: 'servings'
     }, {
       label: 'How often do you consume plant-based meals (vegetarian or vegan) per week?',
       name: 'plantBasedMealsPerWeek',
       min: 0,
       max: 6,
+      step: 0.5,
+      marks: {
+        0: 'Never',
+        6: '5 or more times'
+      },
       unit: 'meals'
     }
   ],
@@ -79,6 +119,11 @@ const categories = {
       name: 'clothingPurchasesPerYear',
       min: 0,
       max: 50,
+      step: 5, // Step by 5 items
+      marks: {
+        0: '0',
+        50: '50'
+      },
       unit: 'items',
     },
     {
@@ -86,6 +131,11 @@ const categories = {
       name: 'electronicsPurchasesPerYear',
       min: 0,
       max: 20,
+      step: 2, // Step by 2 items
+      marks: {
+        0: '0',
+        20: '20'
+      },
       unit: 'electronics',
     },
     {
@@ -93,6 +143,11 @@ const categories = {
       name: 'sustainablePurchasesPerMonth',
       min: 0,
       max: 50,
+      step: 5, // Step by 5 purchases
+      marks: {
+        0: '0',
+        50: '50'
+      },
       unit: 'purchases',
     },
     {
@@ -100,21 +155,37 @@ const categories = {
       name: 'onlineShoppingDeliveriesPerMonth',
       min: 0,
       max: 50,
+      step: 5, // Step by 5 deliveries
+      marks: {
+        0: '0',
+        50: '50'
+      },
       unit: 'deliveries',
     },
-  ], HOME: [
+  ],
+  HOME: [
     {
       label: 'How warm do you keep your home in winter?',
       name: 'homeTemperatureWinter',
       min: 0,
       max: 30,
+      step: 1, // Step by 1 degree
+      marks: {
+        0: '0°C',
+        30: '30°C'
+      },
       unit: 'degrees',
     },
     {
-      label: 'How many adults live in you household?',
+      label: 'How many adults live in your household?',
       name: 'adultsInHousehold',
       min: 0,
       max: 10,
+      step: 1, // Step by 1 adult
+      marks: {
+        0: '0',
+        10: '10'
+      },
       unit: 'adults',
     },
     {
@@ -122,6 +193,11 @@ const categories = {
       name: 'bedroomsInHousehold',
       min: 0,
       max: 10,
+      step: 1, // Step by 1 bedroom
+      marks: {
+        0: '0',
+        10: '10'
+      },
       unit: 'bedrooms',
     },
     {
@@ -129,6 +205,11 @@ const categories = {
       name: 'hotWaterUsagePerDay',
       min: 0,
       max: 300,
+      step: 10, // Step by 10 minutes
+      marks: {
+        0: '0 min',
+        300: '300 min'
+      },
       unit: 'minutes',
     },
   ],
@@ -288,25 +369,25 @@ const CarbonFootprintCalculator = () => {
   };
 
   const handleNextCategory = () => {
-  const categoryNames = Object.keys(categories);
-  const currentIndex = categoryNames.indexOf(category);
-  const isLastStep = step >= currentQuestions.length - 1;
+    const categoryNames = Object.keys(categories);
+    const currentIndex = categoryNames.indexOf(category);
+    const isLastStep = step >= currentQuestions.length - 1;
 
-  if (!isLastStep) {
-    // Nästa fråga inom samma kategori
-    setStep(prev => prev + 1);
-  } else if (currentIndex < categoryNames.length - 1) {
-    // Nästa kategori
-    const nextCategory = categoryNames[currentIndex + 1];
-    setCompletedCategories([...completedCategories, category]);
-    setCategory(nextCategory);
-    setStep(0);
-  } else {
-    // Sista frågan i sista kategorin → kör submit
-    setCompletedCategories([...completedCategories, category]);
-    setSubmitted(true);
-  }
-};
+    if (!isLastStep) {
+      // Nästa fråga inom samma kategori
+      setStep(prev => prev + 1);
+    } else if (currentIndex < categoryNames.length - 1) {
+      // Nästa kategori
+      const nextCategory = categoryNames[currentIndex + 1];
+      setCompletedCategories([...completedCategories, category]);
+      setCategory(nextCategory);
+      setStep(0);
+    } else {
+      // Sista frågan i sista kategorin → kör submit
+      setCompletedCategories([...completedCategories, category]);
+      setSubmitted(true);
+    }
+  };
 
   return (
     <div className="carbon-calculator">
