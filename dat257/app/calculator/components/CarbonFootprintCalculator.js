@@ -345,6 +345,27 @@ const CarbonFootprintCalculator = () => {
     setStep(prevStep => prevStep + 1); // Move to the next question
   };
 
+  const handleNextCategory = () => {
+    const categoryNames = Object.keys(categories);
+    const currentIndex = categoryNames.indexOf(category);
+    const isLastStep = step >= currentQuestions.length - 1;
+  
+    if (!isLastStep) {
+      // Nästa fråga inom samma kategori
+      setStep(prev => prev + 1);
+    } else if (currentIndex < categoryNames.length - 1) {
+      // Nästa kategori
+      const nextCategory = categoryNames[currentIndex + 1];
+      setCompletedCategories([...completedCategories, category]);
+      setCategory(nextCategory);
+      setStep(0);
+    } else {
+      // Sista frågan i sista kategorin → kör submit
+      setCompletedCategories([...completedCategories, category]);
+      setSubmitted(true);
+    }
+  };
+
   return (
     <div className="carbon-calculator">
       {!submitted ? (
@@ -405,16 +426,20 @@ const CarbonFootprintCalculator = () => {
               </div>
             </div>
 
-            {step < currentQuestions.length - 1 && (
-              <button
-                type="button"
-                onClick={handleNextQuestion}
-                disabled={!canProceed}
-                className="nav-button"
-              >
-                <MoveRight size={32} className="nav-icon" />
-              </button>
-            )}
+            <button
+              type="button"
+              onClick={() => {
+                if (step < currentQuestions.length - 1) {
+                  handleNextQuestion();
+                } else {
+                  handleNextCategory(); // byt till nästa kategori när det är sista frågan
+                }
+              }}
+              disabled={!canProceed}
+              className="nav-button"
+            >
+              <MoveRight size={32} className="nav-icon" />
+            </button>
           </div>
 
 
