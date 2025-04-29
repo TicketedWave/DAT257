@@ -20,15 +20,6 @@ const categories = {
       name: 'kilometersPerWeek',
       min: 0,
       max: 600,
-      step: 10,
-      marks: {
-        0: '0 km',
-        50: '50 km',
-        100: '100 km',
-        200: '200 km',
-        500: '500 km',
-        600: '600+ km'
-      },
       unit: 'km'
     },
     {
@@ -36,13 +27,6 @@ const categories = {
       name: 'publicTransportPerWeek',
       min: 0,
       max: 7,
-      step: 0.5,
-      marks: {
-        0: 'Never',
-        1.5: '1-2x',
-        4: '3-5x',
-        7: '6+x'
-      },
       unit: 'times'
     },
     {
@@ -50,13 +34,6 @@ const categories = {
       name: 'flightsPerYear',
       min: 0,
       max: 8,
-      step: 0.5,
-      marks: {
-        0: 'None',
-        1.5: '1-2',
-        4: '3-5',
-        8: '6+'
-      },
       unit: 'flights'
     },
     {
@@ -64,13 +41,6 @@ const categories = {
       name: 'fuelEfficiency',
       min: 4,
       max: 14,
-      step: 0.5,
-      marks: {
-        4.5: 'Efficient',
-        6.5: 'Moderate',
-        10: 'Low',
-        14: 'Very Low'
-      },
       unit: 'L/100km'
     }
   ],
@@ -80,13 +50,6 @@ const categories = {
       name: 'redMeatPerWeek',
       min: 0,
       max: 6,
-      step: 0.5,
-      marks: {
-        0: 'None',
-        1.5: '1-2x',
-        3.5: '3-4x',
-        6: '5+x'
-      },
       unit: 'meals'
     },
     {
@@ -94,13 +57,6 @@ const categories = {
       name: 'poultryPerWeek',
       min: 0,
       max: 6,
-      step: 0.5,
-      marks: {
-        0: 'None',
-        1.5: '1-2x',
-        3.5: '3-4x',
-        6: '5+x'
-      },
       unit: 'meals'
     },
     {
@@ -108,26 +64,12 @@ const categories = {
       name: 'dairyPerWeek',
       min: 0,
       max: 6,
-      step: 0.5,
-      marks: {
-        0: 'None',
-        1.5: '1-2x',
-        3.5: '3-4x',
-        6: '5+x'
-      },
       unit: 'servings'
     }, {
       label: 'How often do you consume plant-based meals (vegetarian or vegan) per week?',
       name: 'plantBasedMealsPerWeek',
       min: 0,
       max: 6,
-      step: 0.5,
-      marks: {
-        0: 'None',
-        1.5: '1-2x',
-        3.5: '3-4x',
-        6: '5+x'
-      },
       unit: 'meals'
     }
   ],
@@ -346,25 +288,25 @@ const CarbonFootprintCalculator = () => {
   };
 
   const handleNextCategory = () => {
-    const categoryNames = Object.keys(categories);
-    const currentIndex = categoryNames.indexOf(category);
-    const isLastStep = step >= currentQuestions.length - 1;
-  
-    if (!isLastStep) {
-      // Nästa fråga inom samma kategori
-      setStep(prev => prev + 1);
-    } else if (currentIndex < categoryNames.length - 1) {
-      // Nästa kategori
-      const nextCategory = categoryNames[currentIndex + 1];
-      setCompletedCategories([...completedCategories, category]);
-      setCategory(nextCategory);
-      setStep(0);
-    } else {
-      // Sista frågan i sista kategorin → kör submit
-      setCompletedCategories([...completedCategories, category]);
-      setSubmitted(true);
-    }
-  };
+  const categoryNames = Object.keys(categories);
+  const currentIndex = categoryNames.indexOf(category);
+  const isLastStep = step >= currentQuestions.length - 1;
+
+  if (!isLastStep) {
+    // Nästa fråga inom samma kategori
+    setStep(prev => prev + 1);
+  } else if (currentIndex < categoryNames.length - 1) {
+    // Nästa kategori
+    const nextCategory = categoryNames[currentIndex + 1];
+    setCompletedCategories([...completedCategories, category]);
+    setCategory(nextCategory);
+    setStep(0);
+  } else {
+    // Sista frågan i sista kategorin → kör submit
+    setCompletedCategories([...completedCategories, category]);
+    setSubmitted(true);
+  }
+};
 
   return (
     <div className="carbon-calculator">
