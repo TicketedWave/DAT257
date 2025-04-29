@@ -58,7 +58,7 @@ const categories = {
       max: 14,
       step: 0.5,
       marks: {
-        4.5: 'Efficient',
+        4: 'Efficient',
         14: 'Very Low'
       },
       unit: 'L/100km'
