@@ -146,12 +146,13 @@
 
 .slider::-webkit-slider-thumb {
   appearance: none;
-  width: 1.5rem;
-  height: 1.5rem;
+  width: 2.5rem;
+  height: 2.5rem;
   border-radius: 50%;
-  background: white;
+  background: url('/icon.png') no-repeat center center;
+  background-size: cover;
   cursor: pointer;
-  border: 2px solid #49AB45;
+  border: none; /* Optional: Remove border for a cleaner look */
 }
 
 .slider-value {
