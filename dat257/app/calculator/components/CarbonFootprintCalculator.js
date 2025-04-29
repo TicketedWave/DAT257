@@ -468,7 +468,6 @@ const CarbonFootprintCalculator = () => {
 
 
           {allQuestionsAnswered() && (
-            <div className="calculate-button-container">
               <button
                 type="button"
                 onClick={() => setSubmitted(true)}
@@ -476,7 +475,6 @@ const CarbonFootprintCalculator = () => {
               >
                 Calculate
               </button>
-            </div>
           )}
 
           {/* Always show category buttons under the questions */}
