@@ -444,7 +444,7 @@ const CarbonFootprintCalculator = () => {
                 onChange={handleChange}
                 className="slider"
                 style={{
-                  background: `linear-gradient(to right, #49AB45 0%, #49AB45 ${((formData[currentQuestions[step].name] - currentQuestions[step].min) /
+                  background: `linear-gradient(to right,rgb(0, 188, 177) 3%,rgb(65, 255, 72) ${((formData[currentQuestions[step].name] - currentQuestions[step].min) /
                     (currentQuestions[step].max - currentQuestions[step].min)) * 100
                     }%, #ccc ${((formData[currentQuestions[step].name] - currentQuestions[step].min) /
                       (currentQuestions[step].max - currentQuestions[step].min)) * 100
