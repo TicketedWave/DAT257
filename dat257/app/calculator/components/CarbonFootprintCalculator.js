@@ -393,6 +393,13 @@ const CarbonFootprintCalculator = () => {
     <div className="carbon-calculator">
       {!submitted ? (
         <div className="question-container">
+          <div className="category-icon">
+            <img
+              src={`/${category.toLowerCase()}-icon.svg`}
+              alt={`${category} Icon`}
+              className="category-icon-image"
+            />
+          </div>
           <h2 className="category-name">{category}</h2>
           <h2 className="question-title">{currentQuestions[step].label}</h2>
 
@@ -485,7 +492,7 @@ const CarbonFootprintCalculator = () => {
                   onClick={() => handleCategorySwitch(cat)}
                   className={`category-button ${completedCategories.includes(cat) ? 'completed' : ''}`}
                 >
-                  <img src={`${cat.toLowerCase()}icon.svg`} alt={`${cat} Icon`} className="icon" />
+                  <img src={`${cat.toLowerCase()}-icon.svg`} alt={`${cat} Icon`} className="icon" />
                 </button>
                 <div className="category-progress-container">
                   <div

@@ -58,13 +58,27 @@
 }
 
 .category-button .icon {
-  width: 70%;
+  width: 60%;
   height: auto;
   transition: transform 0.2s ease;
 }
 
 .category-button:hover .icon {
   transform: translateY(-5px); /* Lyfter ikonen lite vid hovring */
+}
+
+.category-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: -5rem; 
+  margin-bottom: -2rem;
+}
+
+.category-icon-image {
+  width: 70px; /* Adjust the size of the icon */
+  height: 70px;
+  object-fit: contain; /* Ensures the icon maintains its aspect ratio */
 }
 
 /* Question styles */
@@ -127,7 +141,7 @@
 }
 
 .question-label {
-  font-size: 0.75rem;
+  font-size: 1rem;
   color: #9ca3af;
 }
 
