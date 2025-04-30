@@ -347,7 +347,7 @@ const CarbonFootprintCalculator = () => {
 
   const handleCategorySwitch = (newCategory) => {
     const allQuestionsAnswered = categories[category].every(
-      (_, index) => formData[categories[category][index].name] > 0
+      (_, index) => formData[categories[category][index].name] > -1
     );
 
     if (allQuestionsAnswered && !completedCategories.includes(category)) {
@@ -385,7 +385,7 @@ const CarbonFootprintCalculator = () => {
     } else {
       // Sista frågan i sista kategorin → kör submit
       setCompletedCategories([...completedCategories, category]);
-      setSubmitted(true);
+      //setSubmitted(true);
     }
   };
 
@@ -452,7 +452,9 @@ const CarbonFootprintCalculator = () => {
                 }}
               />
               <div className="slider-value">
-                {formData[currentQuestions[step].name]} {currentQuestions[step].unit}
+                {formData[currentQuestions[step].name] === -1
+                  ? "Drag the slider"
+                  : `${formData[currentQuestions[step].name]} ${currentQuestions[step].unit}`}
               </div>
             </div>
 
@@ -475,13 +477,15 @@ const CarbonFootprintCalculator = () => {
 
 
           {allQuestionsAnswered() && (
-              <button
-                type="button"
-                onClick={() => setSubmitted(true)}
-                className="calculate-button"
-              >
-                Calculate
-              </button>
+            <button
+              type="button"
+              onClick={() => {
+                setSubmitted(true);
+              }}
+              className="calculate-button"
+            >
+              Calculate
+            </button>
           )}
 
           {/* Always show category buttons under the questions */}
@@ -507,6 +511,7 @@ const CarbonFootprintCalculator = () => {
         </div>
       ) : (
         <>
+
           <div className="results-container">
             <p className="text-xl font-semibold">Your Estimated Carbon Footprint:</p>
             <p className="footprint-value">{calculateCarbonFootprint()} kg CO₂/year</p>
