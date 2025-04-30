@@ -11,6 +11,7 @@ import {
   ReferenceDot,
   ResponsiveContainer,
 } from 'recharts';
+import DownloadCarbonEstimate from './DownloadCarbonData';
 
 const categories = {
   Transportation: [
@@ -530,6 +531,9 @@ const CarbonFootprintCalculator = () => {
           >
             Try Again
           </button>
+
+          {/* Download the data */}
+          <DownloadCarbonEstimate estimate={calculateCarbonFootprint()}/>
         </>
       )}
     </div>
