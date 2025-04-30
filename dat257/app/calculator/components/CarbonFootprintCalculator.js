@@ -509,16 +509,18 @@ const CarbonFootprintCalculator = () => {
                 <p key={index}>{fact}</p>
               ))}
             </div>
-          </div>
-
-          <div className="percentile-text">
+            <div className="percentile-text">
             You emit more CO₂ than approximately{" "}
             <span className="text-green-400 font-bold">{animatedPercentile}%</span>{" "}
             of the world population.
+            <p className="chart-description">Carbon emissions compared to a typical global distribution</p>
+          </div>
           </div>
 
+          
+
           <div className="mt-8">
-            <p className="chart-description">Carbon emissions compared to a typical global distribution</p>
+            
             <div className="chart-container">
               <ResponsiveContainer width="100%" height="100%">
                 <LineChart data={curveData}>
