@@ -6,6 +6,7 @@ const secularOne = Secular_One({
   weight: '400',
   subsets: ['latin'],
   variable: '--font-secular-one',
+  display: 'swap',
 });
 
 const inter = Inter({

@@ -47,7 +47,7 @@ body {
 .text-layer {
   position: absolute;
   font-size: clamp(60px, 10vw, 200px);
-  font-family: var(--font-secular-one);
+  font-family: var(--font-secular-one), sans-serif;
   top: 17%;
   left: 50%;
   transform: translate(-50%, -50%);
