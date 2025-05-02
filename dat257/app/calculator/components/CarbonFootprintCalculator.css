@@ -37,7 +37,7 @@
   color: #ffffff;
   position: relative;
   top: 3vh;
-  font-family: var(--font-secular-one);
+  font-family: var(--font-secular-one), sans-serif;
 }
 
 .category-button {
