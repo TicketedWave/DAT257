@@ -3,22 +3,31 @@
 import React, { useRef } from 'react';
 import { toPng } from 'html-to-image';
 import * as XLSX from 'xlsx';
+import html2canvas from 'html2canvas';
+
 
 const DownloadCarbonEstimate = ({ estimate }) => {
   const ref = useRef(null);
 
-  const downloadPng = async () => {
-    if (!ref.current) return;
-    try {
-      const dataUrl = await toPng(ref.current);
-      const link = document.createElement('a');
-      link.download = 'carbon-estimate.png';
-      link.href = dataUrl;
-      link.click();
-    } catch (error) {
-      console.error('PNG download failed', error);
+  const downloadPng = () => {
+    const exportEl = document.getElementById('pngExportSection');
+    if (!exportEl) {
+      alert('Estimate is not available for export.');
+      return;
     }
+  
+    html2canvas(exportEl).then((canvas) => {
+      const url = canvas.toDataURL('image/png');
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = 'carbon_footprint.png';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    });
   };
+  
+  
 
   const downloadPdf = async () => {
     if (!ref.current) return;
@@ -71,15 +80,23 @@ const DownloadCarbonEstimate = ({ estimate }) => {
   };
 
   return (
-    <div className="p-4">
-      {/* <div
-        ref={ref}
-        className="w-full max-w-md p-6 rounded-lg shadow-lg bg-white text-black text-center mx-auto"
-        style={{ background: '#f4f4f4' }}
-      >
-        <h2 className="text-xl font-semibold mb-2">Your Carbon Emission Estimate</h2>
-        <p className="text-2xl font-bold">{estimate} kg CO₂</p>
-      </div> */}
+    <div className="p-4 mt-12">
+      <div style={{ position: 'absolute', top: '-10000px', left: '-10000px' }}>
+        <div
+          ref={ref}
+          className="w-full max-w-md p-6 rounded-lg shadow-lg bg-white text-black text-center mx-auto"
+          style={{ background: '#f4f4f4' }}
+        >
+          <h2 className="text-xl font-semibold mb-2">Your Carbon Emission Estimate</h2>
+          <p className="text-2xl font-bold">{estimate} kg CO₂</p>
+        </div>
+      </div>
+      <div id="pngExportSection" style={{ position: 'absolute', top: '-9999px', left: '-9999px' }}>
+        <div style={{ padding: '20px', backgroundColor: '#fff', color: '#000' }}>
+          <h2>Your Carbon Footprint Estimate</h2>
+          <p><strong>Total:</strong> {estimate} kg CO₂ per year</p>
+        </div>
+      </div>
 
       <h3 className="text-lg font-semibold mt-6 text-center">
         Download Your Estimate as:
