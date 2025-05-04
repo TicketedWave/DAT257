@@ -15,30 +15,49 @@ export const ResultsView = ({
   percentile,
   curveData,
   closestPoint,
-  onReset
+  onReset,
 }) => {
   return (
     <>
       <div className="results-container">
         <p className="text-xl font-semibold">Your Estimated Carbon Footprint:</p>
-        <p className="footprint-value">{footprint} kg CO₂/year</p>
+        <p
+          data-testid="footprint-value"
+          className="footprint-value"
+        >
+          {footprint} kg CO₂/year
+        </p>
 
-        <div className="fun-facts">
-          {funFacts.map((fact, index) => (
-            <p key={index}>{fact}</p>
+        <div data-testid="fun-facts" className="fun-facts">
+          {funFacts.map((fact, idx) => (
+            <p key={idx} data-testid={`fun-fact-${idx}`}>
+              {fact}
+            </p>
           ))}
         </div>
+
         <div className="percentile-text">
-          You emit more CO₂ than approximately{" "}
-          <span className="text-green-400 font-bold">{percentile}%</span>{" "}
+          You emit more CO₂ than approximately{' '}
+          <span
+            data-testid="percentile-value"
+            className="text-green-400 font-bold"
+          >
+            {percentile}%
+          </span>{' '}
           of the world population.
-          <p className="chart-description">Carbon emissions compared to a typical global distribution</p>
+          <p className="chart-description">
+            Carbon emissions compared to a typical global distribution
+          </p>
         </div>
       </div>
 
       <div className="mt-8">
-        <div className="chart-container">
-          <ResponsiveContainer width="100%" height="100%">
+        <div
+          data-testid="chart-container"
+          className="chart-container"
+          aria-label="carbon-distribution-chart"
+        >
+          <ResponsiveContainer width="100%" height={200}>
             <LineChart data={curveData}>
               <XAxis
                 dataKey="x"
@@ -49,10 +68,22 @@ export const ResultsView = ({
               <YAxis hide domain={[0, 'auto']} />
               <Tooltip
                 formatter={(value) => value.toFixed(5)}
-                labelFormatter={(label) => `${label.toLocaleString()} kg CO₂`}
-                contentStyle={{ backgroundColor: '#1f2937', borderColor: '#4ade80', color: 'white' }}
+                labelFormatter={(label) =>
+                  `${label.toLocaleString()} kg CO₂`
+                }
+                contentStyle={{
+                  backgroundColor: '#1f2937',
+                  borderColor: '#4ade80',
+                  color: 'white',
+                }}
               />
-              <Line type="monotone" dataKey="y" stroke="#4ade80" strokeWidth={3} dot={false} />
+              <Line
+                type="monotone"
+                dataKey="y"
+                stroke="#4ade80"
+                strokeWidth={3}
+                dot={false}
+              />
               <ReferenceDot
                 x={closestPoint.x}
                 y={closestPoint.y}
@@ -74,6 +105,7 @@ export const ResultsView = ({
       </div>
 
       <button
+        data-testid="reset-button"
         className="reset-button"
         onClick={onReset}
       >
