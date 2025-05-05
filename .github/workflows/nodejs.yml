@@ -1,6 +1,5 @@
 name: Node.js CI
 
-# Trigger on every push and commit to any branch
 on:
   push:
     branches:
@@ -33,7 +32,7 @@ jobs:
       run: npm test -- --coverage  # Run Jest with coverage flag to generate a report
 
     - name: Upload Jest coverage to GitHub Actions
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v3  # Updated to the latest version of upload-artifact (v3)
       with:
         name: coverage-report  # Name of the artifact to be uploaded
         path: coverage/lcov-report  # Path to the directory where the Jest coverage report is saved
