@@ -10,7 +10,7 @@ export const CategorySelector = ({
   calculateCategoryProgress,
 }) => {
   return (
-    <div className="category-selector">
+    <div className="category-selection">
       {Object.keys(categories).map((cat) => {
         const isCompleted = completedCategories.includes(cat);
         const progress = categoryProgress
@@ -18,7 +18,7 @@ export const CategorySelector = ({
           : calculateCategoryProgress(cat);
 
         return (
-          <div key={cat} className="category-item">
+          <div key={cat} className="category-button-container">
             <button
               data-testid={`button-${cat}`}
               className={`category-button ${isCompleted ? 'completed' : ''} ${
@@ -26,16 +26,14 @@ export const CategorySelector = ({
               }`}
               onClick={() => onCategoryChange(cat)}
             >
-              {/* Example icon placeholder, replace with actual icon component if needed */}
-              <span data-testid={`icon-${cat}`} className="category-icon">
-                {cat.charAt(0)}
-              </span>
+              
+              <img src={`${cat.toLowerCase()}-icon.svg`} alt={`${cat} Icon`} className="icon" />
             </button>
-            <div className="progress-bar-container">
+            <div className="category-progress-container">
               <div
                 data-testid={`progress-${cat}`}
-                className="progress-bar"
-                style={{ width: `${progress}%` }}
+                className="category-progress-bar"
+                style={{ width: `${calculateCategoryProgress(cat)}%` }}
               />
             </div>
           </div>

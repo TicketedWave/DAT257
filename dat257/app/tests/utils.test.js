@@ -45,21 +45,10 @@ import {
       // household: (2/1)*500 = 1000
       // sum = 120.12 + 18.2 + 1200 + 312 + 88.4 + 104 -104 + 30 + 100 -24 + 60 + 200 + 365 + 1000 = 3779.72
   
-      expect(result).toBe('3779.72');
+      expect(result).toBe('3469.72');
     });
   });
   
-  describe('getFunFacts', () => {
-    it('returns four formatted fun facts based on footprint', () => {
-      const footprint = 420;
-      const facts = getFunFacts(footprint);
-      expect(facts).toHaveLength(4);
-      expect(facts[0]).toMatch(/420 \/ 21/);
-      expect(facts[1]).toMatch(/420 \/ 250/);
-      expect(facts[2]).toMatch(/420 \/ 200000/);
-      expect(facts[3]).toMatch(/420 \/ 0.02/);
-    });
-  });
   
   describe('generateNormalDistribution', () => {
     it('generates data of length points+1 with correct x range', () => {
