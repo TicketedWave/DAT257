@@ -32,7 +32,7 @@ jobs:
       run: npm test -- --coverage  # Run Jest with coverage flag to generate a report
 
     - name: Upload Jest coverage to GitHub Actions
-      uses: actions/upload-artifact@v3  # Updated to the latest version of upload-artifact (v3)
+      uses: actions/upload-artifact@v4  # Updated to v4 for improved performance and features
       with:
         name: coverage-report  # Name of the artifact to be uploaded
         path: coverage/lcov-report  # Path to the directory where the Jest coverage report is saved
