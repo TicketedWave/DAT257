@@ -1,0 +1,39 @@
+name: Node.js CI
+
+# Trigger on every push and commit to any branch
+on:
+  push:
+    branches:
+      - '**'  # Runs on push to any branch
+  pull_request:
+    branches:
+      - '**'  # Runs on pull request for any branch
+
+jobs:
+  test:
+    runs-on: ubuntu-latest  # Use the latest Ubuntu environment for the runner
+
+    strategy:
+      matrix:
+        node-version: [14.x, 16.x]  # Run tests on Node.js versions 14.x and 16.x
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2  # Checks out your code
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: ${{ matrix.node-version }}  # Set up the specified Node version
+
+    - name: Install dependencies
+      run: npm install  # Install the dependencies from package.json
+
+    - name: Run Jest tests with coverage
+      run: npm test -- --coverage  # Run Jest with coverage flag to generate a report
+
+    - name: Upload Jest coverage to GitHub Actions
+      uses: actions/upload-artifact@v2
+      with:
+        name: coverage-report  # Name of the artifact to be uploaded
+        path: coverage/lcov-report  # Path to the directory where the Jest coverage report is saved
