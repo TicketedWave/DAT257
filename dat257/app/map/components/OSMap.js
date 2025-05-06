@@ -14,11 +14,16 @@ function FlyToCountry({ selectedCountry }) {
     if (selectedCountry?.bounds) {
       const bounds = L.geoJSON(selectedCountry.bounds).getBounds();
       map.flyToBounds(bounds);
+      const layer = selectedCountry.bounds.layer;
+      if (layer) {
+        layer.openPopup();
+      }
     }
   }, [selectedCountry, map]);
 
   return null;
 }
+
 
 export default function CO2Map() {
   const [geoData, setGeoData] = useState(null);
@@ -92,10 +97,30 @@ export default function CO2Map() {
         </div>
       `;
       layer.bindPopup(popupContent);
+      feature.layer = layer;
     }
   }
 
   const position = [57.70887, 11.97456]; // Default map center
+
+
+  function CustomZoomControl() {
+    const map = useMap();
+
+    useEffect(() => {
+      const zoomControl = L.control.zoom({
+        position: 'bottomright', // Change this to 'topleft', 'topright', 'bottomleft', or 'bottomright'
+      });
+      zoomControl.addTo(map);
+
+      return () => {
+        map.removeControl(zoomControl); // Clean up on unmount
+      };
+    }, [map]);
+
+    return null;
+  }
+  
 
   return (
     <div style={{ height: '100%', width: '100%', position: 'relative' }}>
@@ -114,6 +139,8 @@ export default function CO2Map() {
         zoom={2}
         style={{ height: '100%', width: '100%' }}
         scrollWheelZoom={true}
+        zoomControl={false} // Disable default zoom contro
+  
       >
         <TileLayer
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -122,6 +149,7 @@ export default function CO2Map() {
         {geoData && <GeoJSON data={geoData} style={style} onEachFeature={onEachFeature} />}
         <Legend getColor={getColor} />
         {selectedCountry && <FlyToCountry selectedCountry={selectedCountry} />}
+        <CustomZoomControl /> {/* Add custom zoom control */}
       </MapContainer>
     </div>
   );
