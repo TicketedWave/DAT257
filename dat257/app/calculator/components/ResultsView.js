@@ -1,4 +1,7 @@
-//import React, { useEffect, useState } from 'react';
+import React from 'react';
+import LineChartComponent from './LineChartComponent';
+import BarChartComponent from './BarChartComponent';
+/*
 import {
   LineChart,
   Line,
@@ -15,6 +18,7 @@ import {
   Legend,
   ResponsiveContainer as BarResponsiveContainer,
 } from 'recharts';
+*/
 
 export const ResultsView = ({
   footprint,
@@ -49,50 +53,7 @@ export const ResultsView = ({
             Carbon emissions compared to a typical global distribution
           </p>
           <div data-testid="chart-container" className="chart-container" aria-label="carbon-distribution-chart">
-            <ResponsiveContainer width="100%" height="100%">
-              <LineChart data={curveData}>
-                <XAxis
-                  dataKey="x"
-                  tick={{ fill: '#ccc', fontSize: 12 }}
-                  tickFormatter={(v) => `${Math.round(v / 1000)}k`}
-                  domain={[0, 20000]}
-                />
-                <YAxis hide domain={[0, 'auto']} />
-                <Tooltip
-                  formatter={(value) => value.toFixed(5)}
-                  labelFormatter={(label) =>
-                    `${label.toLocaleString()} kg CO₂`
-                  }
-                  contentStyle={{
-                    backgroundColor: '#1f2937',
-                    borderColor: '#4ade80',
-                    color: 'white',
-                  }}
-                />
-                <Line
-                  type="monotone"
-                  dataKey="y"
-                  stroke="#4ade80"
-                  strokeWidth={3}
-                  dot={false}
-                />
-                <ReferenceDot
-                  x={closestPoint.x}
-                  y={closestPoint.y}
-                  r={8}
-                  fill="#ffffff"
-                  stroke="#4ade80"
-                  strokeWidth={3}
-                  isFront
-                  label={{
-                    value: 'You',
-                    position: 'top',
-                    fill: '#fff',
-                    fontSize: 12,
-                  }}
-                />
-              </LineChart>
-            </ResponsiveContainer>
+            <LineChartComponent data={curveData} closestPoint={closestPoint} />
           </div>
           <div className="percentile-text">
             You emit more CO₂ than approximately{' '}
@@ -108,42 +69,7 @@ export const ResultsView = ({
             How your footprint compares globally
           </p>
           <div className="bar-container">
-            <ResponsiveContainer width="100%" height="100%">
-              <BarChart
-                data={barChartData}
-                margin={{ top: 0, right: 30, left: 0, bottom: 10 }}
-              >
-                <XAxis dataKey="name" tick={{ fill: '#ccc', fontSize: 14 }} />
-
-                <YAxis tick={{ fill: '#ccc', fontSize: 14 }} />
-                <Tooltip
-                  formatter={(value) => `${value} kg CO₂`}
-                  labelFormatter={(label) => label}
-                  contentStyle={{
-                    backgroundColor: '#1f2937',
-                    borderColor: '#4ade80',
-                    color: 'white',
-                  }}
-                  cursor={{ fill: 'transparent' }}
-                />
-                <Legend
-                  verticalAlign="top"
-                  align="right"
-                  wrapperStyle={{
-                    paddingBottom: 20,
-                    marginTop: 20,
-                  }}
-                />
-                <Bar
-                  dataKey="emissions"
-                  name="CO₂ emissions per capita"
-                  fill="#4ade80"
-                  radius={[4, 4, 0, 0]}
-                  barSize={30}
-                  activeBar={{ fill: '#ffffff' }}
-                />
-              </BarChart>
-            </ResponsiveContainer>
+          <BarChartComponent data={barChartData} />
           </div>
           <div className="percentile-text"> </div>
         </div>
