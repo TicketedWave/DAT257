@@ -17,7 +17,7 @@ export const categories = {
         name: 'publicTransportPerWeek',
         min: 0,
         max: 7,
-        step: 0.5,
+        step: 1,
         marks: {
           0: 'Never',
           7: 'Every day'
@@ -29,7 +29,7 @@ export const categories = {
         name: 'flightsPerYear',
         min: 0,
         max: 8,
-        step: 0.5,
+        step: 1,
         marks: {
           0: 'None',
           8: '8 or more'
@@ -55,7 +55,7 @@ export const categories = {
         name: 'redMeatPerWeek',
         min: 0,
         max: 6,
-        step: 0.5,
+        step: 1,
         marks: {
           0: 'Never',
           6: '5 or more times'
@@ -67,7 +67,7 @@ export const categories = {
         name: 'poultryPerWeek',
         min: 0,
         max: 6,
-        step: 0.5,
+        step: 1,
         marks: {
           0: 'Never',
           6: '5 or more times'
@@ -79,7 +79,7 @@ export const categories = {
         name: 'dairyPerWeek',
         min: 0,
         max: 6,
-        step: 0.5,
+        step: 1,
         marks: {
           0: 'Never',
           6: '5 or more times'
@@ -90,7 +90,7 @@ export const categories = {
         name: 'plantBasedMealsPerWeek',
         min: 0,
         max: 6,
-        step: 0.5,
+        step: 1,
         marks: {
           0: 'Never',
           6: '5 or more times'

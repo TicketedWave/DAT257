@@ -38,7 +38,7 @@ export default function Navbar() {
           </Link>
           
           <Link
-            href="/faq"
+            href="/FAQ"
             className="hover:scale-105 transition-transform duration-300"
             style={linkStyle}
           >
@@ -86,7 +86,7 @@ export default function Navbar() {
             About
           </Link>
           <Link 
-            href="/faq" 
+            href="/FAQ" 
             className="block px-3 py-2 text-gray-700 hover:scale-105 transition-transform duration-300"
           >
             FAQ
