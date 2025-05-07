@@ -1,39 +1,63 @@
 'use client';
-import { MapContainer, TileLayer, GeoJSON } from 'react-leaflet';
+import { MapContainer, TileLayer, GeoJSON, useMap } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import YearSelector from './YearSelector';
-import Legend from './Legend'; 
+import Legend from './Legend';
+import Select from 'react-select';
+import L from 'leaflet';
+
+function FlyToCountry({ selectedCountry }) {
+  const map = useMap();
+
+  useEffect(() => {
+    if (selectedCountry?.bounds) {
+      const bounds = L.geoJSON(selectedCountry.bounds).getBounds();
+      map.flyToBounds(bounds);
+      const layer = selectedCountry.bounds.layer;
+      if (layer) {
+        layer.openPopup();
+      }
+    }
+  }, [selectedCountry, map]);
+
+  return null;
+}
+
 
 export default function CO2Map() {
   const [geoData, setGeoData] = useState(null);
   const [selectedYear, setSelectedYear] = useState(() => {
-    const defaultYear = localStorage.getItem('defaultYear') || 2024; // Retrieve default year from localStorage or use 2024
+    const defaultYear = localStorage.getItem('defaultYear') || 2024;
     return parseInt(defaultYear, 10);
   });
+  const [countryOptions, setCountryOptions] = useState([]);
+  const [selectedCountry, setSelectedCountry] = useState(null);
 
   useEffect(() => {
-    localStorage.setItem('defaultYear', selectedYear); // Save the selected year as the default year
+    localStorage.setItem('defaultYear', selectedYear);
   }, [selectedYear]);
 
   useEffect(() => {
-    // Fetch GeoJSON data for the selected year
     const fetchGeoData = async () => {
       try {
         const response = await fetch(`/countries_total_co2_${selectedYear}.geo.json`);
-        if (!response.ok) {
-          throw new Error(`Failed to fetch data for year ${selectedYear}`);
-        }
+        if (!response.ok) throw new Error(`Failed to fetch data for year ${selectedYear}`);
         const data = await response.json();
-        console.log('Fetched GeoJSON data:', data); // Debugging
         setGeoData(data);
+
+        const options = data.features.map((feature) => ({
+          label: feature.properties.name,
+          value: feature.properties.name,
+          bounds: feature,
+        }));
+        setCountryOptions(options);
       } catch (error) {
         console.error('Error fetching GeoJSON data:', error);
       }
     };
-
     fetchGeoData();
-  }, [selectedYear]); // Refetch data whenever the selected year changes
+  }, [selectedYear]);
 
   function getColor(co2_emission) {
     return co2_emission > 10_000_000_000
@@ -43,9 +67,9 @@ export default function CO2Map() {
       : co2_emission > 1_000_000_000
       ? '#FF6200'
       : co2_emission > 100_000_000
-      ? '#ffd900'
+      ? '#FD8D3F'
       : co2_emission > 10_000_000
-      ? '#FD8D3C'
+      ? '#ffd900'
       : co2_emission > 1_000_000
       ? '#1DF659'
       : co2_emission > 0
@@ -73,27 +97,60 @@ export default function CO2Map() {
         </div>
       `;
       layer.bindPopup(popupContent);
+      feature.layer = layer;
     }
   }
 
   const position = [57.70887, 11.97456]; // Default map center
+
+
+  function CustomZoomControl() {
+    const map = useMap();
+
+    useEffect(() => {
+      const zoomControl = L.control.zoom({
+        position: 'bottomright', // Change this to 'topleft', 'topright', 'bottomleft', or 'bottomright'
+      });
+      zoomControl.addTo(map);
+
+      return () => {
+        map.removeControl(zoomControl); // Clean up on unmount
+      };
+    }, [map]);
+
+    return null;
+  }
+  
+
   return (
     <div style={{ height: '100%', width: '100%', position: 'relative' }}>
+      <div style={{ position: 'absolute', top: 10, right: 10, zIndex: 1000, width: 250 }}>
+        <Select
+          options={countryOptions}
+          value={selectedCountry}
+          onChange={setSelectedCountry}
+          placeholder="Search country..."
+          isClearable
+        />
+      </div>
       <YearSelector selectedYear={selectedYear} onYearChange={setSelectedYear} />
       <MapContainer
         center={position}
         zoom={2}
         style={{ height: '100%', width: '100%' }}
         scrollWheelZoom={true}
+        zoomControl={false} // Disable default zoom contro
+  
       >
         <TileLayer
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           attribution="&copy; OpenStreetMap contributors"
         />
         {geoData && <GeoJSON data={geoData} style={style} onEachFeature={onEachFeature} />}
-        <Legend getColor={getColor} /> {}
+        <Legend getColor={getColor} />
+        {selectedCountry && <FlyToCountry selectedCountry={selectedCountry} />}
+        <CustomZoomControl /> {/* Add custom zoom control */}
       </MapContainer>
     </div>
   );
-  
 }
