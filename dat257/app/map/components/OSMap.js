@@ -60,6 +60,10 @@ export default function CO2Map() {
   }, [selectedYear]);
 
   function getColor(co2_emission) {
+    if (co2_emission === null || co2_emission === undefined) {
+      return '#CCCCCC'; // Grå färg för null
+    }
+  
     return co2_emission > 10_000_000_000
       ? '#AD0000'
       : co2_emission > 5_000_000_000
@@ -72,13 +76,11 @@ export default function CO2Map() {
               ? '#ffd900'
               : co2_emission > 1_000_000
                 ? '#1DF659'
-                : co2_emission > 0
-                  ? '#40CEF5'
-                  : '#CCCCCC';
+                : '#40CEF5'; // Blå för 0–1 000 000
   }
 
   function style(feature) {
-    const co2 = feature.properties?.co2_emission || 0;
+    const co2 = feature.properties?.co2_emission;
     return {
       fillColor: getColor(co2),
       weight: 1,
