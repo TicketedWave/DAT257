@@ -4107,9 +4107,9 @@
       "id": "ATF",
       "properties": {
         "name": "French Southern and Antarctic Lands",
-        "co2_emission": 0,
-        "population": 0,
-        "co2_per_capita": 0
+        "co2_emission": null,
+        "population": null,
+        "co2_per_capita": null
       },
       "geometry": {
         "type": "Polygon",
@@ -18023,9 +18023,9 @@
       "id": "FLK",
       "properties": {
         "name": "Falkland Islands",
-        "co2_emission": 0,
-        "population": 0,
-        "co2_per_capita": 0
+        "co2_emission": null,
+        "population": null,
+        "co2_per_capita": null
       },
       "geometry": {
         "type": "Polygon",
@@ -20398,9 +20398,9 @@
       "id": "GUF",
       "properties": {
         "name": "French Guiana",
-        "co2_emission": 0,
-        "population": 0,
-        "co2_per_capita": 0
+        "co2_emission": null,
+        "population": null,
+        "co2_per_capita": null
       },
       "geometry": {
         "type": "Polygon",
@@ -37215,9 +37215,9 @@
       "id": "ESH",
       "properties": {
         "name": "Western Sahara",
-        "co2_emission": 0,
-        "population": 0,
-        "co2_per_capita": 0
+        "co2_emission": null,
+        "population": null,
+        "co2_per_capita": null
       },
       "geometry": {
         "type": "Polygon",
@@ -38845,9 +38845,9 @@
       "id": "-99",
       "properties": {
         "name": "Somaliland",
-        "co2_emission": 0,
-        "population": 0,
-        "co2_per_capita": 0
+        "co2_emission": null,
+        "population": null,
+        "co2_per_capita": null
       },
       "geometry": {
         "type": "Polygon",
