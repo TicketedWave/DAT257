@@ -152,6 +152,12 @@ export default function CO2Map() {
       <MapContainer
         center={position}
         zoom={2}
+        minZoom={2}
+        maxZoom={20}
+        maxBounds={[
+          [-82, -170], // sydväst (lat, lng)
+          [85, 170],   // nordost (lat, lng)
+        ]}
         style={{ height: '100%', width: '100%' }}
         scrollWheelZoom={true}
         zoomControl={false} // Disable default zoom contro
