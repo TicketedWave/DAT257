@@ -67,9 +67,9 @@ export default function CO2Map() {
       : co2_emission > 1_000_000_000
       ? '#FF6200'
       : co2_emission > 100_000_000
-      ? '#ffd900'
+      ? '#FD8D3F'
       : co2_emission > 10_000_000
-      ? '#FD8D3C'
+      ? '#ffd900'
       : co2_emission > 1_000_000
       ? '#1DF659'
       : co2_emission > 0
