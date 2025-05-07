@@ -5,7 +5,9 @@ import {
   calculateCarbonFootprint,
   getFunFacts,
   generateNormalDistribution,
-  getPercentile
+  getPercentile,
+  fetchCountryData, 
+  prepareBarChartData
 } from './utils';
 import { QuestionSlider } from './QuestionSlider';
 import { CategorySelector } from './CategorySelector';
@@ -21,6 +23,7 @@ const CarbonFootprintCalculator = () => {
   const [category, setCategory] = useState('TRANSPORTATION');
   const [completedCategories, setCompletedCategories] = useState([]);
   const [categoryProgress, setCategoryProgress] = useState({});
+  const [barChartData, setBarChartData] = useState([]);
 
   const currentQuestions = categories[category] || [];
   const currentQuestion = currentQuestions[step];
@@ -41,6 +44,9 @@ const CarbonFootprintCalculator = () => {
     return Object.values(formData).every(value => value > -1);
   };
 
+  const userEmission = calculateCarbonFootprint(formData);
+
+  
   useEffect(() => {
     if (submitted) {
       const target = getPercentile(userEmission);
@@ -58,6 +64,24 @@ const CarbonFootprintCalculator = () => {
       return () => clearInterval(interval);
     }
   }, [submitted]);
+
+  useEffect(() => {
+    if (submitted) {
+      const loadCountryData = async () => {
+        try {
+          const data = await fetchCountryData();
+          const selectedCountries = ['Sweden', 'USA', 'India', 'China', 'Germany', 'Global Average'];
+          const userEmissionObj = { name: 'You', emissions: parseFloat(userEmission) };
+          const preparedData = prepareBarChartData(data, userEmissionObj, selectedCountries);
+          setBarChartData(preparedData);
+        } catch (error) {
+          console.error('Error loading country data:', error);
+          setBarChartData([]);
+        }
+      };
+      loadCountryData();
+    }
+  }, [submitted, userEmission]);
 
   const handleChange = (e) => {
     setFormData({
@@ -105,7 +129,7 @@ const CarbonFootprintCalculator = () => {
     }
   };
 
-  const userEmission = calculateCarbonFootprint(formData);
+  
   const curveData = generateNormalDistribution();
   const closestPoint = curveData.reduce((prev, curr) =>
     Math.abs(curr.x - userEmission) < Math.abs(prev.x - userEmission) ? curr : prev
@@ -175,6 +199,7 @@ const CarbonFootprintCalculator = () => {
             percentile={animatedPercentile}
             curveData={curveData}
             closestPoint={closestPoint}
+            barChartData={barChartData}
             onReset={resetCalculator}
           />
           <DownloadCarbonEstimate estimate={userEmission} />

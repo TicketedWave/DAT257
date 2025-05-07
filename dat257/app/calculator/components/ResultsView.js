@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+//import React, { useEffect, useState } from 'react';
 import {
   LineChart,
   Line,
@@ -16,40 +16,15 @@ import {
   ResponsiveContainer as BarResponsiveContainer,
 } from 'recharts';
 
-import { fetchCountryData, prepareBarChartData } from './utils';
-
 export const ResultsView = ({
   footprint,
   funFacts,
   percentile,
   curveData,
   closestPoint,
+  barChartData,
   onReset,
 }) => {
-  const [countryData, setCountryData] = useState([]);
-
-  useEffect(() => {
-    const loadData = async () => {
-      const data = await fetchCountryData();
-      setCountryData(data);
-    };
-    loadData();
-  }, []);
-
-  const selectedCountries = [
-    'Sweden',
-    'USA',
-    'India',
-    'China',
-    'Germany',
-    'Global Average'
-  ];
-
-  const userEmission = {
-    name: 'You',
-    emissions: parseFloat(footprint)
-  };
-  const barChartData = prepareBarChartData(countryData, userEmission, selectedCountries);
   return (
     <>
       <div className="results-container">
