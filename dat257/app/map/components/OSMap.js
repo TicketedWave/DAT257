@@ -124,7 +124,7 @@ export default function CO2Map() {
 
     useEffect(() => {
       const zoomControl = L.control.zoom({
-        position: 'bottomright', // Change this to 'topleft', 'topright', 'bottomleft', or 'bottomright'
+        position: 'bottomleft', // Change this to 'topleft', 'topright', 'bottomleft', or 'bottomright'
       });
       zoomControl.addTo(map);
 
