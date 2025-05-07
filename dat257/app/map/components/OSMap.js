@@ -63,18 +63,18 @@ export default function CO2Map() {
     return co2_emission > 10_000_000_000
       ? '#AD0000'
       : co2_emission > 5_000_000_000
-      ? '#FF0000'
-      : co2_emission > 1_000_000_000
-      ? '#FF6200'
-      : co2_emission > 100_000_000
-      ? '#FD8D3F'
-      : co2_emission > 10_000_000
-      ? '#ffd900'
-      : co2_emission > 1_000_000
-      ? '#1DF659'
-      : co2_emission > 0
-      ? '#40CEF5'
-      : '#CCCCCC';
+        ? '#FF0000'
+        : co2_emission > 1_000_000_000
+          ? '#FF6200'
+          : co2_emission > 100_000_000
+            ? '#FD8D3F'
+            : co2_emission > 10_000_000
+              ? '#ffd900'
+              : co2_emission > 1_000_000
+                ? '#1DF659'
+                : co2_emission > 0
+                  ? '#40CEF5'
+                  : '#CCCCCC';
   }
 
   function style(feature) {
@@ -90,12 +90,22 @@ export default function CO2Map() {
 
   function onEachFeature(feature, layer) {
     if (feature.properties) {
+      const name = feature.properties.name || 'Unknown';
+      const co2 = feature.properties.co2_emission?.toLocaleString() || 'No data';
+      const population = feature.properties.population?.toLocaleString() || 'No data';
+      const co2PerCapita = feature.properties.co2_per_capita != null
+        ? `${feature.properties.co2_per_capita.toLocaleString()} kg`
+        : 'No data';
+
       const popupContent = `
         <div>
-          <h3>${feature.properties.name}</h3>
-          <p>CO2 Emissions: ${feature.properties.co2_emission || 'No data'} tons</p>
+        <h3 style="font-size: 1.5em; margin: 0 0 0.5em 0;">${name}</h3>
+          <p><strong>CO₂ Emissions:</strong> ${co2} tons</p>
+          <p><strong>Population:</strong> ${population}</p>
+          <p><strong>CO₂ per capita:</strong> ${co2PerCapita}</p>
         </div>
       `;
+
       layer.bindPopup(popupContent);
       feature.layer = layer;
     }
@@ -120,7 +130,7 @@ export default function CO2Map() {
 
     return null;
   }
-  
+
 
   return (
     <div style={{ height: '100%', width: '100%', position: 'relative' }}>
@@ -140,7 +150,7 @@ export default function CO2Map() {
         style={{ height: '100%', width: '100%' }}
         scrollWheelZoom={true}
         zoomControl={false} // Disable default zoom contro
-  
+
       >
         <TileLayer
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
