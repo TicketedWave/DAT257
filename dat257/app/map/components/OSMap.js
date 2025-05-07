@@ -155,8 +155,8 @@ export default function CO2Map() {
         minZoom={2}
         maxZoom={20}
         maxBounds={[
-          [-82, -170], // sydväst (lat, lng)
-          [85, 170],   // nordost (lat, lng)
+          [-82, -180], // sydväst (lat, lng)
+          [85, 180],   // nordost (lat, lng)
         ]}
         style={{ height: '100%', width: '100%' }}
         scrollWheelZoom={true}
