@@ -6,7 +6,9 @@
       "id": "AFG",
       "properties": {
         "name": "Afghanistan",
-        "co2_emission": 11606000
+        "co2_emission": 11606000,
+        "population": 39068978,
+        "co2_per_capita": 297.06
       },
       "geometry": {
         "type": "Polygon",
@@ -297,7 +299,9 @@
       "id": "AGO",
       "properties": {
         "name": "Angola",
-        "co2_emission": 16533000
+        "co2_emission": 16533000,
+        "population": 33451140,
+        "co2_per_capita": 494.24
       },
       "geometry": {
         "type": "MultiPolygon",
@@ -618,7 +622,9 @@
       "id": "ALB",
       "properties": {
         "name": "Albania",
-        "co2_emission": 4711000
+        "co2_emission": 4711000,
+        "population": 2871951,
+        "co2_per_capita": 1640.35
       },
       "geometry": {
         "type": "Polygon",
@@ -721,7 +727,9 @@
       "id": "ARE",
       "properties": {
         "name": "United Arab Emirates",
-        "co2_emission": 217380000
+        "co2_emission": 217380000,
+        "population": 9448529,
+        "co2_per_capita": 23006.76
       },
       "geometry": {
         "type": "Polygon",
@@ -824,7 +832,9 @@
       "id": "ARG",
       "properties": {
         "name": "Argentina",
-        "co2_emission": 165121000
+        "co2_emission": 165121000,
+        "population": 45191960,
+        "co2_per_capita": 3653.77
       },
       "geometry": {
         "type": "MultiPolygon",
@@ -1329,7 +1339,9 @@
       "id": "ARM",
       "properties": {
         "name": "Armenia",
-        "co2_emission": 6795000
+        "co2_emission": 6795000,
+        "population": 2890894,
+        "co2_per_capita": 2350.48
       },
       "geometry": {
         "type": "Polygon",
@@ -1424,7 +1436,9 @@
       "id": "ATA",
       "properties": {
         "name": "Antarctica",
-        "co2_emission": 0
+        "co2_emission": 0,
+        "population": 0,
+        "co2_per_capita": 0.0
       },
       "geometry": {
         "type": "MultiPolygon",
@@ -4093,7 +4107,9 @@
       "id": "ATF",
       "properties": {
         "name": "French Southern and Antarctic Lands",
-        "co2_emission": 0
+        "co2_emission": 0,
+        "population": 0,
+        "co2_per_capita": 0
       },
       "geometry": {
         "type": "Polygon",
@@ -4144,7 +4160,9 @@
       "id": "AUS",
       "properties": {
         "name": "Australia",
-        "co2_emission": 399184000
+        "co2_emission": 399184000,
+        "population": 25743787,
+        "co2_per_capita": 15506.03
       },
       "geometry": {
         "type": "MultiPolygon",
@@ -5129,7 +5147,9 @@
       "id": "AUT",
       "properties": {
         "name": "Austria",
-        "co2_emission": 62176000
+        "co2_emission": 62176000,
+        "population": 8921402,
+        "co2_per_capita": 6969.31
       },
       "geometry": {
         "type": "Polygon",
@@ -5292,7 +5312,9 @@
       "id": "AZE",
       "properties": {
         "name": "Azerbaijan",
-        "co2_emission": 36233000
+        "co2_emission": 36233000,
+        "population": 10181736,
+        "co2_per_capita": 3558.63
       },
       "geometry": {
         "type": "MultiPolygon",
@@ -5489,7 +5511,9 @@
       "id": "BDI",
       "properties": {
         "name": "Burundi",
-        "co2_emission": 739000
+        "co2_emission": 739000,
+        "population": 12617042,
+        "co2_per_capita": 58.57
       },
       "geometry": {
         "type": "Polygon",
@@ -5556,7 +5580,9 @@
       "id": "BEL",
       "properties": {
         "name": "Belgium",
-        "co2_emission": 91228000
+        "co2_emission": 91228000,
+        "population": 11540103,
+        "co2_per_capita": 7905.3
       },
       "geometry": {
         "type": "Polygon",
@@ -5631,7 +5657,9 @@
       "id": "BEN",
       "properties": {
         "name": "Benin",
-        "co2_emission": 5518000
+        "co2_emission": 5518000,
+        "population": 13070170,
+        "co2_per_capita": 422.18
       },
       "geometry": {
         "type": "Polygon",
@@ -5746,7 +5774,9 @@
       "id": "BFA",
       "properties": {
         "name": "Burkina Faso",
-        "co2_emission": 5377000
+        "co2_emission": 5377000,
+        "population": 21478692,
+        "co2_per_capita": 250.34
       },
       "geometry": {
         "type": "Polygon",
@@ -5917,7 +5947,9 @@
       "id": "BGD",
       "properties": {
         "name": "Bangladesh",
-        "co2_emission": 95454000
+        "co2_emission": 95454000,
+        "population": 166298024,
+        "co2_per_capita": 573.99
       },
       "geometry": {
         "type": "Polygon",
@@ -6076,7 +6108,9 @@
       "id": "BGR",
       "properties": {
         "name": "Bulgaria",
-        "co2_emission": 36644000
+        "co2_emission": 36644000,
+        "population": 6933654,
+        "co2_per_capita": 5284.95
       },
       "geometry": {
         "type": "Polygon",
@@ -6202,8 +6236,10 @@
       "type": "Feature",
       "id": "BHS",
       "properties": {
-        "name": "Bahamas",
-        "co2_emission": 2033999
+        "name": "The Bahamas",
+        "co2_emission": 2033999,
+        "population": 395874,
+        "co2_per_capita": 5138.0
       },
       "geometry": {
         "type": "MultiPolygon",
@@ -6312,7 +6348,9 @@
       "id": "BIH",
       "properties": {
         "name": "Bosnia and Herzegovina",
-        "co2_emission": 20832000
+        "co2_emission": 20832000,
+        "population": 3299352,
+        "co2_per_capita": 6313.97
       },
       "geometry": {
         "type": "Polygon",
@@ -6415,7 +6453,9 @@
       "id": "BLR",
       "properties": {
         "name": "Belarus",
-        "co2_emission": 59056000
+        "co2_emission": 59056000,
+        "population": 9350943,
+        "co2_per_capita": 6315.51
       },
       "geometry": {
         "type": "Polygon",
@@ -6606,7 +6646,9 @@
       "id": "BLZ",
       "properties": {
         "name": "Belize",
-        "co2_emission": 584000
+        "co2_emission": 584000,
+        "population": 390819,
+        "co2_per_capita": 1494.3
       },
       "geometry": {
         "type": "Polygon",
@@ -6701,7 +6743,9 @@
       "id": "BMU",
       "properties": {
         "name": "Bermuda",
-        "co2_emission": 436000
+        "co2_emission": 436000,
+        "population": 64405,
+        "co2_per_capita": 6769.66
       },
       "geometry": {
         "type": "Polygon",
@@ -7060,7 +7104,9 @@
       "id": "BOL",
       "properties": {
         "name": "Bolivia",
-        "co2_emission": 18312000
+        "co2_emission": 18312000,
+        "population": 11816300,
+        "co2_per_capita": 1549.72
       },
       "geometry": {
         "type": "Polygon",
@@ -7315,7 +7361,9 @@
       "id": "BRA",
       "properties": {
         "name": "Brazil",
-        "co2_emission": 445208000
+        "co2_emission": 445208000,
+        "population": 208660845,
+        "co2_per_capita": 2133.64
       },
       "geometry": {
         "type": "Polygon",
@@ -8142,7 +8190,9 @@
       "id": "BRN",
       "properties": {
         "name": "Brunei",
-        "co2_emission": 11157000
+        "co2_emission": 11157000,
+        "population": 447412,
+        "co2_per_capita": 24936.75
       },
       "geometry": {
         "type": "Polygon",
@@ -8189,7 +8239,9 @@
       "id": "BTN",
       "properties": {
         "name": "Bhutan",
-        "co2_emission": 1250000
+        "co2_emission": 1250000,
+        "population": 770014,
+        "co2_per_capita": 1623.35
       },
       "geometry": {
         "type": "Polygon",
@@ -8256,7 +8308,9 @@
       "id": "BWA",
       "properties": {
         "name": "Botswana",
-        "co2_emission": 5551000
+        "co2_emission": 5551000,
+        "population": 2365895,
+        "co2_per_capita": 2346.26
       },
       "geometry": {
         "type": "Polygon",
@@ -8431,7 +8485,9 @@
       "id": "CAF",
       "properties": {
         "name": "Central African Republic",
-        "co2_emission": 238000
+        "co2_emission": 238000,
+        "population": 5026629,
+        "co2_per_capita": 47.35
       },
       "geometry": {
         "type": "Polygon",
@@ -8694,7 +8750,9 @@
       "id": "CAN",
       "properties": {
         "name": "Canada",
-        "co2_emission": 526582000
+        "co2_emission": 526582000,
+        "population": 38171901,
+        "co2_per_capita": 13795.02
       },
       "geometry": {
         "type": "MultiPolygon",
@@ -11995,7 +12053,9 @@
       "id": "CHE",
       "properties": {
         "name": "Switzerland",
-        "co2_emission": 34228000
+        "co2_emission": 34228000,
+        "population": 8640582,
+        "co2_per_capita": 3961.31
       },
       "geometry": {
         "type": "Polygon",
@@ -12106,7 +12166,9 @@
       "id": "CHL",
       "properties": {
         "name": "Chile",
-        "co2_emission": 80178000
+        "co2_emission": 80178000,
+        "population": 19370619,
+        "co2_per_capita": 4139.16
       },
       "geometry": {
         "type": "MultiPolygon",
@@ -12583,7 +12645,9 @@
       "id": "CHN",
       "properties": {
         "name": "China",
-        "co2_emission": 10905693000
+        "co2_emission": 10905693000,
+        "population": 1426106083,
+        "co2_per_capita": 7647.18
       },
       "geometry": {
         "type": "MultiPolygon",
@@ -13563,8 +13627,10 @@
       "type": "Feature",
       "id": "CIV",
       "properties": {
-        "name": "Cote d'Ivoire",
-        "co2_emission": 11016000
+        "name": "Ivory Coast",
+        "co2_emission": 11016000,
+        "population": 28915452,
+        "co2_per_capita": 380.97
       },
       "geometry": {
         "type": "Polygon",
@@ -13763,7 +13829,9 @@
       "id": "CMR",
       "properties": {
         "name": "Cameroon",
-        "co2_emission": 9716000
+        "co2_emission": 9716000,
+        "population": 26210566,
+        "co2_per_capita": 370.69
       },
       "geometry": {
         "type": "Polygon",
@@ -14021,8 +14089,10 @@
       "type": "Feature",
       "id": "COD",
       "properties": {
-        "name": "Democratic Republic of Congo",
-        "co2_emission": 4302000
+        "name": "Democratic Republic of the Congo",
+        "co2_emission": 4302000,
+        "population": 95989999,
+        "co2_per_capita": 44.82
       },
       "geometry": {
         "type": "Polygon",
@@ -14524,8 +14594,10 @@
       "type": "Feature",
       "id": "COG",
       "properties": {
-        "name": "Congo",
-        "co2_emission": 7677000
+        "name": "Republic of the Congo",
+        "co2_emission": 7677000,
+        "population": 5752791,
+        "co2_per_capita": 1334.48
       },
       "geometry": {
         "type": "Polygon",
@@ -14736,7 +14808,9 @@
       "id": "COL",
       "properties": {
         "name": "Colombia",
-        "co2_emission": 89732000
+        "co2_emission": 89732000,
+        "population": 50629997,
+        "co2_per_capita": 1772.31
       },
       "geometry": {
         "type": "Polygon",
@@ -15151,7 +15225,9 @@
       "id": "CRI",
       "properties": {
         "name": "Costa Rica",
-        "co2_emission": 6771000
+        "co2_emission": 6771000,
+        "population": 5034323,
+        "co2_per_capita": 1344.97
       },
       "geometry": {
         "type": "Polygon",
@@ -15310,7 +15386,9 @@
       "id": "CUB",
       "properties": {
         "name": "Cuba",
-        "co2_emission": 21277000
+        "co2_emission": 21277000,
+        "population": 11176349,
+        "co2_per_capita": 1903.75
       },
       "geometry": {
         "type": "Polygon",
@@ -15490,10 +15568,12 @@
     },
     {
       "type": "Feature",
-      "id": "-99",
+      "id": "CYP",
       "properties": {
         "name": "Northern Cyprus",
-        "co2_emission": 0
+        "co2_emission": 7015000,
+        "population": 1302250,
+        "co2_per_capita": 5386.83
       },
       "geometry": {
         "type": "Polygon",
@@ -15572,7 +15652,9 @@
       "id": "CYP",
       "properties": {
         "name": "Cyprus",
-        "co2_emission": 7015000
+        "co2_emission": 7015000,
+        "population": 1302250,
+        "co2_per_capita": 5386.83
       },
       "geometry": {
         "type": "Polygon",
@@ -15647,7 +15729,9 @@
       "id": "CZE",
       "properties": {
         "name": "Czech Republic",
-        "co2_emission": 0
+        "co2_emission": 91674000,
+        "population": 10550130,
+        "co2_per_capita": 8689.37
       },
       "geometry": {
         "type": "Polygon",
@@ -15802,7 +15886,9 @@
       "id": "DEU",
       "properties": {
         "name": "Germany",
-        "co2_emission": 648357000
+        "co2_emission": 648357000,
+        "population": 83628711,
+        "co2_per_capita": 7752.8
       },
       "geometry": {
         "type": "Polygon",
@@ -16049,7 +16135,9 @@
       "id": "DJI",
       "properties": {
         "name": "Djibouti",
-        "co2_emission": 463000
+        "co2_emission": 463000,
+        "population": 1105194,
+        "co2_per_capita": 418.93
       },
       "geometry": {
         "type": "Polygon",
@@ -16124,7 +16212,9 @@
       "id": "DNK",
       "properties": {
         "name": "Denmark",
-        "co2_emission": 28294000
+        "co2_emission": 28294000,
+        "population": 5831530,
+        "co2_per_capita": 4851.9
       },
       "geometry": {
         "type": "MultiPolygon",
@@ -16241,7 +16331,9 @@
       "id": "DOM",
       "properties": {
         "name": "Dominican Republic",
-        "co2_emission": 27015000
+        "co2_emission": 27015000,
+        "population": 11008297,
+        "co2_per_capita": 2454.06
       },
       "geometry": {
         "type": "Polygon",
@@ -16360,7 +16452,9 @@
       "id": "DZA",
       "properties": {
         "name": "Algeria",
-        "co2_emission": 168178000
+        "co2_emission": 168178000,
+        "population": 44042093,
+        "co2_per_capita": 3818.57
       },
       "geometry": {
         "type": "Polygon",
@@ -16623,7 +16717,9 @@
       "id": "ECU",
       "properties": {
         "name": "Ecuador",
-        "co2_emission": 32909000
+        "co2_emission": 32909000,
+        "population": 17546058,
+        "co2_per_capita": 1875.58
       },
       "geometry": {
         "type": "Polygon",
@@ -16770,7 +16866,9 @@
       "id": "EGY",
       "properties": {
         "name": "Egypt",
-        "co2_emission": 235358000
+        "co2_emission": 235358000,
+        "population": 109315119,
+        "co2_per_capita": 2153.02
       },
       "geometry": {
         "type": "Polygon",
@@ -16953,7 +17051,9 @@
       "id": "ERI",
       "properties": {
         "name": "Eritrea",
-        "co2_emission": 641000
+        "co2_emission": 641000,
+        "population": 3291277,
+        "co2_per_capita": 194.76
       },
       "geometry": {
         "type": "Polygon",
@@ -17080,7 +17180,9 @@
       "id": "ESP",
       "properties": {
         "name": "Spain",
-        "co2_emission": 211843000
+        "co2_emission": 211843000,
+        "population": 47679482,
+        "co2_per_capita": 4443.06
       },
       "geometry": {
         "type": "Polygon",
@@ -17299,7 +17401,9 @@
       "id": "EST",
       "properties": {
         "name": "Estonia",
-        "co2_emission": 9198000
+        "co2_emission": 9198000,
+        "population": 1329674,
+        "co2_per_capita": 6917.49
       },
       "geometry": {
         "type": "Polygon",
@@ -17382,7 +17486,9 @@
       "id": "ETH",
       "properties": {
         "name": "Ethiopia",
-        "co2_emission": 15850000
+        "co2_emission": 15850000,
+        "population": 118917671,
+        "co2_per_capita": 133.29
       },
       "geometry": {
         "type": "Polygon",
@@ -17633,7 +17739,9 @@
       "id": "FIN",
       "properties": {
         "name": "Finland",
-        "co2_emission": 37700000
+        "co2_emission": 37700000,
+        "population": 5529617,
+        "co2_per_capita": 6817.83
       },
       "geometry": {
         "type": "Polygon",
@@ -17800,7 +17908,9 @@
       "id": "FJI",
       "properties": {
         "name": "Fiji",
-        "co2_emission": 1004000
+        "co2_emission": 1004000,
+        "population": 914970,
+        "co2_per_capita": 1097.3
       },
       "geometry": {
         "type": "MultiPolygon",
@@ -17913,7 +18023,9 @@
       "id": "FLK",
       "properties": {
         "name": "Falkland Islands",
-        "co2_emission": 0
+        "co2_emission": 0,
+        "population": 0,
+        "co2_per_capita": 0
       },
       "geometry": {
         "type": "Polygon",
@@ -17968,7 +18080,9 @@
       "id": "FRA",
       "properties": {
         "name": "France",
-        "co2_emission": 280490000
+        "co2_emission": 280490000,
+        "population": 65905273,
+        "co2_per_capita": 4255.96
       },
       "geometry": {
         "type": "MultiPolygon",
@@ -18209,7 +18323,9 @@
       "id": "GAB",
       "properties": {
         "name": "Gabon",
-        "co2_emission": 5625000
+        "co2_emission": 5625000,
+        "population": 2322536,
+        "co2_per_capita": 2421.92
       },
       "geometry": {
         "type": "Polygon",
@@ -18348,7 +18464,9 @@
       "id": "GBR",
       "properties": {
         "name": "United Kingdom",
-        "co2_emission": 326263000
+        "co2_emission": 326263000,
+        "population": 67351860,
+        "co2_per_capita": 4844.16
       },
       "geometry": {
         "type": "MultiPolygon",
@@ -18593,7 +18711,9 @@
       "id": "GEO",
       "properties": {
         "name": "Georgia",
-        "co2_emission": 10575000
+        "co2_emission": 10575000,
+        "population": 3795680,
+        "co2_per_capita": 2786.06
       },
       "geometry": {
         "type": "Polygon",
@@ -18704,7 +18824,9 @@
       "id": "GHA",
       "properties": {
         "name": "Ghana",
-        "co2_emission": 19168000
+        "co2_emission": 19168000,
+        "population": 31887801,
+        "co2_per_capita": 601.11
       },
       "geometry": {
         "type": "Polygon",
@@ -18819,7 +18941,9 @@
       "id": "GIN",
       "properties": {
         "name": "Guinea",
-        "co2_emission": 4499000
+        "co2_emission": 4499000,
+        "population": 13371187,
+        "co2_per_capita": 336.47
       },
       "geometry": {
         "type": "Polygon",
@@ -19114,7 +19238,9 @@
       "id": "GMB",
       "properties": {
         "name": "Gambia",
-        "co2_emission": 700000
+        "co2_emission": 700000,
+        "population": 2515744,
+        "co2_per_capita": 278.25
       },
       "geometry": {
         "type": "Polygon",
@@ -19192,8 +19318,10 @@
       "type": "Feature",
       "id": "GNB",
       "properties": {
-        "name": "Guinea-Bissau",
-        "co2_emission": 297000
+        "name": "Guinea Bissau",
+        "co2_emission": 297000,
+        "population": 2013259,
+        "co2_per_capita": 147.52
       },
       "geometry": {
         "type": "Polygon",
@@ -19284,7 +19412,9 @@
       "id": "GNQ",
       "properties": {
         "name": "Equatorial Guinea",
-        "co2_emission": 6411000
+        "co2_emission": 6411000,
+        "population": 1716479,
+        "co2_per_capita": 3734.97
       },
       "geometry": {
         "type": "Polygon",
@@ -19327,7 +19457,9 @@
       "id": "GRC",
       "properties": {
         "name": "Greece",
-        "co2_emission": 55558000
+        "co2_emission": 55558000,
+        "population": 10699370,
+        "co2_per_capita": 5192.64
       },
       "geometry": {
         "type": "MultiPolygon",
@@ -19564,7 +19696,9 @@
       "id": "GRL",
       "properties": {
         "name": "Greenland",
-        "co2_emission": 537000
+        "co2_emission": 537000,
+        "population": 56105,
+        "co2_per_capita": 9571.34
       },
       "geometry": {
         "type": "Polygon",
@@ -20107,7 +20241,9 @@
       "id": "GTM",
       "properties": {
         "name": "Guatemala",
-        "co2_emission": 17165000
+        "co2_emission": 17165000,
+        "population": 17357331,
+        "co2_per_capita": 988.92
       },
       "geometry": {
         "type": "Polygon",
@@ -20262,7 +20398,9 @@
       "id": "GUF",
       "properties": {
         "name": "French Guiana",
-        "co2_emission": 0
+        "co2_emission": 0,
+        "population": 0,
+        "co2_per_capita": 0
       },
       "geometry": {
         "type": "Polygon",
@@ -20353,7 +20491,9 @@
       "id": "GUY",
       "properties": {
         "name": "Guyana",
-        "co2_emission": 3361000
+        "co2_emission": 3361000,
+        "population": 807487,
+        "co2_per_capita": 4162.3
       },
       "geometry": {
         "type": "Polygon",
@@ -20528,7 +20668,9 @@
       "id": "HND",
       "properties": {
         "name": "Honduras",
-        "co2_emission": 9526000
+        "co2_emission": 9526000,
+        "population": 10119637,
+        "co2_per_capita": 941.34
       },
       "geometry": {
         "type": "Polygon",
@@ -20771,7 +20913,9 @@
       "id": "HRV",
       "properties": {
         "name": "Croatia",
-        "co2_emission": 16882000
+        "co2_emission": 16882000,
+        "population": 3953957,
+        "co2_per_capita": 4269.65
       },
       "geometry": {
         "type": "Polygon",
@@ -20954,7 +21098,9 @@
       "id": "HTI",
       "properties": {
         "name": "Haiti",
-        "co2_emission": 3238000
+        "co2_emission": 3238000,
+        "population": 11243847,
+        "co2_per_capita": 287.98
       },
       "geometry": {
         "type": "Polygon",
@@ -21053,7 +21199,9 @@
       "id": "HUN",
       "properties": {
         "name": "Hungary",
-        "co2_emission": 47107000
+        "co2_emission": 47107000,
+        "population": 9749460,
+        "co2_per_capita": 4831.75
       },
       "geometry": {
         "type": "Polygon",
@@ -21192,7 +21340,9 @@
       "id": "IDN",
       "properties": {
         "name": "Indonesia",
-        "co2_emission": 608223000
+        "co2_emission": 608223000,
+        "population": 274814864,
+        "co2_per_capita": 2213.21
       },
       "geometry": {
         "type": "MultiPolygon",
@@ -22257,7 +22407,9 @@
       "id": "IND",
       "properties": {
         "name": "India",
-        "co2_emission": 2421552000
+        "co2_emission": 2421552000,
+        "population": 1402617692,
+        "co2_per_capita": 1726.45
       },
       "geometry": {
         "type": "Polygon",
@@ -22816,7 +22968,9 @@
       "id": "IRL",
       "properties": {
         "name": "Ireland",
-        "co2_emission": 35124000
+        "co2_emission": 35124000,
+        "population": 4982604,
+        "co2_per_capita": 7049.33
       },
       "geometry": {
         "type": "Polygon",
@@ -22883,7 +23037,9 @@
       "id": "IRN",
       "properties": {
         "name": "Iran",
-        "co2_emission": 756606000
+        "co2_emission": 756606000,
+        "population": 87723446,
+        "co2_per_capita": 8624.9
       },
       "geometry": {
         "type": "Polygon",
@@ -23198,7 +23354,9 @@
       "id": "IRQ",
       "properties": {
         "name": "Iraq",
-        "co2_emission": 161115000
+        "co2_emission": 161115000,
+        "population": 42116604,
+        "co2_per_capita": 3825.45
       },
       "geometry": {
         "type": "Polygon",
@@ -23333,7 +23491,9 @@
       "id": "ISL",
       "properties": {
         "name": "Iceland",
-        "co2_emission": 3341000
+        "co2_emission": 3341000,
+        "population": 366626,
+        "co2_per_capita": 9112.83
       },
       "geometry": {
         "type": "Polygon",
@@ -23428,7 +23588,9 @@
       "id": "ISR",
       "properties": {
         "name": "Israel",
-        "co2_emission": 59156000
+        "co2_emission": 59156000,
+        "population": 8800379,
+        "co2_per_capita": 6721.98
       },
       "geometry": {
         "type": "Polygon",
@@ -23535,7 +23697,9 @@
       "id": "ITA",
       "properties": {
         "name": "Italy",
-        "co2_emission": 302602000
+        "co2_emission": 302602000,
+        "population": 59912763,
+        "co2_per_capita": 5050.71
       },
       "geometry": {
         "type": "MultiPolygon",
@@ -23908,7 +24072,9 @@
       "id": "JAM",
       "properties": {
         "name": "Jamaica",
-        "co2_emission": 6902000
+        "co2_emission": 6902000,
+        "population": 2830746,
+        "co2_per_capita": 2438.23
       },
       "geometry": {
         "type": "Polygon",
@@ -23967,7 +24133,9 @@
       "id": "JOR",
       "properties": {
         "name": "Jordan",
-        "co2_emission": 20960000
+        "co2_emission": 20960000,
+        "population": 10865231,
+        "co2_per_capita": 1929.09
       },
       "geometry": {
         "type": "Polygon",
@@ -24058,7 +24226,9 @@
       "id": "JPN",
       "properties": {
         "name": "Japan",
-        "co2_emission": 1040483000
+        "co2_emission": 1040483000,
+        "population": 126304536,
+        "co2_per_capita": 8237.89
       },
       "geometry": {
         "type": "MultiPolygon",
@@ -24343,7 +24513,9 @@
       "id": "KAZ",
       "properties": {
         "name": "Kazakhstan",
-        "co2_emission": 255486000
+        "co2_emission": 255486000,
+        "population": 19482117,
+        "co2_per_capita": 13113.87
       },
       "geometry": {
         "type": "Polygon",
@@ -24806,7 +24978,9 @@
       "id": "KEN",
       "properties": {
         "name": "Kenya",
-        "co2_emission": 21982000
+        "co2_emission": 21982000,
+        "population": 52217327,
+        "co2_per_capita": 420.97
       },
       "geometry": {
         "type": "Polygon",
@@ -24969,7 +25143,9 @@
       "id": "KGZ",
       "properties": {
         "name": "Kyrgyzstan",
-        "co2_emission": 8348000
+        "co2_emission": 8348000,
+        "population": 6664142,
+        "co2_per_capita": 1252.67
       },
       "geometry": {
         "type": "Polygon",
@@ -25124,7 +25300,9 @@
       "id": "KHM",
       "properties": {
         "name": "Cambodia",
-        "co2_emission": 19034000
+        "co2_emission": 19034000,
+        "population": 16725482,
+        "co2_per_capita": 1138.02
       },
       "geometry": {
         "type": "Polygon",
@@ -25207,7 +25385,9 @@
       "id": "KOR",
       "properties": {
         "name": "South Korea",
-        "co2_emission": 597634000
+        "co2_emission": 597634000,
+        "population": 51858480,
+        "co2_per_capita": 11524.33
       },
       "geometry": {
         "type": "Polygon",
@@ -25298,7 +25478,9 @@
       "id": "CS-KM",
       "properties": {
         "name": "Kosovo",
-        "co2_emission": 8451000
+        "co2_emission": 8451000,
+        "population": 1751415,
+        "co2_per_capita": 4825.24
       },
       "geometry": {
         "type": "Polygon",
@@ -25397,7 +25579,9 @@
       "id": "KWT",
       "properties": {
         "name": "Kuwait",
-        "co2_emission": 95655000
+        "co2_emission": 95655000,
+        "population": 4400146,
+        "co2_per_capita": 21739.05
       },
       "geometry": {
         "type": "Polygon",
@@ -25448,7 +25632,9 @@
       "id": "LAO",
       "properties": {
         "name": "Laos",
-        "co2_emission": 19492000
+        "co2_emission": 19492000,
+        "population": 7346533,
+        "co2_per_capita": 2653.22
       },
       "geometry": {
         "type": "Polygon",
@@ -25611,7 +25797,9 @@
       "id": "LBN",
       "properties": {
         "name": "Lebanon",
-        "co2_emission": 23815000
+        "co2_emission": 23815000,
+        "population": 5702401,
+        "co2_per_capita": 4176.31
       },
       "geometry": {
         "type": "Polygon",
@@ -25670,7 +25858,9 @@
       "id": "LBR",
       "properties": {
         "name": "Liberia",
-        "co2_emission": 780000
+        "co2_emission": 780000,
+        "population": 5149471,
+        "co2_per_capita": 151.47
       },
       "geometry": {
         "type": "Polygon",
@@ -25793,7 +25983,9 @@
       "id": "LBY",
       "properties": {
         "name": "Libya",
-        "co2_emission": 34237000
+        "co2_emission": 34237000,
+        "population": 7045404,
+        "co2_per_capita": 4859.48
       },
       "geometry": {
         "type": "Polygon",
@@ -26032,7 +26224,9 @@
       "id": "LKA",
       "properties": {
         "name": "Sri Lanka",
-        "co2_emission": 20625000
+        "co2_emission": 20625000,
+        "population": 22561807,
+        "co2_per_capita": 914.16
       },
       "geometry": {
         "type": "Polygon",
@@ -26087,7 +26281,9 @@
       "id": "LSO",
       "properties": {
         "name": "Lesotho",
-        "co2_emission": 2173000
+        "co2_emission": 2173000,
+        "population": 2235727,
+        "co2_per_capita": 971.94
       },
       "geometry": {
         "type": "Polygon",
@@ -26150,7 +26346,9 @@
       "id": "LTU",
       "properties": {
         "name": "Lithuania",
-        "co2_emission": 13563000
+        "co2_emission": 13563000,
+        "population": 2795766,
+        "co2_per_capita": 4851.26
       },
       "geometry": {
         "type": "Polygon",
@@ -26241,7 +26439,9 @@
       "id": "LUX",
       "properties": {
         "name": "Luxembourg",
-        "co2_emission": 8074999
+        "co2_emission": 8074999,
+        "population": 630597,
+        "co2_per_capita": 12805.33
       },
       "geometry": {
         "type": "Polygon",
@@ -26284,7 +26484,9 @@
       "id": "LVA",
       "properties": {
         "name": "Latvia",
-        "co2_emission": 6998000
+        "co2_emission": 6998000,
+        "population": 1901119,
+        "co2_per_capita": 3680.99
       },
       "geometry": {
         "type": "Polygon",
@@ -26387,7 +26589,9 @@
       "id": "MAR",
       "properties": {
         "name": "Morocco",
-        "co2_emission": 64563999
+        "co2_emission": 64563999,
+        "population": 36584208,
+        "co2_per_capita": 1764.81
       },
       "geometry": {
         "type": "Polygon",
@@ -26658,7 +26862,9 @@
       "id": "MDA",
       "properties": {
         "name": "Moldova",
-        "co2_emission": 5238000
+        "co2_emission": 5238000,
+        "population": 3069135,
+        "co2_per_capita": 1706.67
       },
       "geometry": {
         "type": "Polygon",
@@ -26781,7 +26987,9 @@
       "id": "MDG",
       "properties": {
         "name": "Madagascar",
-        "co2_emission": 3975000
+        "co2_emission": 3975000,
+        "population": 28953560,
+        "co2_per_capita": 137.29
       },
       "geometry": {
         "type": "Polygon",
@@ -26992,7 +27200,9 @@
       "id": "MEX",
       "properties": {
         "name": "Mexico",
-        "co2_emission": 428940000
+        "co2_emission": 428940000,
+        "population": 126799052,
+        "co2_per_capita": 3382.83
       },
       "geometry": {
         "type": "Polygon",
@@ -27686,8 +27896,10 @@
       "type": "Feature",
       "id": "MKD",
       "properties": {
-        "name": "North Macedonia",
-        "co2_emission": 6962000
+        "name": "Macedonia",
+        "co2_emission": 6962000,
+        "population": 1872021,
+        "co2_per_capita": 3718.98
       },
       "geometry": {
         "type": "Polygon",
@@ -27770,7 +27982,9 @@
       "id": "MLI",
       "properties": {
         "name": "Mali",
-        "co2_emission": 6448000
+        "co2_emission": 6448000,
+        "population": 21713839,
+        "co2_per_capita": 296.95
       },
       "geometry": {
         "type": "Polygon",
@@ -28089,7 +28303,9 @@
       "id": "MLT",
       "properties": {
         "name": "Malta",
-        "co2_emission": 1600000
+        "co2_emission": 1600000,
+        "population": 518213,
+        "co2_per_capita": 3087.53
       },
       "geometry": {
         "type": "MultiPolygon",
@@ -28174,7 +28390,9 @@
       "id": "MMR",
       "properties": {
         "name": "Myanmar",
-        "co2_emission": 34588000
+        "co2_emission": 34588000,
+        "population": 53016525,
+        "co2_per_capita": 652.4
       },
       "geometry": {
         "type": "Polygon",
@@ -28469,7 +28687,9 @@
       "id": "MNE",
       "properties": {
         "name": "Montenegro",
-        "co2_emission": 2407000
+        "co2_emission": 2407000,
+        "population": 607936,
+        "co2_per_capita": 3959.3
       },
       "geometry": {
         "type": "Polygon",
@@ -28556,7 +28776,9 @@
       "id": "MNG",
       "properties": {
         "name": "Mongolia",
-        "co2_emission": 37073000
+        "co2_emission": 37073000,
+        "population": 3290788,
+        "co2_per_capita": 11265.69
       },
       "geometry": {
         "type": "Polygon",
@@ -28871,7 +29093,9 @@
       "id": "MOZ",
       "properties": {
         "name": "Mozambique",
-        "co2_emission": 6376000
+        "co2_emission": 6376000,
+        "population": 30783685,
+        "co2_per_capita": 207.12
       },
       "geometry": {
         "type": "Polygon",
@@ -29194,7 +29418,9 @@
       "id": "MRT",
       "properties": {
         "name": "Mauritania",
-        "co2_emission": 4782000
+        "co2_emission": 4782000,
+        "population": 4600135,
+        "co2_per_capita": 1039.53
       },
       "geometry": {
         "type": "Polygon",
@@ -29365,7 +29591,9 @@
       "id": "MWI",
       "properties": {
         "name": "Malawi",
-        "co2_emission": 1768000
+        "co2_emission": 1768000,
+        "population": 19533886,
+        "co2_per_capita": 90.51
       },
       "geometry": {
         "type": "Polygon",
@@ -29492,7 +29720,9 @@
       "id": "MYS",
       "properties": {
         "name": "Malaysia",
-        "co2_emission": 263199000
+        "co2_emission": 263199000,
+        "population": 33889555,
+        "co2_per_capita": 7766.38
       },
       "geometry": {
         "type": "MultiPolygon",
@@ -29761,7 +29991,9 @@
       "id": "NAM",
       "properties": {
         "name": "Namibia",
-        "co2_emission": 3832000
+        "co2_emission": 3832000,
+        "population": 2728763,
+        "co2_per_capita": 1404.3
       },
       "geometry": {
         "type": "Polygon",
@@ -29952,7 +30184,9 @@
       "id": "NCL",
       "properties": {
         "name": "New Caledonia",
-        "co2_emission": 5109000
+        "co2_emission": 5109000,
+        "population": 284186,
+        "co2_per_capita": 17977.66
       },
       "geometry": {
         "type": "Polygon",
@@ -30019,7 +30253,9 @@
       "id": "NER",
       "properties": {
         "name": "Niger",
-        "co2_emission": 2461000
+        "co2_emission": 2461000,
+        "population": 23717614,
+        "co2_per_capita": 103.76
       },
       "geometry": {
         "type": "Polygon",
@@ -30266,7 +30502,9 @@
       "id": "NGA",
       "properties": {
         "name": "Nigeria",
-        "co2_emission": 129497000
+        "co2_emission": 129497000,
+        "population": 213996186,
+        "co2_per_capita": 605.14
       },
       "geometry": {
         "type": "Polygon",
@@ -30513,7 +30751,9 @@
       "id": "NIC",
       "properties": {
         "name": "Nicaragua",
-        "co2_emission": 4660000
+        "co2_emission": 4660000,
+        "population": 6565267,
+        "co2_per_capita": 709.8
       },
       "geometry": {
         "type": "Polygon",
@@ -30736,7 +30976,9 @@
       "id": "NLD",
       "properties": {
         "name": "Netherlands",
-        "co2_emission": 136670000
+        "co2_emission": 136670000,
+        "population": 17636732,
+        "co2_per_capita": 7749.17
       },
       "geometry": {
         "type": "Polygon",
@@ -30807,7 +31049,9 @@
       "id": "NOR",
       "properties": {
         "name": "Norway",
-        "co2_emission": 41231000
+        "co2_emission": 41231000,
+        "population": 5379274,
+        "co2_per_capita": 7664.79
       },
       "geometry": {
         "type": "MultiPolygon",
@@ -31188,7 +31432,9 @@
       "id": "NPL",
       "properties": {
         "name": "Nepal",
-        "co2_emission": 15632000
+        "co2_emission": 15632000,
+        "population": 28966582,
+        "co2_per_capita": 539.66
       },
       "geometry": {
         "type": "Polygon",
@@ -31295,7 +31541,9 @@
       "id": "NZL",
       "properties": {
         "name": "New Zealand",
-        "co2_emission": 34023000
+        "co2_emission": 34023000,
+        "population": 5069893,
+        "co2_per_capita": 6710.79
       },
       "geometry": {
         "type": "MultiPolygon",
@@ -31580,7 +31828,9 @@
       "id": "OMN",
       "properties": {
         "name": "Oman",
-        "co2_emission": 68625000
+        "co2_emission": 68625000,
+        "population": 4522503,
+        "co2_per_capita": 15174.12
       },
       "geometry": {
         "type": "MultiPolygon",
@@ -31789,7 +32039,9 @@
       "id": "PAK",
       "properties": {
         "name": "Pakistan",
-        "co2_emission": 230754000
+        "co2_emission": 230754000,
+        "population": 235001743,
+        "co2_per_capita": 981.92
       },
       "geometry": {
         "type": "Polygon",
@@ -32068,7 +32320,9 @@
       "id": "PAN",
       "properties": {
         "name": "Panama",
-        "co2_emission": 7250000
+        "co2_emission": 7250000,
+        "population": 4293258,
+        "co2_per_capita": 1688.69
       },
       "geometry": {
         "type": "Polygon",
@@ -32291,7 +32545,9 @@
       "id": "PER",
       "properties": {
         "name": "Peru",
-        "co2_emission": 46925000
+        "co2_emission": 46925000,
+        "population": 32838576,
+        "co2_per_capita": 1428.96
       },
       "geometry": {
         "type": "Polygon",
@@ -32610,7 +32866,9 @@
       "id": "PHL",
       "properties": {
         "name": "Philippines",
-        "co2_emission": 132232000
+        "co2_emission": 132232000,
+        "population": 112081271,
+        "co2_per_capita": 1179.79
       },
       "geometry": {
         "type": "MultiPolygon",
@@ -33091,7 +33349,9 @@
       "id": "PNG",
       "properties": {
         "name": "Papua New Guinea",
-        "co2_emission": 7867000
+        "co2_emission": 7867000,
+        "population": 9815741,
+        "co2_per_capita": 801.47
       },
       "geometry": {
         "type": "MultiPolygon",
@@ -33444,7 +33704,9 @@
       "id": "POL",
       "properties": {
         "name": "Poland",
-        "co2_emission": 302433000
+        "co2_emission": 302433000,
+        "population": 38171005,
+        "co2_per_capita": 7923.11
       },
       "geometry": {
         "type": "Polygon",
@@ -33639,7 +33901,9 @@
       "id": "PRI",
       "properties": {
         "name": "Puerto Rico",
-        "co2_emission": 0
+        "co2_emission": 0,
+        "population": 0,
+        "co2_per_capita": 0
       },
       "geometry": {
         "type": "Polygon",
@@ -33690,7 +33954,9 @@
       "id": "PRK",
       "properties": {
         "name": "North Korea",
-        "co2_emission": 65548000
+        "co2_emission": 65548000,
+        "population": 26136313,
+        "co2_per_capita": 2507.93
       },
       "geometry": {
         "type": "Polygon",
@@ -33877,7 +34143,9 @@
       "id": "PRT",
       "properties": {
         "name": "Portugal",
-        "co2_emission": 41738000
+        "co2_emission": 41738000,
+        "population": 10370519,
+        "co2_per_capita": 4024.68
       },
       "geometry": {
         "type": "Polygon",
@@ -34024,7 +34292,9 @@
       "id": "PRY",
       "properties": {
         "name": "Paraguay",
-        "co2_emission": 7377000
+        "co2_emission": 7377000,
+        "population": 6603742,
+        "co2_per_capita": 1117.09
       },
       "geometry": {
         "type": "Polygon",
@@ -34171,7 +34441,9 @@
       "id": "QAT",
       "properties": {
         "name": "Qatar",
-        "co2_emission": 102501000
+        "co2_emission": 102501000,
+        "population": 2803373,
+        "co2_per_capita": 36563.45
       },
       "geometry": {
         "type": "Polygon",
@@ -34222,7 +34494,9 @@
       "id": "ROU",
       "properties": {
         "name": "Romania",
-        "co2_emission": 73710000
+        "co2_emission": 73710000,
+        "population": 19392469,
+        "co2_per_capita": 3800.96
       },
       "geometry": {
         "type": "Polygon",
@@ -34413,7 +34687,9 @@
       "id": "RUS",
       "properties": {
         "name": "Russia",
-        "co2_emission": 1632929000
+        "co2_emission": 1632929000,
+        "population": 146371293,
+        "co2_per_capita": 11156.07
       },
       "geometry": {
         "type": "MultiPolygon",
@@ -36870,7 +37146,9 @@
       "id": "RWA",
       "properties": {
         "name": "Rwanda",
-        "co2_emission": 1372000
+        "co2_emission": 1372000,
+        "population": 13065839,
+        "co2_per_capita": 105.01
       },
       "geometry": {
         "type": "Polygon",
@@ -36937,7 +37215,9 @@
       "id": "ESH",
       "properties": {
         "name": "Western Sahara",
-        "co2_emission": 0
+        "co2_emission": 0,
+        "population": 0,
+        "co2_per_capita": 0
       },
       "geometry": {
         "type": "Polygon",
@@ -37064,7 +37344,9 @@
       "id": "SAU",
       "properties": {
         "name": "Saudi Arabia",
-        "co2_emission": 616086000
+        "co2_emission": 616086000,
+        "population": 30991205,
+        "co2_per_capita": 19879.38
       },
       "geometry": {
         "type": "Polygon",
@@ -37383,7 +37665,9 @@
       "id": "SDN",
       "properties": {
         "name": "Sudan",
-        "co2_emission": 21165000
+        "co2_emission": 21165000,
+        "population": 46789237,
+        "co2_per_capita": 452.35
       },
       "geometry": {
         "type": "Polygon",
@@ -37714,7 +37998,9 @@
       "id": "SSD",
       "properties": {
         "name": "South Sudan",
-        "co2_emission": 1693000
+        "co2_emission": 1693000,
+        "population": 10698470,
+        "co2_per_capita": 158.25
       },
       "geometry": {
         "type": "Polygon",
@@ -37981,7 +38267,9 @@
       "id": "SEN",
       "properties": {
         "name": "Senegal",
-        "co2_emission": 10821000
+        "co2_emission": 10821000,
+        "population": 16789215,
+        "co2_per_capita": 644.52
       },
       "geometry": {
         "type": "Polygon",
@@ -38172,7 +38460,9 @@
       "id": "SLB",
       "properties": {
         "name": "Solomon Islands",
-        "co2_emission": 289000
+        "co2_emission": 289000,
+        "population": 744507,
+        "co2_per_capita": 388.18
       },
       "geometry": {
         "type": "MultiPolygon",
@@ -38353,7 +38643,9 @@
       "id": "SLE",
       "properties": {
         "name": "Sierra Leone",
-        "co2_emission": 1026000
+        "co2_emission": 1026000,
+        "population": 7912558,
+        "co2_per_capita": 129.67
       },
       "geometry": {
         "type": "Polygon",
@@ -38456,7 +38748,9 @@
       "id": "SLV",
       "properties": {
         "name": "El Salvador",
-        "co2_emission": 6594000
+        "co2_emission": 6594000,
+        "population": 6234680,
+        "co2_per_capita": 1057.63
       },
       "geometry": {
         "type": "Polygon",
@@ -38551,7 +38845,9 @@
       "id": "-99",
       "properties": {
         "name": "Somaliland",
-        "co2_emission": 0
+        "co2_emission": 0,
+        "population": 0,
+        "co2_per_capita": 0
       },
       "geometry": {
         "type": "Polygon",
@@ -38662,7 +38958,9 @@
       "id": "SOM",
       "properties": {
         "name": "Somalia",
-        "co2_emission": 597000
+        "co2_emission": 597000,
+        "population": 16651200,
+        "co2_per_capita": 35.85
       },
       "geometry": {
         "type": "Polygon",
@@ -38820,8 +39118,10 @@
       "type": "Feature",
       "id": "SRB",
       "properties": {
-        "name": "Serbia",
-        "co2_emission": 45170000
+        "name": "Republic of Serbia",
+        "co2_emission": 45170000,
+        "population": 6907817,
+        "co2_per_capita": 6538.97
       },
       "geometry": {
         "type": "Polygon",
@@ -39020,7 +39320,9 @@
       "id": "SUR",
       "properties": {
         "name": "Suriname",
-        "co2_emission": 2918000
+        "co2_emission": 2918000,
+        "population": 612322,
+        "co2_per_capita": 4765.47
       },
       "geometry": {
         "type": "Polygon",
@@ -39139,7 +39441,9 @@
       "id": "SVK",
       "properties": {
         "name": "Slovakia",
-        "co2_emission": 31154000
+        "co2_emission": 31154000,
+        "population": 5455028,
+        "co2_per_capita": 5711.06
       },
       "geometry": {
         "type": "Polygon",
@@ -39286,7 +39590,9 @@
       "id": "SVN",
       "properties": {
         "name": "Slovenia",
-        "co2_emission": 12855000
+        "co2_emission": 12855000,
+        "population": 2102419,
+        "co2_per_capita": 6114.39
       },
       "geometry": {
         "type": "Polygon",
@@ -39373,7 +39679,9 @@
       "id": "SWE",
       "properties": {
         "name": "Sweden",
-        "co2_emission": 36703000
+        "co2_emission": 36703000,
+        "population": 10353680,
+        "co2_per_capita": 3544.92
       },
       "geometry": {
         "type": "MultiPolygon",
@@ -39690,7 +39998,9 @@
       "id": "SWZ",
       "properties": {
         "name": "Eswatini",
-        "co2_emission": 1121000
+        "co2_emission": 1121000,
+        "population": 1192733,
+        "co2_per_capita": 939.86
       },
       "geometry": {
         "type": "Polygon",
@@ -39749,7 +40059,9 @@
       "id": "SYR",
       "properties": {
         "name": "Syria",
-        "co2_emission": 26313000
+        "co2_emission": 26313000,
+        "population": 21049428,
+        "co2_per_capita": 1250.06
       },
       "geometry": {
         "type": "Polygon",
@@ -39872,7 +40184,9 @@
       "id": "TCD",
       "properties": {
         "name": "Chad",
-        "co2_emission": 2356000
+        "co2_emission": 2356000,
+        "population": 17224685,
+        "co2_per_capita": 136.78
       },
       "geometry": {
         "type": "Polygon",
@@ -40119,7 +40433,9 @@
       "id": "TGO",
       "properties": {
         "name": "Togo",
-        "co2_emission": 2439000
+        "co2_emission": 2439000,
+        "population": 8669722,
+        "co2_per_capita": 281.32
       },
       "geometry": {
         "type": "Polygon",
@@ -40210,7 +40526,9 @@
       "id": "THA",
       "properties": {
         "name": "Thailand",
-        "co2_emission": 271923000
+        "co2_emission": 271923000,
+        "population": 71641484,
+        "co2_per_capita": 3795.61
       },
       "geometry": {
         "type": "Polygon",
@@ -40481,7 +40799,9 @@
       "id": "TJK",
       "properties": {
         "name": "Tajikistan",
-        "co2_emission": 9404000
+        "co2_emission": 9404000,
+        "population": 9749310,
+        "co2_per_capita": 964.58
       },
       "geometry": {
         "type": "Polygon",
@@ -40660,7 +40980,9 @@
       "id": "TKM",
       "properties": {
         "name": "Turkmenistan",
-        "co2_emission": 64260000
+        "co2_emission": 64260000,
+        "population": 6949915,
+        "co2_per_capita": 9246.16
       },
       "geometry": {
         "type": "Polygon",
@@ -40890,8 +41212,10 @@
       "type": "Feature",
       "id": "TLS",
       "properties": {
-        "name": "East Timor",
-        "co2_emission": 646000
+        "name": "Timor-Leste",
+        "co2_emission": 646000,
+        "population": 1326051,
+        "co2_per_capita": 487.16
       },
       "geometry": {
         "type": "Polygon",
@@ -40950,7 +41274,9 @@
       "id": "TTO",
       "properties": {
         "name": "Trinidad and Tobago",
-        "co2_emission": 35066000
+        "co2_emission": 35066000,
+        "population": 1481026,
+        "co2_per_capita": 23676.83
       },
       "geometry": {
         "type": "Polygon",
@@ -40997,7 +41323,9 @@
       "id": "TUN",
       "properties": {
         "name": "Tunisia",
-        "co2_emission": 28490000
+        "co2_emission": 28490000,
+        "population": 11974058,
+        "co2_per_capita": 2379.31
       },
       "geometry": {
         "type": "Polygon",
@@ -41136,7 +41464,9 @@
       "id": "TUR",
       "properties": {
         "name": "Turkey",
-        "co2_emission": 412927000
+        "co2_emission": 412927000,
+        "population": 86091691,
+        "co2_per_capita": 4796.36
       },
       "geometry": {
         "type": "MultiPolygon",
@@ -41425,7 +41755,9 @@
       "id": "TWN",
       "properties": {
         "name": "Taiwan",
-        "co2_emission": 272202000
+        "co2_emission": 272202000,
+        "population": 23663460,
+        "co2_per_capita": 11503.05
       },
       "geometry": {
         "type": "Polygon",
@@ -41475,8 +41807,10 @@
       "type": "Feature",
       "id": "TZA",
       "properties": {
-        "name": "Tanzania",
-        "co2_emission": 16250000
+        "name": "United Republic of Tanzania",
+        "co2_emission": 16250000,
+        "population": 60972801,
+        "co2_per_capita": 266.51
       },
       "geometry": {
         "type": "Polygon",
@@ -41687,7 +42021,9 @@
       "id": "UGA",
       "properties": {
         "name": "Uganda",
-        "co2_emission": 5571000
+        "co2_emission": 5571000,
+        "population": 44457149,
+        "co2_per_capita": 125.31
       },
       "geometry": {
         "type": "Polygon",
@@ -41810,7 +42146,9 @@
       "id": "UKR",
       "properties": {
         "name": "Ukraine",
-        "co2_emission": 206824000
+        "co2_emission": 206824000,
+        "population": 44680009,
+        "co2_per_capita": 4629.01
       },
       "geometry": {
         "type": "Polygon",
@@ -42217,7 +42555,9 @@
       "id": "URY",
       "properties": {
         "name": "Uruguay",
-        "co2_emission": 6474000
+        "co2_emission": 6474000,
+        "population": 3398967,
+        "co2_per_capita": 1904.7
       },
       "geometry": {
         "type": "Polygon",
@@ -42316,7 +42656,9 @@
       "id": "USA",
       "properties": {
         "name": "United States of America",
-        "co2_emission": 4714628000
+        "co2_emission": 4714628000,
+        "population": 339436157,
+        "co2_per_capita": 13889.59
       },
       "geometry": {
         "type": "MultiPolygon",
@@ -44141,7 +44483,9 @@
       "id": "UZB",
       "properties": {
         "name": "Uzbekistan",
-        "co2_emission": 109632000
+        "co2_emission": 109632000,
+        "population": 33586372,
+        "co2_per_capita": 3264.18
       },
       "geometry": {
         "type": "Polygon",
@@ -44372,7 +44716,9 @@
       "id": "VEN",
       "properties": {
         "name": "Venezuela",
-        "co2_emission": 80927000
+        "co2_emission": 80927000,
+        "population": 28444078,
+        "co2_per_capita": 2845.13
       },
       "geometry": {
         "type": "Polygon",
@@ -44755,7 +45101,9 @@
       "id": "VNM",
       "properties": {
         "name": "Vietnam",
-        "co2_emission": 362460000
+        "co2_emission": 362460000,
+        "population": 98079196,
+        "co2_per_capita": 3695.58
       },
       "geometry": {
         "type": "Polygon",
@@ -44946,7 +45294,9 @@
       "id": "VUT",
       "properties": {
         "name": "Vanuatu",
-        "co2_emission": 202000
+        "co2_emission": 202000,
+        "population": 298868,
+        "co2_per_capita": 675.88
       },
       "geometry": {
         "type": "MultiPolygon",
@@ -45015,7 +45365,9 @@
       "id": "PSE",
       "properties": {
         "name": "Palestine",
-        "co2_emission": 3327000
+        "co2_emission": 3327000,
+        "population": 5069691,
+        "co2_per_capita": 656.25
       },
       "geometry": {
         "type": "Polygon",
@@ -45066,7 +45418,9 @@
       "id": "YEM",
       "properties": {
         "name": "Yemen",
-        "co2_emission": 10884000
+        "co2_emission": 10884000,
+        "population": 36134868,
+        "co2_per_capita": 301.2
       },
       "geometry": {
         "type": "Polygon",
@@ -45257,7 +45611,9 @@
       "id": "ZAF",
       "properties": {
         "name": "South Africa",
-        "co2_emission": 434067000
+        "co2_emission": 434067000,
+        "population": 60562374,
+        "co2_per_capita": 7167.27
       },
       "geometry": {
         "type": "Polygon",
@@ -45650,7 +46006,9 @@
       "id": "ZMB",
       "properties": {
         "name": "Zambia",
-        "co2_emission": 8144000
+        "co2_emission": 8144000,
+        "population": 19059395,
+        "co2_per_capita": 427.3
       },
       "geometry": {
         "type": "Polygon",
@@ -45909,7 +46267,9 @@
       "id": "ZWE",
       "properties": {
         "name": "Zimbabwe",
-        "co2_emission": 8495000
+        "co2_emission": 8495000,
+        "population": 15526888,
+        "co2_per_capita": 547.12
       },
       "geometry": {
         "type": "Polygon",
