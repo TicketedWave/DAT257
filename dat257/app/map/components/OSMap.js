@@ -91,21 +91,24 @@ export default function CO2Map() {
   function onEachFeature(feature, layer) {
     if (feature.properties) {
       const name = feature.properties.name || 'Unknown';
-      const co2 = feature.properties.co2_emission?.toLocaleString() || 'No data';
-      const population = feature.properties.population?.toLocaleString() || 'No data';
-      const co2PerCapita = feature.properties.co2_per_capita != null
-        ? `${feature.properties.co2_per_capita.toLocaleString()} kg`
-        : 'No data';
-
+  
+      const co2Emission = feature.properties.co2_emission;
+      const population = feature.properties.population;
+      const co2PerCapita = feature.properties.co2_per_capita;
+  
+      const co2Text = co2Emission != null ? `${co2Emission.toLocaleString()} tons` : 'No data';
+      const populationText = population != null ? population.toLocaleString() : 'No data';
+      const co2PerCapitaText = co2PerCapita != null ? `${co2PerCapita.toLocaleString()} kg` : 'No data';
+  
       const popupContent = `
         <div>
-        <h3 style="font-size: 1.5em; margin: 0 0 0.5em 0;">${name}</h3>
-          <p><strong>CO₂ Emissions:</strong> ${co2} tons</p>
-          <p><strong>Population:</strong> ${population}</p>
-          <p><strong>CO₂ per capita:</strong> ${co2PerCapita}</p>
+          <h3 style="font-size: 1.8em; margin: 0 0 0.5em 0;">${name}</h3>
+          <p><strong>CO₂ Emissions:</strong> ${co2Text}</p>
+          <p><strong>Population:</strong> ${populationText}</p>
+          <p><strong>CO₂ per capita:</strong> ${co2PerCapitaText}</p>
         </div>
       `;
-
+  
       layer.bindPopup(popupContent);
       feature.layer = layer;
     }
