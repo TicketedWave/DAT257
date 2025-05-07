@@ -47,6 +47,31 @@ export const calculateCarbonFootprint = (formData) => {
     const cdf = 0.5 * (1 + erf(z / Math.sqrt(2)));
     return Math.round(cdf * 100);
   }
+
+  export const fetchCountryData = async () => {
+    const response = await fetch('\countries_total_co2_2023.geo.json');
+    const data = await response.json();
+    return data.features.map((feature) => ({
+      name: feature.properties.name === 'United States of America' ? 'USA' : 
+            feature.properties.name,
+      emissions: feature.properties.co2_per_capita,
+    }));
+  };
+  
+  export const prepareBarChartData = (countryData, userEmission, selectedCountries) => {
+    console.log('All country names:', countryData.map(c => c.name));
+    const filteredCountries = countryData
+      .filter((country) => {
+        const isIncluded = selectedCountries.includes(country.name);
+        if (country.name === 'USA') {
+          console.log('USA found, included:', isIncluded);
+        }
+        return isIncluded;
+      })
+      .sort((a, b) => b.emissions - a.emissions);
+    console.log('Filtered countries:', filteredCountries);
+    return [userEmission, ...filteredCountries];
+  };
   
   function erf(x) {
     const sign = x >= 0 ? 1 : -1;
