@@ -247,8 +247,9 @@
 
 .chart-group {
   flex: 1;
-  min-width: 300px;
-  max-width: 600px;
+  min-width: 20rem;
+  max-width: 38rem;
+  min-height: 10rem;
   display: flex;
   flex-direction: column;
 }
