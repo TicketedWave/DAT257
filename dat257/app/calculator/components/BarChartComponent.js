@@ -39,7 +39,7 @@ const BarChartComponent = ({ data }) => {
                 />
                 <Bar
                     dataKey="emissions"
-                    name="CO₂ emissions per capita"
+                    name="CO₂ emission"
                     fill="#4ade80"
                     radius={[4, 4, 0, 0]}
                     barSize={30}
