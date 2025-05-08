@@ -52,26 +52,27 @@ export const calculateCarbonFootprint = (formData) => {
     const response = await fetch('\countries_total_co2_2023.geo.json');
     const data = await response.json();
     return data.features.map((feature) => ({
-      name: feature.properties.name === 'United States of America' ? 'USA' : 
-            feature.properties.name,
+      id: feature.id,
+      name: feature.properties.name,
       emissions: feature.properties.co2_per_capita,
     }));
   };
   
   export const prepareBarChartData = (countryData, userEmission, selectedCountries) => {
-    console.log('All country names:', countryData.map(c => c.name));
+    if (!countryData || !selectedCountries) return [];
+    
     const filteredCountries = countryData
-      .filter((country) => {
-        const isIncluded = selectedCountries.includes(country.name);
-        if (country.name === 'USA') {
-          console.log('USA found, included:', isIncluded);
-        }
-        return isIncluded;
-      })
-      .sort((a, b) => b.emissions - a.emissions);
-    console.log('Filtered countries:', filteredCountries);
-    return [userEmission, ...filteredCountries];
-  };
+      .filter(country => country && selectedCountries.includes(country.name))
+      .sort((a, b) => (b.emissions || 0) - (a.emissions || 0));
+    
+    const userEmissionObj = { 
+      id: 'YOU', 
+      name: 'You', 
+      emissions: parseFloat(userEmission) || 0  // Default to 0 if parsing fails
+    };
+    
+    return [userEmissionObj, ...filteredCountries];
+};
   
   function erf(x) {
     const sign = x >= 0 ? 1 : -1;

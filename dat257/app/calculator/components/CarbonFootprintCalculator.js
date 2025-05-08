@@ -70,9 +70,9 @@ const CarbonFootprintCalculator = () => {
       const loadCountryData = async () => {
         try {
           const data = await fetchCountryData();
-          const selectedCountries = ['Sweden', 'USA', 'India', 'China', 'Germany', 'Global Average'];
-          const userEmissionObj = { name: 'You', emissions: parseFloat(userEmission) };
-          const preparedData = prepareBarChartData(data, userEmissionObj, selectedCountries);
+          const selectedCountries = ['Sweden', 'United States of America', 'India', 'China', 'Germany'];
+          //const userEmissionObj = { name: 'You', emissions: parseFloat(userEmission) };
+          const preparedData = prepareBarChartData(data, userEmission, selectedCountries);
           setBarChartData(preparedData);
         } catch (error) {
           console.error('Error loading country data:', error);
