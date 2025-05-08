@@ -1,24 +1,6 @@
 import React from 'react';
 import LineChartComponent from './LineChartComponent';
 import BarChartComponent from './BarChartComponent';
-/*
-import {
-  LineChart,
-  Line,
-  XAxis,
-  YAxis,
-  Tooltip,
-  ReferenceDot,
-  ResponsiveContainer,
-} from 'recharts';
-
-import {
-  BarChart,
-  Bar,
-  Legend,
-  ResponsiveContainer as BarResponsiveContainer,
-} from 'recharts';
-*/
 
 export const ResultsView = ({
   footprint,
