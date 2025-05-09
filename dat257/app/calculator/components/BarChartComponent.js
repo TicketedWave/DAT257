@@ -10,7 +10,7 @@ import {
     Cell,
 } from 'recharts';
 
-const BarChartComponent = ({ data }) => {
+const BarChartComponent = ({ data, userCountry }) => {
     return (
         <ResponsiveContainer width="100%" height="100%">
             <BarChart
@@ -58,7 +58,11 @@ const BarChartComponent = ({ data }) => {
                     {data.map((entry, index) => (
                         <Cell
                             key={`cell-${index}`}
-                            fill={entry.id === 'YOU' ? '#4ade80' : '#4ade80'}
+                            fill={
+                                entry.id === 'YOU' ? '#4ade80' :
+                                    userCountry && entry.name === userCountry ? '#4ade80' : 
+                                        '#4ade80'
+                            }
                         />
                     ))}
                 </Bar>

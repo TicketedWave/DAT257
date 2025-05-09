@@ -58,20 +58,57 @@ export const calculateCarbonFootprint = (formData) => {
     }));
   };
   
-  export const prepareBarChartData = (countryData, userEmission, selectedCountries) => {
+  export const prepareBarChartData = (
+    countryData,
+    userEmission,
+    selectedCountries,
+    userCountry = null
+  ) => {
     if (!countryData || !selectedCountries) return [];
   
     const userEmissionObj = {
       id: 'YOU',
       name: 'You',
-      emissions: parseFloat(userEmission) || 0
+      emissions: parseFloat(userEmission) || 0,
+      isUser: true,
     };
   
+    const countriesToShow = userCountry
+      ? [...new Set([...selectedCountries, userCountry])]
+      : selectedCountries;
+  
     const filteredCountries = countryData
-      .filter(country => selectedCountries.includes(country.name))
+      .filter(country => countriesToShow.includes(country.name))
       .sort((a, b) => (b.emissions || 0) - (a.emissions || 0));
   
-    return [userEmissionObj, ...filteredCountries];
+    // Plocka ut "Your country" separat
+    let yourCountryObj = null;
+    const otherCountries = [];
+  
+    for (const country of filteredCountries) {
+      if (country.name === userCountry) {
+        yourCountryObj = country; // Behåll originalobjektet
+      } else {
+        otherCountries.push(country);
+      }
+    }
+  
+    return [
+      userEmissionObj,
+      ...(yourCountryObj ? [yourCountryObj] : []),
+      ...otherCountries,
+    ];
+  };
+
+  export const detectUserCountry = async () => {
+    try {
+      const response = await fetch('https://ipapi.co/json/');
+      const data = await response.json();
+      return data.country_name;
+    } catch (error) {
+      console.error('Error detecting country:', error);
+      return null;
+    }
   };
   
   function erf(x) {

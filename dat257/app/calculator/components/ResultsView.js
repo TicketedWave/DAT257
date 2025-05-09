@@ -9,6 +9,7 @@ export const ResultsView = ({
   curveData,
   closestPoint,
   barChartData,
+  userCountry,
   onReset,
   onOpenCountrySelector,
 }) => {
@@ -53,7 +54,7 @@ export const ResultsView = ({
           </p>
           
           <div className="bar-container">
-          <BarChartComponent data={barChartData} />
+          <BarChartComponent data={barChartData} userCountry={userCountry}/>
           </div>
           <button 
               onClick={onOpenCountrySelector}

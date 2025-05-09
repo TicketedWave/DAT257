@@ -7,7 +7,8 @@ import {
   generateNormalDistribution,
   getPercentile,
   fetchCountryData, 
-  prepareBarChartData
+  prepareBarChartData,
+  detectUserCountry
 } from './utils';
 import { QuestionSlider } from './QuestionSlider';
 import { CategorySelector } from './CategorySelector';
@@ -33,6 +34,7 @@ const CarbonFootprintCalculator = () => {
     'Germany'
   ]);
   const [allCountries, setAllCountries] = useState([]);
+  const [userCountry, setUserCountry] = useState(null);
 
   const currentQuestions = categories[category] || [];
   const currentQuestion = currentQuestions[step];
@@ -76,11 +78,29 @@ const CarbonFootprintCalculator = () => {
 
   useEffect(() => {
     if (submitted) {
-      const loadCountryData = async () => {
+      const loadData = async () => {
         try {
           const countryData = await fetchCountryData();
+          let detectedCountry;
+          
+          try {
+            detectedCountry = await detectUserCountry();
+          } catch (error) {
+            console.log('Country detection failed, using default countries');
+            detectedCountry = null;
+          }
+          
           setAllCountries(countryData);
-          const preparedData = prepareBarChartData(countryData, userEmission, selectedCountries);
+          if (detectedCountry && !selectedCountries.includes(detectedCountry)) {
+            setSelectedCountries(prev => [...prev, detectedCountry]);
+          }
+          
+          const preparedData = prepareBarChartData(
+            countryData, 
+            userEmission, 
+            [...selectedCountries, detectedCountry].filter(Boolean),  // Säkerställ att det inte blir null
+            detectedCountry
+          );
           setBarChartData(preparedData);
         } catch (error) {
           console.error('Error loading data:', error);
@@ -88,9 +108,9 @@ const CarbonFootprintCalculator = () => {
         }
       };
   
-      loadCountryData();
+      loadData();
     }
-  }, [submitted, userEmission, selectedCountries]); // Added selectedCountries to dependencies
+  }, [submitted, userEmission, selectedCountries]);
 
   const handleCountrySelectionChange = (newSelection) => {
     setSelectedCountries(newSelection);
@@ -217,6 +237,7 @@ const CarbonFootprintCalculator = () => {
             curveData={curveData}
             closestPoint={closestPoint}
             barChartData={barChartData}
+            userCountry={userCountry}
             onReset={resetCalculator}
             onOpenCountrySelector={handleOpenCountrySelector}
           />
