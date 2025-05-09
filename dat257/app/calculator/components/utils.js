@@ -57,22 +57,38 @@ export const calculateCarbonFootprint = (formData) => {
       emissions: feature.properties.co2_per_capita,
     }));
   };
+
+  export const fetchUserCountry = async () => {
+    try {
+      const response = await fetch('https://ipapi.co/json/');
+      const data = await response.json();
+      return data.country_name;
+    } catch (error) {
+      console.error('Failed to fetch user country:', error);
+      return null;
+    }
+  };
   
-  export const prepareBarChartData = (countryData, userEmission, selectedCountries) => {
+  export const prepareBarChartData = (countryData, userEmission, selectedCountries, userCountry) => {
     if (!countryData || !selectedCountries) return [];
-    
-    const filteredCountries = countryData
-      .filter(country => country && selectedCountries.includes(country.name))
-      .sort((a, b) => (b.emissions || 0) - (a.emissions || 0));
-    
-    const userEmissionObj = { 
-      id: 'YOU', 
-      name: 'You', 
-      emissions: parseFloat(userEmission) || 0  // Default to 0 if parsing fails
+  
+    const userEmissionObj = {
+      id: 'YOU',
+      name: 'You',
+      emissions: parseFloat(userEmission) || 0
     };
-    
-    return [userEmissionObj, ...filteredCountries];
-};
+  
+    const filteredCountries = countryData
+      .filter(country => selectedCountries.includes(country.name))
+      .sort((a, b) => (b.emissions || 0) - (a.emissions || 0));
+  
+    const userCountryObj = filteredCountries.find(c => c.name === userCountry);
+    const otherCountries = filteredCountries.filter(c => c.name !== userCountry);
+  
+    return userCountryObj
+      ? [userEmissionObj, userCountryObj, ...otherCountries]
+      : [userEmissionObj, ...filteredCountries];
+  };
   
   function erf(x) {
     const sign = x >= 0 ? 1 : -1;
