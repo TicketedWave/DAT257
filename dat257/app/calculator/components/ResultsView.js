@@ -9,7 +9,6 @@ export const ResultsView = ({
   curveData,
   closestPoint,
   barChartData,
-  userCountry,
   onReset,
 }) => {
   return (
@@ -52,7 +51,7 @@ export const ResultsView = ({
             How your footprint compares globally
           </p>
           <div className="bar-container">
-          <BarChartComponent data={barChartData} userCountry={userCountry} />
+          <BarChartComponent data={barChartData} />
           </div>
           <div className="percentile-text"> </div>
         </div>

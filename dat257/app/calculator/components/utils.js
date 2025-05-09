@@ -57,19 +57,8 @@ export const calculateCarbonFootprint = (formData) => {
       emissions: feature.properties.co2_per_capita,
     }));
   };
-
-  export const fetchUserCountry = async () => {
-    try {
-      const response = await fetch('https://ipapi.co/json/');
-      const data = await response.json();
-      return data.country_name;
-    } catch (error) {
-      console.error('Failed to fetch user country:', error);
-      return null;
-    }
-  };
   
-  export const prepareBarChartData = (countryData, userEmission, selectedCountries, userCountry) => {
+  export const prepareBarChartData = (countryData, userEmission, selectedCountries) => {
     if (!countryData || !selectedCountries) return [];
   
     const userEmissionObj = {
@@ -82,12 +71,7 @@ export const calculateCarbonFootprint = (formData) => {
       .filter(country => selectedCountries.includes(country.name))
       .sort((a, b) => (b.emissions || 0) - (a.emissions || 0));
   
-    const userCountryObj = filteredCountries.find(c => c.name === userCountry);
-    const otherCountries = filteredCountries.filter(c => c.name !== userCountry);
-  
-    return userCountryObj
-      ? [userEmissionObj, userCountryObj, ...otherCountries]
-      : [userEmissionObj, ...filteredCountries];
+    return [userEmissionObj, ...filteredCountries];
   };
   
   function erf(x) {

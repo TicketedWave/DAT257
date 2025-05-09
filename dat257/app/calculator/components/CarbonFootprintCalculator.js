@@ -7,8 +7,7 @@ import {
   generateNormalDistribution,
   getPercentile,
   fetchCountryData, 
-  prepareBarChartData,
-  fetchUserCountry
+  prepareBarChartData
 } from './utils';
 import { QuestionSlider } from './QuestionSlider';
 import { CategorySelector } from './CategorySelector';
@@ -25,7 +24,6 @@ const CarbonFootprintCalculator = () => {
   const [completedCategories, setCompletedCategories] = useState([]);
   const [categoryProgress, setCategoryProgress] = useState({});
   const [barChartData, setBarChartData] = useState([]);
-  const [userCountry, setUserCountry] = useState(null);
 
   const currentQuestions = categories[category] || [];
   const currentQuestion = currentQuestions[step];
@@ -71,19 +69,9 @@ const CarbonFootprintCalculator = () => {
     if (submitted) {
       const loadCountryData = async () => {
         try {
-          const [countryData, userCountry] = await Promise.all([
-            fetchCountryData(),
-            fetchUserCountry()
-          ]);
-
-          setUserCountry(userCountry);
-  
+          const countryData = await fetchCountryData();
           const baseCountries = ['United States of America', 'India', 'China', 'Germany'];
-          const selectedCountries = userCountry
-            ? [userCountry, ...baseCountries.filter(c => c !== userCountry)]
-            : baseCountries;
-  
-          const preparedData = prepareBarChartData(countryData, userEmission, selectedCountries, userCountry);
+          const preparedData = prepareBarChartData(countryData, userEmission, baseCountries);
           setBarChartData(preparedData);
         } catch (error) {
           console.error('Error loading data:', error);
@@ -212,7 +200,6 @@ const CarbonFootprintCalculator = () => {
             curveData={curveData}
             closestPoint={closestPoint}
             barChartData={barChartData}
-            userCountry={userCountry}
             onReset={resetCalculator}
           />
           <DownloadCarbonEstimate estimate={userEmission} />
