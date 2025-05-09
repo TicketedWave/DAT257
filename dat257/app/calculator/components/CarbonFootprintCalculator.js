@@ -14,6 +14,7 @@ import { CategorySelector } from './CategorySelector';
 import { ResultsView } from './ResultsView';
 import DownloadCarbonEstimate from './DownloadCarbonData';
 import './CarbonFootprintCalculator.css';
+import CountrySelector from './CountrySelector';
 
 const CarbonFootprintCalculator = () => {
   const [formData, setFormData] = useState(initialFormData);
@@ -24,6 +25,14 @@ const CarbonFootprintCalculator = () => {
   const [completedCategories, setCompletedCategories] = useState([]);
   const [categoryProgress, setCategoryProgress] = useState({});
   const [barChartData, setBarChartData] = useState([]);
+  const [isCountrySelectorOpen, setIsCountrySelectorOpen] = useState(false);
+  const [selectedCountries, setSelectedCountries] = useState([
+    'United States of America', 
+    'India', 
+    'China', 
+    'Germany'
+  ]);
+  const [allCountries, setAllCountries] = useState([]);
 
   const currentQuestions = categories[category] || [];
   const currentQuestion = currentQuestions[step];
@@ -70,8 +79,8 @@ const CarbonFootprintCalculator = () => {
       const loadCountryData = async () => {
         try {
           const countryData = await fetchCountryData();
-          const baseCountries = ['United States of America', 'India', 'China', 'Germany'];
-          const preparedData = prepareBarChartData(countryData, userEmission, baseCountries);
+          setAllCountries(countryData);
+          const preparedData = prepareBarChartData(countryData, userEmission, selectedCountries);
           setBarChartData(preparedData);
         } catch (error) {
           console.error('Error loading data:', error);
@@ -81,7 +90,15 @@ const CarbonFootprintCalculator = () => {
   
       loadCountryData();
     }
-  }, [submitted, userEmission]);
+  }, [submitted, userEmission, selectedCountries]); // Added selectedCountries to dependencies
+
+  const handleCountrySelectionChange = (newSelection) => {
+    setSelectedCountries(newSelection);
+  };
+
+  const handleOpenCountrySelector = () => {
+    setIsCountrySelectorOpen(true);
+  };
 
   const handleChange = (e) => {
     setFormData({
@@ -201,8 +218,16 @@ const CarbonFootprintCalculator = () => {
             closestPoint={closestPoint}
             barChartData={barChartData}
             onReset={resetCalculator}
+            onOpenCountrySelector={handleOpenCountrySelector}
           />
           <DownloadCarbonEstimate estimate={userEmission} />
+          <CountrySelector
+            allCountries={allCountries}
+            selectedCountries={selectedCountries}
+            onCountrySelectionChange={handleCountrySelectionChange}
+            isOpen={isCountrySelectorOpen}
+            onClose={() => setIsCountrySelectorOpen(false)}
+          />
         </>
       )}
     </div>

@@ -10,6 +10,7 @@ export const ResultsView = ({
   closestPoint,
   barChartData,
   onReset,
+  onOpenCountrySelector,
 }) => {
   return (
     <>
@@ -50,10 +51,17 @@ export const ResultsView = ({
           <p className="chart-description">
             How your footprint compares globally
           </p>
+          
           <div className="bar-container">
           <BarChartComponent data={barChartData} />
           </div>
-          <div className="percentile-text"> </div>
+          <button 
+              onClick={onOpenCountrySelector}
+              className="country-select-button"
+            >
+              Select Countries
+            </button>
+          
         </div>
       </div>
 
