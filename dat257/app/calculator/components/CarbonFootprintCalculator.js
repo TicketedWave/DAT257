@@ -6,7 +6,7 @@ import {
   getFunFacts,
   generateNormalDistribution,
   getPercentile,
-  fetchCountryData, 
+  fetchCountryData,
   prepareBarChartData,
   detectUserCountry
 } from './utils';
@@ -28,9 +28,9 @@ const CarbonFootprintCalculator = () => {
   const [barChartData, setBarChartData] = useState([]);
   const [isCountrySelectorOpen, setIsCountrySelectorOpen] = useState(false);
   const [selectedCountries, setSelectedCountries] = useState([
-    'United States of America', 
-    'India', 
-    'China', 
+    'United States of America',
+    'India',
+    'China',
     'Germany'
   ]);
   const [allCountries, setAllCountries] = useState([]);
@@ -57,7 +57,7 @@ const CarbonFootprintCalculator = () => {
 
   const userEmission = calculateCarbonFootprint(formData);
 
-  
+
   useEffect(() => {
     if (submitted) {
       const target = getPercentile(userEmission);
@@ -82,23 +82,24 @@ const CarbonFootprintCalculator = () => {
         try {
           const countryData = await fetchCountryData();
           let detectedCountry;
-          
+
           try {
             detectedCountry = await detectUserCountry();
           } catch (error) {
             console.log('Country detection failed, using default countries');
             detectedCountry = null;
           }
-          
+
           setAllCountries(countryData);
-          if (detectedCountry && !selectedCountries.includes(detectedCountry)) {
-            setSelectedCountries(prev => [...prev, detectedCountry]);
+          if (detectedCountry) {
+            setUserCountry(detectedCountry);
           }
           
+
           const preparedData = prepareBarChartData(
-            countryData, 
-            userEmission, 
-            [...selectedCountries, detectedCountry].filter(Boolean),  // Säkerställ att det inte blir null
+            countryData,
+            userEmission,
+            selectedCountries,
             detectedCountry
           );
           setBarChartData(preparedData);
@@ -107,10 +108,26 @@ const CarbonFootprintCalculator = () => {
           setBarChartData([]);
         }
       };
-  
+
       loadData();
     }
   }, [submitted, userEmission, selectedCountries]);
+
+  useEffect(() => {
+    const initializeUserCountry = async () => {
+      try {
+        const detectedCountry = await detectUserCountry();
+        if (detectedCountry) {
+          setUserCountry(detectedCountry);
+          setSelectedCountries(prev => [...prev, detectedCountry]);
+        }
+      } catch (error) {
+        console.error('Error detecting country:', error);
+      }
+    };
+  
+    initializeUserCountry();
+  }, []);
 
   const handleCountrySelectionChange = (newSelection) => {
     setSelectedCountries(newSelection);
@@ -166,18 +183,28 @@ const CarbonFootprintCalculator = () => {
     }
   };
 
-  
+
   const curveData = generateNormalDistribution();
   const closestPoint = curveData.reduce((prev, curr) =>
     Math.abs(curr.x - userEmission) < Math.abs(prev.x - userEmission) ? curr : prev
   );
 
-  const resetCalculator = () => {
+  const resetCalculator = async () => {
     setSubmitted(false);
     setStep(0);
     setCategory('TRANSPORTATION');
     setCompletedCategories([]);
     setFormData(initialFormData);
+
+    const defaultCountries = [
+      'United States of America',
+      'India',
+      'China',
+      'Germany',
+      userCountry
+    ].filter(Boolean);
+    
+    setSelectedCountries([...new Set(defaultCountries)]);
   };
 
   return (
@@ -248,6 +275,7 @@ const CarbonFootprintCalculator = () => {
             onCountrySelectionChange={handleCountrySelectionChange}
             isOpen={isCountrySelectorOpen}
             onClose={() => setIsCountrySelectorOpen(false)}
+            userCountry={userCountry}
           />
         </>
       )}

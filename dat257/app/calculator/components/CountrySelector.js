@@ -6,7 +6,8 @@ const CountrySelector = ({
     selectedCountries,
     onCountrySelectionChange,
     isOpen,
-    onClose
+    onClose,
+    userCountry
 }) => {
     const [searchTerm, setSearchTerm] = useState('');
     const [filteredCountries, setFilteredCountries] = useState([]);
@@ -101,7 +102,7 @@ const CountrySelector = ({
                                     onChange={() => handleCountryToggle(country.name)}
                                     className="country-checkbox"
                                 />
-                                {country.name}
+                                {country.name === userCountry ? `${country.name} (your country)` : country.name}
                             </label>
                         </div>
                     ))}
