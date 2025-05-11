@@ -38,7 +38,9 @@ const CarbonFootprintCalculator = () => {
   };
 
   const allQuestionsAnswered = () => {
-    return Object.values(formData).every(value => value > -1);
+    return Object.keys(categories).every(categoryName => 
+      categories[categoryName].every(question => formData[question.name] > -1)
+    );
   };
 
   useEffect(() => {
@@ -91,17 +93,55 @@ const CarbonFootprintCalculator = () => {
     const categoryNames = Object.keys(categories);
     const currentIndex = categoryNames.indexOf(category);
     const isLastStep = step >= currentQuestions.length - 1;
+    const isCurrentCategoryComplete = categories[category].every(
+      question => formData[question.name] > -1
+    );
 
-    if (!isLastStep) {
+    if (!isLastStep && isCurrentCategoryComplete) {
       setStep(prev => prev + 1);
+    } else if (isCurrentCategoryComplete) {
+      setCompletedCategories([...completedCategories, category]);
+      //Check if all categories are completed
+      const allCategoriesCompleted = Object.keys(categories).every(categoryName => 
+        completedCategories.includes(categoryName)
+      );
+      if (allCategoriesCompleted) {
+        setSubmitted(true);
+      } else {
+        //Go to the first incomplete category
+        const incompleteCategory = Object.keys(categories).find(cat =>
+          categories[cat].some(q => formData[q.name] <= -1)
+        );
+        if (incompleteCategory) {
+          setCategory(incompleteCategory);
+          //Also update the step to the correct step based on the incompleted category already answered
+          setStep(categories[incompleteCategory].findIndex(q => formData[q.name] <= -1));
+        }
+
+      }
+
     } else if (currentIndex < categoryNames.length - 1) {
       const nextCategory = categoryNames[currentIndex + 1];
       setCompletedCategories([...completedCategories, category]);
       setCategory(nextCategory);
       setStep(0);
     } else {
-      setCompletedCategories([...completedCategories, category]);
-      setSubmitted(true);
+      const updatedCompleted = [...new Set([...completedCategories, category])];
+      setCompletedCategories(updatedCompleted);
+      console.log("updatedCompleted", updatedCompleted);
+      if (allQuestionsAnswered()) {
+        setSubmitted(true);
+      } else {
+        // Go to the first incomplete category
+        const incompleteCategory = Object.keys(categories).find(cat =>
+          categories[cat].some(q => formData[q.name] <= -1)
+        );
+        console.log(incompleteCategory);
+        if (incompleteCategory) {
+          setCategory("incompleteCategory", incompleteCategory);
+          setStep(0);
+        }
+      }
     }
   };
 
