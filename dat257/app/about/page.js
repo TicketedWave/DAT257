@@ -8,26 +8,26 @@ export default function AboutPage() {
       <Navbar />
     <div className="relative min-h-screen flex flex-col items-start justify-start overflow-hidden">
       {/* Main content */}
-      <main className="flex flex-col justify-start px-8 md:px-0 max-w-3xl mx-auto mt-12 ">
+      <main className="flex flex-col justify-start px-8 md:px-0 max-w-5xl w-2/3 mx-auto mt-12">
         {/* Left column: ABOUT US */}
-          <h1 className="text-5xl md:text-6xl font-bold text-[#C1E5DF] leading-tight tracking-wide mb-2" style={{fontFamily: 'var(--font-secular-one)'}}>ABOUT</h1>
-        <div className="flex flex-row items-start justify-center flex-1 px-8 md:px-0 max-w-3xl mx-auto gap-3">
-        <div className="flex flex-col items-start pr-8 min-w-[110px]">
-          <h2 className="text-5xl md:text-6xl font-bold text-[#C1E5DF]" style={{fontFamily: 'var(--font-secular-one)'}}>US</h2>
+          <h1 className="text-5xl md:text-6xl font-bold text-[#C1E5DF] leading-tight tracking-widest mb-2 pl-8" style={{fontFamily: 'var(--font-secular-one)'}}>ABOUT</h1>
+        <div className="flex flex-row items-start justify-center flex-1  max-w-4xl gap-3">
+        <div className="flex flex-col items-start flex-1 ">
+          <h2 className="text-5xl md:text-6xl font-bold text-[#C1E5DF] ml-7 tracking-widest" style={{fontFamily: 'var(--font-secular-one)'}}>US</h2>
         </div>
         {/* Right column: paragraphs */}
-        <div className="flex flex-col items-start">
+        <div className="flex flex-col items-start flex-7 ">
           <h3 className="text-xl font-bold text-[#1ED760] mb-1">OUR MISSION</h3>
-          <p className="text-[#C1E5DF] mb-4 max-w-xl">
+          <p className="text-[#C1E5DF] mb-4 w-full">
             At Carbon Compass, we are a group of passionate students from Chalmers University of Technology who believe in the power of data and technology to drive positive environmental change. Our mission is simple yet ambitious: to help individuals and communities better understand and reduce their carbon footprints.
           </p>
           <h3 className="text-xl font-bold text-[#1ED760] mb-1">THE PRODUCT</h3>
-          <h3 className="text-l font-bold text-white mb-1">Global Carbon Emission Map</h3>
-          <p className="text-[#C1E5DF] mb-4 max-w-xl">
+          <h3 className="text-l font-bold text-white mb-1 w-full">Global Carbon Emission Map</h3>
+          <p className="text-[#C1E5DF] mb-4 w-full">
             A comprehensive interactive map displaying the carbon emissions of every country. It provides clear data-driven insights into the global landscape of emissions, empowering users to explore, compare, and learn about carbon emissions worldwide.
           </p>
-          <h3 className="text-l font-bold text-white mb-1 mt-4">Carbon Emission Calculator</h3>
-          <p className="text-[#C1E5DF] mb-4 max-w-xl">
+          <h3 className="text-l font-bold text-white mb-1 mt-2">Carbon Emission Calculator</h3>
+          <p className="text-[#C1E5DF] mb-4 w-full">
           A user-friendly tool that enables individuals to calculate their personal carbon emissions based on their daily habits and choices. This calculator offers personalized insights, helping users become more aware of their environmental impact and make informed decisions to reduce it.
           </p>
         </div>
