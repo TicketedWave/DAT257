@@ -226,24 +226,64 @@
 .percentile-text {
   font-size: 0.875rem;
   color: #d1d5db;
+  margin-top: 1rem;
+  text-align: center;
 }
 
 .chart-description {
   font-size: 0.875rem;
-  margin-bottom: -4rem;
+  margin-top: -3rem;
   color: #d1d5db;
+  text-align: center;
 }
 
-.chart-container {
-  top: 50%;
-  position: relative;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 60%;
-  height: 16rem;
+.charts-section {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 2rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.chart-group {
+  flex: 1;
+  min-width: 20rem;
+  max-width: 38rem;
+  min-height: 10rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.chart-container{
+  flex: 1;
+  min-width: 0;
   background-color: rgba(255, 255, 255, 0.05);
   border-radius: 0.75rem;
+  margin-top: 1rem;
   padding: 1rem;
+  height: 16rem;
+} 
+
+.bar-container {
+  flex: 1.5;
+  min-width: 0;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 0.75rem;
+  margin-top: 1rem;
+  padding: 0rem;
+  height: 16rem;
+}
+
+/* Responsiv anpassning för mindre skärmar */
+@media (max-width: 768px) {
+  .charts-side-by-side {
+    flex-direction: column;
+  }
+  
+  .chart-container,
+  .bar-container {
+    width: 100%; /* Full bredd på små skärmar */
+  }
 }
 
 .reset-button {
@@ -347,4 +387,120 @@
 .calculate-button span {
   position: relative;
   z-index: 1;
+}
+
+/* Country Selector Panel */
+.country-select-button {
+  margin-top: 0.6rem;
+  align-self: center;
+  padding: 0.2rem 0.6rem;       /* mindre padding */
+  font-size: 0.875rem;          /* mindre text */
+  border-radius: 0.375rem;      /* lite rundade hörn */
+  background-color: #3b82f6;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+}
+
+.country-select-button:hover {
+  background-color: #2563eb;
+}
+
+.country-selector-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.country-selector-container {
+  width: 24rem; 
+  height: 100vh;
+  background-color: #1f2937;
+  padding: 1.25rem; 
+  overflow-y: auto;
+  box-shadow: -0.125rem 0 0.625rem rgba(0, 0, 0, 0.2); 
+  position: fixed;
+  right: 0;
+  top: 0;
+  transform: translateX(100%);
+  transition: transform 0.3s ease-out;
+  border-radius: 0.375rem;
+}
+
+.country-selector-container.open {
+  transform: translateX(0);
+}
+
+.country-selector-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+.country-selector-title {
+  margin: 0;
+  font-size: 1.125rem; 
+  font-weight: 600;
+  color: white;
+  text-align: center;
+}
+
+.close-button {
+  position: absolute;
+  top: -1rem; 
+  right: -0.5rem; 
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: white;
+}
+
+.close-button:hover {
+  color: #41FF48;
+}
+
+.search-container {
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid #374151;
+}
+
+.search-input {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: white;
+  color: #111827;
+}
+
+.search-input::placeholder {
+  color: #9ca3af;
+}
+
+.countries-list {
+  padding: 0 1.25rem;
+  margin-top: 1rem;
+}
+
+.country-item label {
+  display: flex;
+  align-items: center; 
+}
+
+.country-checkbox {
+  margin-right: 1rem; 
+}
+
+.select-all-container {
+  margin-top: 1rem;
 }
