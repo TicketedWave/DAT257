@@ -28,12 +28,12 @@ export default function FaqPage() {
     {
       question: 'Can I save my results and track changes over time?',
       answer:
-        'Yes, if the platform supports account creation and data tracking, your progress can be saved.',
+        'Yes, you can save your results and track changes over time using our platform.',
     },
     {
-      question: 'Resources',
+      question: 'Sources',
       answer:
-        'Visit government or environmental organization websites for tools and tips.',
+        'https://github.com/owid/co2-data - where we found emissions and population for every country https://github.com/johan/world.geo.json/blob/master/countries.geo.json - coordinates for every country',
     },
   ];
 
