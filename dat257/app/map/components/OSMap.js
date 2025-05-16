@@ -7,6 +7,11 @@ import Legend from './Legend';
 import Select from 'react-select';
 import L from 'leaflet';
 
+/**
+ * The `FlyToCountry` function in JavaScript uses Leaflet to fly to a selected country's bounds and
+ * open a popup if available.
+ * @returns The `FlyToCountry` component is returning `null`.
+ */
 function FlyToCountry({ selectedCountry }) {
   const map = useMap();
 

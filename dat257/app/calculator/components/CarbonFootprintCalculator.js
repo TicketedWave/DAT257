@@ -40,6 +40,14 @@ const CarbonFootprintCalculator = () => {
   const currentQuestion = currentQuestions[step];
   const canProceed = formData[currentQuestion?.name] > -1;
 
+  /**
+   * The function `calculateCategoryProgress` calculates the progress percentage of answered questions
+   * in a specific category.
+   * @param categoryName - The `categoryName` parameter is a string that represents the name of a
+   * category for which you want to calculate the progress.
+   * @returns The function `calculateCategoryProgress` returns the progress percentage of answered
+   * questions in a specific category.
+   */
   const calculateCategoryProgress = (categoryName) => {
     const categoryQuestions = categories[categoryName];
     if (!categoryQuestions) return 0;
@@ -51,6 +59,11 @@ const CarbonFootprintCalculator = () => {
     return (answeredQuestions / categoryQuestions.length) * 100;
   };
 
+/**
+ * The function `allQuestionsAnswered` checks if all questions in each category have been answered in a
+ * form.
+ * @returns The function `allQuestionsAnswered` is returning a boolean value.
+ */
   const allQuestionsAnswered = () => {
     return Object.keys(categories).every(categoryName => 
       categories[categoryName].every(question => formData[question.name] > -1)
@@ -58,6 +71,7 @@ const CarbonFootprintCalculator = () => {
   };
 
   const userEmission = calculateCarbonFootprint(formData);
+
 
 
   useEffect(() => {
@@ -139,6 +153,14 @@ const CarbonFootprintCalculator = () => {
     setIsCountrySelectorOpen(true);
   };
 
+/**
+ * The handleChange function updates a form data object by setting a specific key to the parsed float
+ * value of an input element's value.
+ * @param e - The `e` parameter in the `handleChange` function is an event object that represents the
+ * event being handled, such as a change event on an input field. It contains information about the
+ * event, including the target element that triggered the event (in this case, an input field), and the
+ * value of
+ */
   const handleChange = (e) => {
     setFormData({
       ...formData,
@@ -146,6 +168,13 @@ const CarbonFootprintCalculator = () => {
     });
   };
 
+/**
+ * The `handleCategorySwitch` function checks if all questions in the current category are answered and
+ * updates the completed categories list before switching to a new category and setting the step
+ * progress.
+ * @param newCategory - The `newCategory` parameter in the `handleCategorySwitch` function represents
+ * the category that the user wants to switch to.
+ */
   const handleCategorySwitch = (newCategory) => {
     const allQuestionsAnswered = categories[category].every(
       (_, index) => formData[categories[category][index].name] > -1
@@ -159,6 +188,10 @@ const CarbonFootprintCalculator = () => {
     setStep(categoryProgress[newCategory] || 0);
   };
 
+/**
+ * The function `handleNextQuestion` updates the progress for a specific category and increments the
+ * step count by 1.
+ */
   const handleNextQuestion = () => {
     setCategoryProgress(prevProgress => ({
       ...prevProgress,
@@ -167,6 +200,10 @@ const CarbonFootprintCalculator = () => {
     setStep(prevStep => prevStep + 1);
   };
 
+/**
+ * The function `handleNextCategory` in JavaScript manages the navigation between categories and steps
+ * based on completion status.
+ */
   const handleNextCategory = () => {
     const categoryNames = Object.keys(categories);
     const currentIndex = categoryNames.indexOf(category);
@@ -229,6 +266,10 @@ const CarbonFootprintCalculator = () => {
     Math.abs(curr.x - userEmission) < Math.abs(prev.x - userEmission) ? curr : prev
   );
 
+  /**
+   * The `resetCalculator` function resets various states and sets default countries including the
+   * user's country.
+   */
   const resetCalculator = async () => {
     setSubmitted(false);
     setStep(0);

@@ -9,6 +9,12 @@ import html2canvas from 'html2canvas';
 const DownloadCarbonEstimate = ({ estimate }) => {
   const ref = useRef(null);
 
+/**
+ * The function `downloadPng` generates a PNG image from a specified HTML element and initiates its
+ * download.
+ * @returns If the `exportEl` element is not found, an alert message saying "Estimate is not available
+ * for export." will be displayed, and then the function will return without further execution.
+ */
   const downloadPng = () => {
     const exportEl = document.getElementById('pngExportSection');
     if (!exportEl) {
@@ -29,6 +35,14 @@ const DownloadCarbonEstimate = ({ estimate }) => {
   
   
 
+/**
+ * The `downloadPdf` function asynchronously generates a PDF file from a specified HTML element using
+ * html2pdf.js library with specified options.
+ * @returns The `downloadPdf` function is an asynchronous function that attempts to download a PDF file
+ * based on the specified options. If the `ref.current` is not available, the function will return
+ * early without executing the PDF download logic. If the PDF download is successful, it will save the
+ * PDF file. If there is an error during the process, it will log an error message to the console.
+ */
   const downloadPdf = async () => {
     if (!ref.current) return;
 
@@ -49,6 +63,10 @@ const DownloadCarbonEstimate = ({ estimate }) => {
     }
   };
 
+/**
+ * The `downloadCsv` function generates a CSV file with carbon emission data and prompts the user to
+ * download it.
+ */
   const downloadCsv = () => {
     const csvContent = `Your Carbon Emission,${estimate}\n`;
     const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
@@ -60,6 +78,10 @@ const DownloadCarbonEstimate = ({ estimate }) => {
     URL.revokeObjectURL(url);
   };
 
+/**
+ * The `downloadExcel` function generates and downloads an Excel file containing a carbon emission
+ * estimate.
+ */
   const downloadExcel = () => {
     const worksheet = XLSX.utils.aoa_to_sheet([['Your Carbon Emission', estimate]]);
     const workbook = XLSX.utils.book_new();
