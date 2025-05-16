@@ -38,54 +38,57 @@ export default function FaqPage() {
   ];
 
   return (
-    
-    <div className="min-h-screen bg-[url('/Background.png')] bg-cover bg-center flex items-center justify-center px-4 w-full h-full">
-      <div className="w-[1300px] h-[500px] bg-[#2D2D2D]/90 rounded-2xl flex overflow-hidden shadow-xl">
-        
-        {/* Left Title Panel */}
-        <div className="w-1/3 p-10 flex items-center justify-center bg-transparent">
-          <h1 className="text-6xl font-bold text-[#C1E5DF] leading-tight">
-            Frequently<br />Asked<br />Questions
-          </h1>
-        </div>
+    <div className="w-[1300px] bg-[#2D2D2D]/90 rounded-2xl flex overflow-hidden shadow-xl">
 
-        {/* Right Accordion Panel */}
-        <div className="w-2/3 p-8 overflow-y-auto">
-          {faqs.map((faq, index) => (
-            <div key={index} className="border-b border-gray-600 py-4">
-              <button
-  onClick={() => setOpenIndex(openIndex === index ? -1 : index)}
-  className={`flex justify-between items-center w-full text-left text-white font-medium text-base transition-colors duration-200`}
->
-  <span
-    className={`${
-      openIndex === index ? 'text-green-400' : 'text-white'
-    }`}
-  >
-    {faq.question}
-  </span>
-  <span
-    className={`text-xl transition-colors duration-200 ${
-      openIndex === index ? 'text-green-400' : 'text-white'
-    }`}
-  >
-    {openIndex === index ? '▲' : '▼'}
-  </span>
-</button>
+      {/* Left Title Panel */}
+      <div className="w-1/3 p-10 flex items-center justify-center bg-transparent">
+        <h1 className="text-6xl font-bold text-[#C1E5DF] leading-tight">
+          Frequently<br />Asked<br />Questions
+        </h1>
+      </div>
 
-              {openIndex === index && (
-                <p className="mt-2 text-sm text-gray-300 w-full break-words">
-                {faq.answer}
+      {/* Right Accordion Panel */}
+      <div className="w-2/3 p-8">
+        {faqs.map((faq, index) => (
+          <div key={index} className="border-b border-gray-600 py-4">
+            <button
+              onClick={() => setOpenIndex(openIndex === index ? -1 : index)}
+              className={`flex justify-between items-center w-full text-left text-white font-medium text-base transition-colors duration-200`}
+            >
+              <span
+                className={`${openIndex === index ? 'text-green-400' : 'text-white'}`}
+              >
+                {faq.question}
+              </span>
+              <span
+                className={`text-xl transition-colors duration-200 ${openIndex === index ? 'text-green-400' : 'text-white'}`}
+              >
+                {openIndex === index ? '▲' : '▼'}
+              </span>
+            </button>
+
+            {openIndex === index && (
+              <p className="mt-2 text-sm text-gray-300 w-full break-words">
+                {faq.answer.split(/(https?:\/\/[^\s]+)/g).map((part, i) =>
+                  part.match(/https?:\/\/[^\s]+/) ? (
+                    <a
+                      key={i}
+                      href={part}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-green-400 underline hover:text-green-300"
+                    >
+                      {part}
+                    </a>
+                  ) : (
+                    <span key={i}>{part}</span>
+                  )
+                )}
               </p>
-              )}
-            </div>
-          ))}
-        </div>
+            )}
+          </div>
+        ))}
       </div>
     </div>
   );
 }
-
-
-  
-  

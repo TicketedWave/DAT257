@@ -10,6 +10,15 @@ import {
     Cell,
 } from 'recharts';
 
+/**
+ * The `BarChartComponent` function renders a responsive bar chart with customized axes, tooltips,
+ * legend, and bars colored based on emissions data and user's country.
+ * @returns The `BarChartComponent` functional component is being returned. It renders a responsive bar
+ * chart using the provided data and user's country information. The chart includes X and Y axes,
+ * tooltip with custom formatting, legend, and bars representing CO₂ emissions for different countries.
+ * The color of the bars is customized based on whether the country matches the user's country or if it
+ * represents the user themselves.
+ */
 const BarChartComponent = ({ data, userCountry }) => {
     return (
         <ResponsiveContainer width="100%" height="100%">

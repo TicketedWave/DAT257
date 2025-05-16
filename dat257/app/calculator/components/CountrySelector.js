@@ -12,6 +12,8 @@ const CountrySelector = ({
     const [searchTerm, setSearchTerm] = useState('');
     const [filteredCountries, setFilteredCountries] = useState([]);
 
+/* The `useEffect` hook in the provided code snippet is responsible for updating the
+`filteredCountries` state based on changes to the `searchTerm` and `allCountries` dependencies. */
     useEffect(() => {
         if (allCountries) {
             setFilteredCountries(
@@ -21,6 +23,12 @@ const CountrySelector = ({
         }
     }, [searchTerm, allCountries]);
 
+/**
+ * The `handleCountryToggle` function toggles the selection of a country in a list of selected
+ * countries.
+ * @param countryName - The `countryName` parameter is a string representing the name of a country that
+ * the user wants to toggle the selection for.
+ */
     const handleCountryToggle = (countryName) => {
         const newSelection = selectedCountries.includes(countryName)
             ? selectedCountries.filter(name => name !== countryName)
@@ -33,6 +41,10 @@ const CountrySelector = ({
         selectedCountries.includes(country.name)
     );
 
+    /**
+     * The `handleToggleAll` function toggles the selection of all filtered countries based on the
+     * current selection state.
+     */
     const handleToggleAll = () => {
         if (areAllFilteredSelected) {
             // Unselect all filtered

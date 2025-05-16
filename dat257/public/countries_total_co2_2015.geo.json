@@ -15571,9 +15571,9 @@
       "id": "-88",
       "properties": {
         "name": "Northern Cyprus",
-        "co2_emission": 6973000,
-        "population": 1219504,
-        "co2_per_capita": 5717.9
+        "co2_emission": null,
+        "population": null,
+        "co2_per_capita": null
       },
       "geometry": {
         "type": "Polygon",
