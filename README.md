@@ -1,8 +1,31 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Carbon Compass 🌱
+
+A web application to help you understand and reduce your carbon footprint.
+
+Visit the live website at [dat257.vercel.app](https://dat257.vercel.app)
+
+## Prerequisites
+
+Before you begin, ensure you have the following installed on your computer:
+
+- [Node.js](https://nodejs.org/) (which includes npm)
+
+You can verify your installation by running:
+
+```bash
+node --version
+npm --version
+```
 
 ## Getting Started
 
-First, run the development server:
+First, navigate to the project directory:
+
+```bash
+cd dat257
+```
+
+Then, run the development server:
 
 ```bash
 npm run dev
